@@ -1,0 +1,206 @@
+{
+  "subjects": {
+    "physics": {
+      "id": "physics",
+      "name": "Vật Lý",
+      "icon": "⚛️",
+      "description": "Khám phá các hiện tượng vật lý từ cơ học đến điện từ học",
+      "color": "#1a73e8",
+      "gradeLevels": {
+        "6-8": {
+          "id": "6-8",
+          "name": "Lớp 6-8",
+          "description": "Cơ bản - THCS",
+          "topics": [
+            "Cơ học cơ bản",
+            "Nhiệt học",
+            "Ánh sáng",
+            "Âm thanh",
+            "Từ tính cơ bản"
+          ]
+        },
+        "9-10": {
+          "id": "9-10", 
+          "name": "Lớp 9-10",
+          "description": "Trung cấp - THCS/THPT",
+          "topics": [
+            "Động lực học",
+            "Nhiệt động lực học",
+            "Sóng và dao động",
+            "Điện học cơ bản",
+            "Quang học"
+          ]
+        },
+        "11-12": {
+          "id": "11-12",
+          "name": "Lớp 11-12", 
+          "description": "Nâng cao - THPT",
+          "topics": [
+            "Cơ học nâng cao",
+            "Điện từ học",
+            "Vật lý hiện đại",
+            "Vật lý hạt nhân",
+            "Dao động và sóng"
+          ]
+        }
+      }
+    },
+    "chemistry": {
+      "id": "chemistry",
+      "name": "Hóa Học",
+      "icon": "🧪",
+      "description": "Tìm hiểu các phản ứng hóa học và tính chất chất",
+      "color": "#34a853",
+      "gradeLevels": {
+        "8-9": {
+          "id": "8-9",
+          "name": "Lớp 8-9",
+          "description": "Cơ bản - THCS",
+          "topics": [
+            "Nguyên tử và phân tử",
+            "Phản ứng hóa học cơ bản",
+            "Axit và bazơ",
+            "Muối và oxit"
+          ]
+        },
+        "10": {
+          "id": "10",
+          "name": "Lớp 10",
+          "description": "Nền tảng - THPT",
+          "topics": [
+            "Cấu tạo nguyên tử",
+            "Bảng tuần hoàn",
+            "Liên kết hóa học",
+            "Phản ứng oxi hóa khử"
+          ]
+        },
+        "11-12": {
+          "id": "11-12",
+          "name": "Lớp 11-12",
+          "description": "Nâng cao - THPT",
+          "topics": [
+            "Hóa học hữu cơ",
+            "Động học phản ứng",
+            "Cân bằng hóa học",
+            "Điện hóa học"
+          ]
+        }
+      }
+    },
+    "biology": {
+      "id": "biology",
+      "name": "Sinh Học",
+      "icon": "🔬", 
+      "description": "Khám phá thế giới sinh vật và các quá trình sống",
+      "color": "#ff6d00",
+      "gradeLevels": {
+        "6-9": {
+          "id": "6-9",
+          "name": "Lớp 6-9",
+          "description": "Cơ bản - THCS",
+          "topics": [
+            "Tế bào",
+            "Sinh vật và môi trường",
+            "Cơ thể người",
+            "Thực vật"
+          ]
+        },
+        "10": {
+          "id": "10",
+          "name": "Lớp 10",
+          "description": "Nền tảng - THPT",
+          "topics": [
+            "Tế bào và mô",
+            "Chuyển hóa vật chất",
+            "Điều hòa sinh học",
+            "Sinh sản"
+          ]
+        },
+        "11-12": {
+          "id": "11-12",
+          "name": "Lớp 11-12",
+          "description": "Nâng cao - THPT",
+          "topics": [
+            "Di truyền học",
+            "Tiến hóa",
+            "Sinh thái học",
+            "Công nghệ sinh học"
+          ]
+        }
+      }
+    },
+    "mathematics": {
+      "id": "mathematics",
+      "name": "Toán Học",
+      "icon": "📊",
+      "description": "Trực quan hóa các khái niệm toán học phức tạp",
+      "color": "#9c27b0",
+      "gradeLevels": {
+        "elementary": {
+          "id": "elementary",
+          "name": "Tiểu học",
+          "description": "Cơ bản - Lớp 1-5",
+          "topics": [
+            "Số học cơ bản",
+            "Hình học đơn giản",
+            "Đo lường",
+            "Phân số"
+          ]
+        },
+        "middle": {
+          "id": "middle", 
+          "name": "THCS",
+          "description": "Trung cấp - Lớp 6-9",
+          "topics": [
+            "Đại số",
+            "Hình học",
+            "Xác suất thống kê",
+            "Hàm số"
+          ]
+        },
+        "high": {
+          "id": "high",
+          "name": "THPT",
+          "description": "Nâng cao - Lớp 10-12",
+          "topics": [
+            "Giải tích",
+            "Hình học không gian",
+            "Xác suất nâng cao",
+            "Lượng giác"
+          ]
+        }
+      }
+    }
+  },
+  "difficultyLevels": {
+    "beginner": {
+      "id": "beginner",
+      "name": "Cơ bản",
+      "description": "Phù hợp cho người mới bắt đầu",
+      "color": "#4caf50"
+    },
+    "intermediate": {
+      "id": "intermediate", 
+      "name": "Trung bình",
+      "description": "Cần có kiến thức nền tảng",
+      "color": "#ff9800"
+    },
+    "advanced": {
+      "id": "advanced",
+      "name": "Nâng cao", 
+      "description": "Dành cho học sinh giỏi",
+      "color": "#f44336"
+    }
+  },
+  "tags": {
+    "interactive": "Tương tác",
+    "visual": "Trực quan",
+    "experiment": "Thí nghiệm",
+    "simulation": "Mô phỏng",
+    "measurement": "Đo lường",
+    "graph": "Đồ thị",
+    "calculation": "Tính toán",
+    "observation": "Quan sát"
+  }
+}
+

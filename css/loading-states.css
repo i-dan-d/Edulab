@@ -1,0 +1,609 @@
+/* ========================================
+   EduLab Loading States and Error Styles
+   Professional loading and error UI components
+   ======================================== */
+
+/* ========================================
+   Error Container and Messages
+   ======================================== */
+
+.error-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  max-width: 400px;
+  pointer-events: none;
+}
+
+.error-message {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  margin-bottom: var(--spacing-md);
+  pointer-events: all;
+  border: 1px solid var(--gray-200);
+  animation: errorSlideIn 0.3s ease-out;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.error-message.error-network {
+  border-left: 4px solid #ef4444;
+}
+
+.error-message.error-phet_loading {
+  border-left: 4px solid #f59e0b;
+}
+
+.error-message.error-data_loading {
+  border-left: 4px solid #3b82f6;
+}
+
+.error-message.error-authentication {
+  border-left: 4px solid #8b5cf6;
+}
+
+.error-message.error-validation {
+  border-left: 4px solid #f59e0b;
+}
+
+.error-message.error-permission {
+  border-left: 4px solid #ef4444;
+}
+
+.error-message.error-unknown {
+  border-left: 4px solid var(--gray-400);
+}
+
+.error-content {
+  padding: var(--spacing-lg);
+}
+
+.error-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.error-icon {
+  font-size: var(--font-size-xl);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.error-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.error-close {
+  background: none;
+  border: none;
+  font-size: var(--font-size-lg);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.error-close:hover {
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+
+.error-body {
+  margin-bottom: var(--spacing-md);
+}
+
+.error-message-text {
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.error-details {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin: var(--spacing-xs) 0;
+  word-break: break-all;
+}
+
+.error-technical {
+  margin-top: var(--spacing-sm);
+}
+
+.error-technical summary {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: var(--spacing-xs) 0;
+}
+
+.error-technical pre {
+  background: var(--gray-50);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  overflow-x: auto;
+  margin: var(--spacing-xs) 0 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.error-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.error-btn {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.error-btn:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.error-btn.retry-btn {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.error-btn.retry-btn:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.error-btn.refresh-btn {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.error-btn.refresh-btn:hover {
+  background: var(--secondary-color);
+  color: var(--white);
+}
+
+/* ========================================
+   Loading States
+   ======================================== */
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.loading-content {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+  max-width: 300px;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--gray-200);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto var(--spacing-md);
+}
+
+.loading-dots {
+  display: inline-flex;
+  gap: 4px;
+  margin: 0 auto var(--spacing-md);
+}
+
+.loading-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  animation: loadingDots 1.4s ease-in-out infinite both;
+}
+
+.loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.loading-dot:nth-child(2) { animation-delay: -0.16s; }
+.loading-dot:nth-child(3) { animation-delay: 0s; }
+
+.loading-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.loading-message {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0 0 var(--spacing-md) 0;
+  line-height: 1.5;
+}
+
+.loading-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: var(--spacing-md) 0;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease-out;
+  position: relative;
+}
+
+.loading-progress-bar.indeterminate {
+  width: 30% !important;
+  animation: progressIndeterminate 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Skeleton Screens
+   ======================================== */
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-card {
+  padding: var(--spacing-lg);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 70%;
+  margin-bottom: var(--spacing-sm);
+}
+
+.skeleton-text {
+  height: 14px;
+  width: 100%;
+  margin-bottom: var(--spacing-xs);
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
+
+.skeleton-text.medium {
+  width: 80%;
+}
+
+.skeleton-button {
+  height: 36px;
+  width: 100px;
+  margin-top: var(--spacing-md);
+}
+
+.skeleton-image {
+  height: 200px;
+  width: 100%;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ========================================
+   Network Status
+   ======================================== */
+
+.network-status {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+}
+
+.network-status.offline {
+  border-color: #ef4444;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.network-status.slow {
+  border-color: #f59e0b;
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.network-status.good {
+  border-color: #10b981;
+  background: #f0fdf4;
+  color: #059669;
+}
+
+.network-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: networkPulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Inline Loading States
+   ======================================== */
+
+.inline-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.inline-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--gray-200);
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ========================================
+   Button Loading States
+   ======================================== */
+
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.btn-loading .btn-text {
+  opacity: 0;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes errorSlideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes loadingDots {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes progressIndeterminate {
+  0% {
+    left: -30%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes skeletonLoading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes networkPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+  .error-container {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+
+  .error-content {
+    padding: var(--spacing-md);
+  }
+
+  .error-actions {
+    flex-direction: column;
+  }
+
+  .error-btn {
+    justify-content: center;
+  }
+
+  .loading-content {
+    margin: 0 var(--spacing-md);
+    padding: var(--spacing-lg);
+  }
+
+  .network-status {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-message {
+    border-radius: var(--radius-md);
+  }
+
+  .error-title {
+    font-size: var(--font-size-base);
+  }
+
+  .error-message-text {
+    font-size: var(--font-size-sm);
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+  }
+
+  .loading-title {
+    font-size: var(--font-size-base);
+  }
+
+  .loading-message {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ========================================
+   Accessibility
+   ======================================== */
+
+.error-message {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.error-message:focus-within {
+  outline-color: var(--primary-color);
+}
+
+.error-btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .error-message {
+    border-width: 2px;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #ccc 25%, #999 50%, #ccc 75%);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .error-message,
+  .loading-overlay,
+  .loading-spinner,
+  .loading-dots,
+  .skeleton,
+  .network-indicator,
+  .inline-spinner,
+  .btn-loading::after {
+    animation: none;
+  }
+
+  .loading-progress-bar {
+    transition: none;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .error-container,
+  .loading-overlay,
+  .network-status {
+    display: none;
+  }
+}
+

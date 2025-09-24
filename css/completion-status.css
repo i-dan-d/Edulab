@@ -1,0 +1,468 @@
+/* ========================================
+   EduLab Completion Status Indicators
+   Visual indicators for progress tracking
+   ======================================== */
+
+/* ========================================
+   Completion Badges and Indicators
+   ======================================== */
+
+.completion-badge {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  background: rgba(76, 175, 80, 0.95);
+  color: var(--white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(4px);
+  z-index: 5;
+  transition: all var(--transition-fast);
+}
+
+.completion-badge.completed {
+  background: rgba(76, 175, 80, 0.95);
+}
+
+.completion-badge.accessed {
+  background: rgba(33, 150, 243, 0.95);
+}
+
+.completion-badge.new {
+  background: rgba(255, 152, 0, 0.95);
+}
+
+.completion-icon {
+  font-size: var(--font-size-sm);
+  line-height: 1;
+}
+
+/* ========================================
+   Card Completion Status
+   ======================================== */
+
+.simulation-card.completed {
+  border-color: rgba(76, 175, 80, 0.3);
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.02) 0%, rgba(76, 175, 80, 0.05) 100%);
+}
+
+.simulation-card.completed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(76, 175, 80, 0.05) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.simulation-card.accessed:not(.completed) {
+  border-color: rgba(33, 150, 243, 0.2);
+}
+
+/* ========================================
+   Progress Indicators
+   ======================================== */
+
+.progress-ring {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  z-index: 5;
+}
+
+.progress-ring.completed {
+  background: rgba(76, 175, 80, 0.95);
+  color: var(--white);
+}
+
+.progress-ring.accessed {
+  background: rgba(33, 150, 243, 0.95);
+  color: var(--white);
+}
+
+/* ========================================
+   Completion Statistics
+   ======================================== */
+
+.completion-stats {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-200);
+}
+
+.completion-stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: between;
+  margin-bottom: var(--spacing-md);
+}
+
+.completion-stats-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.completion-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.completion-stat-item {
+  text-align: center;
+  padding: var(--spacing-md);
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+}
+
+.completion-stat-number {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.completion-stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ========================================
+   Progress Bar
+   ======================================== */
+
+.progress-bar-container {
+  margin: var(--spacing-md) 0;
+}
+
+.progress-bar-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow) ease-out;
+  position: relative;
+}
+
+.progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ========================================
+   Recent Activity
+   ======================================== */
+
+.recent-activity {
+  margin-top: var(--spacing-lg);
+}
+
+.recent-activity-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.recent-activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-activity-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.recent-activity-item:last-child {
+  border-bottom: none;
+}
+
+.recent-activity-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  flex-shrink: 0;
+}
+
+.recent-activity-content {
+  flex: 1;
+}
+
+.recent-activity-title-text {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+}
+
+.recent-activity-time {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* ========================================
+   Completion Actions
+   ======================================== */
+
+.completion-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.completion-btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--primary-color);
+  background: var(--white);
+  color: var(--primary-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.completion-btn:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+
+.completion-btn.completed {
+  background: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.completion-btn.completed:hover {
+  background: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+}
+
+.completion-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ========================================
+   Streak Display
+   ======================================== */
+
+.streak-display {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-sm);
+}
+
+.streak-number {
+  font-size: var(--font-size-sm);
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+@media (max-width: 768px) {
+  .completion-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .completion-stat-item {
+    padding: var(--spacing-sm);
+  }
+
+  .completion-stat-number {
+    font-size: var(--font-size-xl);
+  }
+
+  .completion-actions {
+    flex-direction: column;
+  }
+
+  .completion-btn {
+    justify-content: center;
+  }
+
+  .completion-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .progress-ring {
+    width: 28px;
+    height: 28px;
+    font-size: 10px;
+  }
+}
+
+/* ========================================
+   Animation Enhancements
+   ======================================== */
+
+.completion-badge {
+  animation: completionAppear 0.4s ease-out;
+}
+
+@keyframes completionAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.completion-celebration {
+  animation: completionCelebration 0.6s ease-out;
+}
+
+@keyframes completionCelebration {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+   Accessibility
+   ======================================== */
+
+.completion-badge,
+.progress-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.completion-badge:focus,
+.progress-ring:focus {
+  outline-color: var(--primary-color);
+}
+
+/* Screen reader only content for completion status */
+.completion-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .completion-badge,
+  .progress-ring,
+  .completion-actions {
+    display: none;
+  }
+
+  .completion-stats {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+
+  .progress-bar-fill {
+    background: #333 !important;
+  }
+}
+

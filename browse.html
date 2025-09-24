@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Duyệt thư viện thí nghiệm PhET Interactive Simulations của EduLab - Tìm kiếm và lọc thí nghiệm theo môn học và cấp độ">
+    <meta name="keywords" content="thí nghiệm ảo, PhET, duyệt thí nghiệm, tìm kiếm, lọc theo môn học">
+    <meta name="author" content="EduLab">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Thư viện Thí nghiệm - EduLab">
+    <meta property="og:description" content="Duyệt và tìm kiếm thí nghiệm PhET Interactive Simulations">
+    
+    <title>Thư viện Thí nghiệm - EduLab</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/simulation-embed.css">
+    <link rel="stylesheet" href="css/simulation-library.css">
+    <link rel="stylesheet" href="css/completion-status.css">
+    <link rel="stylesheet" href="css/loading-states.css">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://phet.colorado.edu">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#library-content" class="skip-link">Chuyển đến thư viện thí nghiệm</a>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Điều hướng chính">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1 class="logo">
+                        <a href="index.html" style="color: inherit; text-decoration: none;">
+                            <span class="logo-icon" aria-hidden="true">🧪</span>
+                            EduLab
+                        </a>
+                    </h1>
+                    <p class="tagline">Thư viện Thí nghiệm</p>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Mở menu điều hướng">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <!-- Navigation menu -->
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li role="none">
+                        <a href="index.html" class="nav-link" role="menuitem">← Trang chủ</a>
+                    </li>
+                    <li role="none">
+                        <a href="#library-content" class="nav-link active" role="menuitem" aria-current="page">Thư viện</a>
+                    </li>
+                    <li role="none">
+                        <a href="teacher-login.html" class="nav-link" role="menuitem">👨‍🏫 Công cụ GV</a>
+                    </li>
+                    <li role="none">
+                        <a href="index.html#about" class="nav-link" role="menuitem">Giới thiệu</a>
+                    </li>
+                    <li role="none">
+                        <a href="#help" class="nav-link" role="menuitem">Hướng dẫn</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main id="library-content" class="main" role="main">
+        <div class="library-container">
+            
+            <!-- Library header -->
+            <div class="library-header">
+                <h2 class="library-title">Thư viện Thí nghiệm</h2>
+                <p class="library-subtitle">
+                    Khám phá bộ sưu tập thí nghiệm PhET Interactive Simulations được tuyển chọn. 
+                    Sử dụng bộ lọc và tìm kiếm để tìm thí nghiệm phù hợp với nhu cầu học tập.
+                </p>
+            </div>
+
+            <!-- Progress statistics -->
+            <div id="progress-stats-container" style="margin-bottom: var(--spacing-xl);">
+                <!-- Progress stats will be rendered here -->
+            </div>
+
+            <!-- Search and filter bar -->
+            <div class="filter-bar" role="search" aria-label="Tìm kiếm và lọc thí nghiệm">
+                <div class="filter-row">
+                    
+                    <!-- Search input -->
+                    <div class="search-container">
+                        <div class="search-icon" aria-hidden="true">🔍</div>
+                        <input type="search" 
+                               id="search-input" 
+                               class="search-input" 
+                               placeholder="Tìm kiếm thí nghiệm theo tên hoặc chủ đề..."
+                               aria-label="Tìm kiếm thí nghiệm"
+                               autocomplete="off">
+                        <button id="search-clear" 
+                                class="search-clear" 
+                                aria-label="Xóa tìm kiếm"
+                                title="Xóa tìm kiếm">✕</button>
+                    </div>
+
+                    <!-- Subject filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Môn học:</span>
+                        <div class="filter-buttons" id="subject-filters" role="group" aria-label="Lọc theo môn học">
+                            <button class="filter-btn active" data-subject="physics" aria-pressed="true">
+                                ⚛️ Vật Lý
+                            </button>
+                            <button class="filter-btn" data-subject="chemistry" aria-pressed="false">
+                                🧪 Hóa Học
+                            </button>
+                            <button class="filter-btn" data-subject="biology" aria-pressed="false">
+                                🔬 Sinh Học
+                            </button>
+                            <button class="filter-btn" data-subject="mathematics" aria-pressed="false">
+                                📊 Toán Học
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Grade level filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Lớp:</span>
+                        <div class="filter-buttons" id="grade-filters" role="group" aria-label="Lọc theo cấp lớp">
+                            <button class="filter-btn" data-grade="6-8" aria-pressed="false">
+                                Lớp 6-8
+                            </button>
+                            <button class="filter-btn" data-grade="9-10" aria-pressed="false">
+                                Lớp 9-10
+                            </button>
+                            <button class="filter-btn" data-grade="11-12" aria-pressed="false">
+                                Lớp 11-12
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Difficulty filter -->
+                    <div class="filter-group">
+                        <span class="filter-label">Cấp độ:</span>
+                        <div class="filter-buttons" id="difficulty-filters" role="group" aria-label="Lọc theo độ khó">
+                            <button class="filter-btn" data-difficulty="beginner" aria-pressed="false">
+                                Cơ bản
+                            </button>
+                            <button class="filter-btn" data-difficulty="intermediate" aria-pressed="false">
+                                Trung bình
+                            </button>
+                            <button class="filter-btn" data-difficulty="advanced" aria-pressed="false">
+                                Nâng cao
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Clear filters button -->
+                <button id="clear-filters" 
+                        class="empty-action" 
+                        style="display: none; margin-top: var(--spacing-md);"
+                        aria-label="Xóa tất cả bộ lọc">
+                    Xóa tất cả bộ lọc
+                </button>
+            </div>
+
+            <!-- Results header -->
+            <div class="results-header">
+                <div class="results-count" id="results-count" aria-live="polite" aria-atomic="true">
+                    Đang tải...
+                </div>
+                
+                <div class="results-sort">
+                    <label for="sort-select" class="filter-label">Sắp xếp:</label>
+                    <select id="sort-select" class="sort-dropdown" aria-label="Sắp xếp kết quả">
+                        <option value="default">Mặc định</option>
+                        <option value="title">Tên A-Z</option>
+                        <option value="difficulty">Độ khó</option>
+                        <option value="grade">Cấp lớp</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Simulations grid -->
+            <div class="simulations-grid" id="simulations-grid" role="region" aria-live="polite" aria-label="Danh sách thí nghiệm">
+                <!-- Cards will be rendered here by JavaScript -->
+                <div class="library-loading">
+                    <div class="library-spinner"></div>
+                    <div class="loading-text">Đang tải thư viện thí nghiệm...</div>
+                </div>
+            </div>
+
+            <!-- Help section -->
+            <section class="help-section" id="help" style="margin-top: var(--spacing-3xl); padding: var(--spacing-2xl); background: var(--gray-50); border-radius: var(--radius-xl);">
+                <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-lg); text-align: center;">
+                    📖 Hướng dẫn sử dụng
+                </h3>
+                
+                <div style="display: grid; gap: var(--spacing-lg); grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                    <div class="help-item">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">🔍 Tìm kiếm</h4>
+                        <p style="color: var(--text-secondary); font-size: var(--font-size-sm);">
+                            Nhập từ khóa để tìm thí nghiệm theo tên hoặc chủ đề. Kết quả sẽ cập nhật tự động khi bạn gõ.
+                        </p>
+                    </div>
+                    
+                    <div class="help-item">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">🎯 Lọc</h4>
+                        <p style="color: var(--text-secondary); font-size: var(--font-size-sm);">
+                            Sử dụng các bộ lọc để thu hẹp kết quả theo môn học, cấp lớp hoặc độ khó phù hợp.
+                        </p>
+                    </div>
+                    
+                    <div class="help-item">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">👆 Tương tác</h4>
+                        <p style="color: var(--text-secondary); font-size: var(--font-size-sm);">
+                            Nhấn vào thẻ thí nghiệm để xem chi tiết hoặc dùng nút "Xem trước" để xem thông tin nhanh.
+                        </p>
+                    </div>
+                    
+                    <div class="help-item">
+                        <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">⌨️ Phím tắt</h4>
+                        <p style="color: var(--text-secondary); font-size: var(--font-size-sm);">
+                            Nhấn Ctrl+F để tìm kiếm nhanh, Tab để điều hướng, Enter để mở thí nghiệm.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">EduLab</h3>
+                    <p class="footer-description">
+                        Nền tảng thí nghiệm ảo miễn phí cho giáo dục Việt Nam
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Thư viện</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="window.SimulationBrowserInstance?.setSubject('physics')">Vật Lý</a></li>
+                        <li><a href="#" onclick="window.SimulationBrowserInstance?.setSubject('chemistry')">Hóa Học</a></li>
+                        <li><a href="#" onclick="window.SimulationBrowserInstance?.setSubject('biology')">Sinh Học</a></li>
+                        <li><a href="#" onclick="window.SimulationBrowserInstance?.setSubject('mathematics')">Toán Học</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Liên kết hữu ích</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://phet.colorado.edu" target="_blank" rel="noopener">PhET Interactive Simulations</a></li>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="#help">Hướng dẫn</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Hỗ trợ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#feedback">Góp ý</a></li>
+                        <li><a href="#accessibility">Trợ năng</a></li>
+                        <li><a href="index.html#about">Giới thiệu</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 EduLab. Dự án mã nguồn mở vì giáo dục.</p>
+                <p>Được xây dựng với ❤️ cho giáo dục Việt Nam</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/error-handler.js"></script>
+    <script src="js/performance-optimizer.js"></script>
+    <script src="js/data-manager.js"></script>
+    <script src="js/content-filter.js"></script>
+    <script src="js/phet-integration.js"></script>
+    <script src="js/simulation-loader.js"></script>
+    <script src="js/completion-tracker.js"></script>
+    <script src="js/progress-display.js"></script>
+    <script src="js/card-renderer.js"></script>
+    <script src="js/simulation-browser.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Browse page specific script -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Initialize browse page
+            document.addEventListener('DOMContentLoaded', function() {
+                initializeBrowsePage();
+            });
+
+            async function initializeBrowsePage() {
+                try {
+                    // Wait for dependencies
+                    await waitForDependencies();
+                    console.log('Dependencies loaded:', {
+                        DataManager: !!window.DataManager,
+                        ContentFilter: !!window.ContentFilter,
+                        CardRenderer: !!window.CardRenderer,
+                        SimulationBrowser: !!window.SimulationBrowser
+                    });
+
+                    // Initialize the simulation browser
+                    if (window.SimulationBrowser) {
+                        // Create a new browser instance
+                        const filter = new window.ContentFilter(window.DataManager);
+                        const browser = new window.SimulationBrowser(
+                            window.DataManager,
+                            filter,
+                            window.CardRenderer
+                        );
+                        
+                        // Initialize the browser
+                        await browser.initialize('.library-container');
+                        
+                        // Store instance globally for debugging
+                        window.SimulationBrowserInstance = browser;
+                        console.log('Browse page initialized successfully');
+                        
+                        // Announce to screen readers
+                        if (window.EduLab && window.EduLab.announce) {
+                            window.EduLab.announce('Thư viện thí nghiệm đã tải xong');
+                        }
+
+                        // Initialize progress statistics if available
+                        if (window.ProgressDisplay) {
+                            const progressContainer = document.getElementById('progress-stats-container');
+                            if (progressContainer) {
+                                window.ProgressDisplay.renderStatistics(progressContainer, {
+                                    showRecentActivity: true,
+                                    showActions: true
+                                });
+                            }
+                        }
+                    } else {
+                        throw new Error('SimulationBrowser not available');
+                    }
+
+                } catch (error) {
+                    console.error('Failed to initialize browse page:', error);
+                    showError('Có lỗi xảy ra khi tải thư viện thí nghiệm: ' + error.message);
+                }
+            }
+
+            async function waitForDependencies() {
+                return new Promise((resolve, reject) => {
+                    let attempts = 0;
+                    const maxAttempts = 100;
+                    
+                    const checkDependencies = () => {
+                        if (window.DataManager && 
+                            window.ContentFilter && 
+                            window.CardRenderer &&
+                            window.SimulationBrowser &&
+                            typeof window.SimulationBrowser === 'function') {
+                            resolve();
+                            return;
+                        }
+                        
+                        attempts++;
+                        if (attempts >= maxAttempts) {
+                            reject(new Error('Required dependencies not loaded after timeout'));
+                            return;
+                        }
+                        
+                        setTimeout(checkDependencies, 100);
+                    };
+                    
+                    // Also listen for the SimulationBrowserReady event
+                    const onBrowserReady = () => {
+                        window.removeEventListener('SimulationBrowserReady', onBrowserReady);
+                        resolve();
+                    };
+                    
+                    window.addEventListener('SimulationBrowserReady', onBrowserReady);
+                    
+                    // Start checking immediately
+                    checkDependencies();
+                });
+            }
+
+            function showError(message) {
+                const grid = document.getElementById('simulations-grid');
+                if (grid) {
+                    grid.innerHTML = `
+                        <div style="text-align: center; padding: 4rem 2rem; grid-column: 1 / -1;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">❌</div>
+                            <h3 style="color: var(--accent-color); margin-bottom: 1rem;">Lỗi</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 2rem;">${message}</p>
+                            <a href="index.html" style="display: inline-block; padding: 12px 24px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 6px;">
+                                ← Về trang chủ
+                            </a>
+                        </div>
+                    `;
+                }
+            }
+
+            // Handle URL parameters for direct linking
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Apply URL filters when page loads
+            window.addEventListener('load', () => {
+                if (window.SimulationBrowser) {
+                    const subject = urlParams.get('subject');
+                    const grade = urlParams.get('grade');
+                    const difficulty = urlParams.get('difficulty');
+                    const search = urlParams.get('q');
+
+                    if (subject) window.SimulationBrowser.setSubject(subject);
+                    if (grade) window.SimulationBrowser.setGradeLevel(grade);
+                    if (difficulty) window.SimulationBrowser.setDifficulty(difficulty);
+                    if (search) {
+                        const searchInput = document.getElementById('search-input');
+                        if (searchInput) {
+                            searchInput.value = search;
+                            window.SimulationBrowser.setSearch(search);
+                        }
+                    }
+                }
+            });
+
+        })();
+    </script>
+</body>
+</html>

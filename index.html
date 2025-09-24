@@ -3,50 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduLab - Nền tảng Giáo dục</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        .button {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-        .button:hover {
-            transform: translateY(-2px);
-        }
-    </style>
+    <meta name="description" content="EduLab - Nền tảng thí nghiệm ảo miễn phí cho học sinh và giáo viên với mô phỏng PhET Interactive Simulations">
+    <meta name="keywords" content="thí nghiệm ảo, PhET, giáo dục, khoa học, vật lý, hóa học, sinh học, toán học">
+    <meta name="author" content="EduLab">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EduLab - Nền tảng Thí nghiệm Ảo">
+    <meta property="og:description" content="Nền tảng thí nghiệm ảo miễn phí với mô phỏng PhET Interactive Simulations">
+    
+    <!-- Accessibility -->
+    <meta name="theme-color" content="#1a73e8">
+    
+    <title>EduLab - Nền tảng Thí nghiệm Ảo</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/loading-states.css">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://phet.colorado.edu">
 </head>
 <body>
-    <div class="container">
-        <h1>🎓 EduLab</h1>
-        <p>Chào mừng đến với nền tảng giáo dục hiện đại!</p>
-        <p>Dự án này được tạo để học Git và phát triển web.</p>
-        <a href="#" class="button">Bắt đầu học</a>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Chuyển đến nội dung chính</a>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Điều hướng chính">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1 class="logo">
+                        <span class="logo-icon" aria-hidden="true">🧪</span>
+                        EduLab
+                    </h1>
+                    <p class="tagline">Nền tảng Thí nghiệm Ảo</p>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Mở menu điều hướng">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+                
+                <!-- Navigation menu -->
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li role="none">
+                        <a href="#home" class="nav-link active" role="menuitem" aria-current="page">Trang chủ</a>
+                    </li>
+                    <li role="none">
+                        <a href="browse.html" class="nav-link" role="menuitem">🔍 Thư viện</a>
+                    </li>
+                    <li role="none">
+                        <a href="teacher-login.html" class="nav-link" role="menuitem">👨‍🏫 Công cụ GV</a>
+                    </li>
+                    <li role="none">
+                        <a href="#subjects" class="nav-link" role="menuitem">Môn học</a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="nav-link" role="menuitem">Giới thiệu</a>
+                    </li>
+                    <li role="none">
+                        <a href="#help" class="nav-link" role="menuitem">Hướng dẫn</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" class="main" role="main">
+        <!-- Hero section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">
+                        Khám phá Khoa học qua 
+                        <span class="highlight">Thí nghiệm Ảo</span>
+                    </h2>
+                    <p class="hero-description">
+                        Trải nghiệm những thí nghiệm khoa học chất lượng cao với mô phỏng PhET Interactive Simulations. 
+                        Hoàn toàn miễn phí cho học sinh và giáo viên.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="browse.html" class="btn btn-primary" aria-describedby="explore-desc">
+                            🔍 Duyệt thư viện
+                        </a>
+                        <a href="#subjects" class="btn btn-secondary">
+                            Khám phá theo môn
+                        </a>
+                        <a href="#about" class="btn btn-secondary">
+                            Tìm hiểu thêm
+                        </a>
+                    </div>
+                    <p id="explore-desc" class="sr-only">Bắt đầu khám phá các thí nghiệm theo môn học</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subject categories -->
+        <section class="subjects" id="subjects">
+            <div class="container">
+                <h2 class="section-title">Chọn Môn học</h2>
+                <p class="section-description">
+                    Chọn môn học phù hợp để bắt đầu khám phá các thí nghiệm ảo
+                </p>
+                
+                <div class="subject-grid">
+                    <!-- Physics -->
+                    <article class="subject-card" tabindex="0">
+                        <div class="subject-icon" aria-hidden="true">⚛️</div>
+                        <h3 class="subject-title">Vật Lý</h3>
+                        <p class="subject-description">
+                            Khám phá các hiện tượng vật lý từ cơ học đến điện từ học
+                        </p>
+                        <a href="#physics" class="subject-link" aria-label="Khám phá thí nghiệm Vật Lý">
+                            Khám phá <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+                    
+                    <!-- Chemistry -->
+                    <article class="subject-card" tabindex="0">
+                        <div class="subject-icon" aria-hidden="true">🧪</div>
+                        <h3 class="subject-title">Hóa Học</h3>
+                        <p class="subject-description">
+                            Tìm hiểu các phản ứng hóa học và tính chất chất
+                        </p>
+                        <a href="#chemistry" class="subject-link" aria-label="Khám phá thí nghiệm Hóa Học">
+                            Khám phá <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+                    
+                    <!-- Biology -->
+                    <article class="subject-card" tabindex="0">
+                        <div class="subject-icon" aria-hidden="true">🔬</div>
+                        <h3 class="subject-title">Sinh Học</h3>
+                        <p class="subject-description">
+                            Khám phá thế giới sinh vật và các quá trình sống
+                        </p>
+                        <a href="#biology" class="subject-link" aria-label="Khám phá thí nghiệm Sinh Học">
+                            Khám phá <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+                    
+                    <!-- Mathematics -->
+                    <article class="subject-card" tabindex="0">
+                        <div class="subject-icon" aria-hidden="true">📊</div>
+                        <h3 class="subject-title">Toán Học</h3>
+                        <p class="subject-description">
+                            Trực quan hóa các khái niệm toán học phức tạp
+                        </p>
+                        <a href="#mathematics" class="subject-link" aria-label="Khám phá thí nghiệm Toán Học">
+                            Khám phá <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title">Tại sao chọn EduLab?</h2>
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-icon" aria-hidden="true">🆓</div>
+                            <h3 class="feature-title">Hoàn toàn miễn phí</h3>
+                            <p class="feature-description">
+                                Không cần tạo tài khoản, truy cập ngay lập tức
+                            </p>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon" aria-hidden="true">📱</div>
+                            <h3 class="feature-title">Đa nền tảng</h3>
+                            <p class="feature-description">
+                                Hoạt động trên máy tính, tablet và điện thoại
+                            </p>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon" aria-hidden="true">🎯</div>
+                            <h3 class="feature-title">Chất lượng cao</h3>
+                            <p class="feature-description">
+                                Sử dụng mô phỏng PhET được công nhận quốc tế
+                            </p>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon" aria-hidden="true">🏫</div>
+                            <h3 class="feature-title">Hỗ trợ giáo viên</h3>
+                            <p class="feature-description">
+                                Tài liệu hướng dẫn và mục tiêu học tập rõ ràng
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">EduLab</h3>
+                    <p class="footer-description">
+                        Nền tảng thí nghiệm ảo miễn phí cho giáo dục Việt Nam
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Liên kết hữu ích</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://phet.colorado.edu" target="_blank" rel="noopener">PhET Interactive Simulations</a></li>
+                        <li><a href="#help">Hướng dẫn sử dụng</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Hỗ trợ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#faq">Câu hỏi thường gặp</a></li>
+                        <li><a href="#feedback">Góp ý</a></li>
+                        <li><a href="#accessibility">Trợ năng</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 EduLab. Dự án mã nguồn mở vì giáo dục.</p>
+                <p>Được xây dựng với ❤️ cho giáo dục Việt Nam</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/error-handler.js"></script>
+    <script src="js/performance-optimizer.js"></script>
+    <script src="js/data-manager.js"></script>
+    <script src="js/content-filter.js"></script>
+    <script src="js/phet-integration.js"></script>
+    <script src="js/simulation-loader.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Loading indicator for slow connections -->
+    <div id="loading" class="loading" aria-hidden="true">
+        <div class="spinner"></div>
+        <p>Đang tải...</p>
     </div>
 </body>
 </html>
