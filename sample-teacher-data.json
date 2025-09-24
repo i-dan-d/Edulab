@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "exportedAt": 1726738200000,
+  "exportedDate": "2024-09-19T10:30:00.000Z",
+  "customizations": {
+    "forces-and-motion-basics": {
+      "simulationId": "forces-and-motion-basics",
+      "objectives": "**Mục tiêu học tập tùy chỉnh:**\n\n- Học sinh có thể **giải thích khái niệm lực** và tác động của lực\n- Học sinh có thể **quan sát chuyển động** của vật thể khi có lực tác động\n- Học sinh có thể **phân tích mối quan hệ** giữa lực và gia tốc\n- Học sinh có thể **áp dụng định luật Newton** trong các tình huống thực tế",
+      "instructions": "**Hướng dẫn thực hiện chi tiết:**\n\n1. **Bước chuẩn bị:**\n   - Mở thí nghiệm Forces and Motion\n   - Quan sát giao diện và các công cụ có sẵn\n   - Đọc kỹ hướng dẫn trên màn hình\n\n2. **Thực hành cơ bản:**\n   - Kéo người vào giữa màn hình\n   - Thử đẩy và kéo với các lực khác nhau\n   - Quan sát sự thay đổi vận tốc\n\n3. **Thí nghiệm nâng cao:**\n   - Thêm ma sát vào bề mặt\n   - So sánh chuyển động với và không có ma sát\n   - Ghi chép kết quả quan sát\n\n4. **Thảo luận và kết luận:**\n   - Thảo luận kết quả với nhóm\n   - Liên hệ với các hiện tượng trong đời sống\n   - Viết báo cáo ngắn về thí nghiệm",
+      "simulationTitle": "Forces and Motion: Basics",
+      "createdAt": 1726738000000,
+      "updatedAt": 1726738200000,
+      "version": "1.0.0"
+    },
+    "ph-scale": {
+      "simulationId": "ph-scale",
+      "objectives": "**Mục tiêu học tập:**\n\n- Hiểu khái niệm **độ pH** và ý nghĩa của nó\n- Phân biệt được các **dung dịch acid, base và trung tính**\n- Sử dụng được **giấy quỳ tím** để đo pH\n- Liên hệ độ pH với **các chất trong đời sống**",
+      "instructions": "**Hướng dẫn thí nghiệm pH:**\n\n1. **Làm quen với thang đo pH:**\n   - Quan sát thang đo từ 0-14\n   - Nhận biết màu sắc tương ứng với từng mức pH\n\n2. **Thử nghiệm các dung dịch:**\n   - Nhỏ từng loại dung dịch vào cốc\n   - Quan sát màu sắc thay đổi\n   - Ghi chép giá trị pH\n\n3. **So sánh và phân loại:**\n   - Sắp xếp các dung dịch theo độ pH\n   - Phân loại acid, base, trung tính\n   - Liên hệ với các chất quen thuộc",
+      "simulationTitle": "pH Scale",
+      "createdAt": 1726737000000,
+      "updatedAt": 1726738100000,
+      "version": "1.0.0"
+    }
+  },
+  "metadata": {
+    "totalCustomizations": 2,
+    "exportSource": "EduLab Teacher Tools"
+  }
+}
+

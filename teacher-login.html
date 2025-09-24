@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đăng nhập Công cụ Giáo viên - EduLab">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <title>Đăng nhập Giáo viên - EduLab</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/teacher-interface.css">
+    
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: var(--spacing-lg);
+        }
+
+        .login-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .login-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .login-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+        }
+
+        .login-form {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: var(--font-weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-sm);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            transition: border-color var(--transition-fast);
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: var(--spacing-md);
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .login-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-lg);
+            display: none;
+            font-size: var(--font-size-sm);
+        }
+
+        .success-message {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-lg);
+            display: none;
+            font-size: var(--font-size-sm);
+        }
+
+        .login-info {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .info-title {
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            font-size: var(--font-size-xs);
+            line-height: 1.5;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .back-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-sm);
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .demo-credentials {
+            background: #fffbeb;
+            border: 1px solid #fed7aa;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .demo-credentials h4 {
+            color: #ea580c;
+            margin: 0 0 var(--spacing-xs) 0;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .demo-credentials p {
+            margin: 0;
+            font-size: var(--font-size-xs);
+            color: #9a3412;
+        }
+
+        .demo-credentials code {
+            background: #fed7aa;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: var(--spacing-md);
+            }
+
+            .login-card {
+                padding: var(--spacing-xl);
+            }
+
+            .login-title {
+                font-size: var(--font-size-xl);
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-card">
+            
+            <!-- Header -->
+            <div class="login-header">
+                <h1 class="login-title">
+                    👨‍🏫 Đăng nhập Giáo viên
+                </h1>
+                <p class="login-subtitle">
+                    Truy cập công cụ tùy chỉnh thí nghiệm
+                </p>
+            </div>
+
+            <!-- Demo credentials info -->
+            <div class="demo-credentials">
+                <h4>🔑 Thông tin đăng nhập demo:</h4>
+                <p>Tên đăng nhập: <code>DanD handsome</code></p>
+                <p>Mật khẩu: <code>You don't know -> you are idiot.</code></p>
+            </div>
+
+            <!-- Error/Success messages -->
+            <div id="error-message" class="error-message">
+                <!-- Error message will be shown here -->
+            </div>
+
+            <div id="success-message" class="success-message">
+                Đăng nhập thành công! Đang chuyển hướng...
+            </div>
+
+            <!-- Login form -->
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="username" class="form-label">Tên đăng nhập:</label>
+                    <input type="text" id="username" name="username" class="form-input" 
+                           placeholder="Nhập tên đăng nhập" 
+                           required autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Mật khẩu:</label>
+                    <input type="password" id="password" name="password" class="form-input" 
+                           placeholder="Nhập mật khẩu" 
+                           required autocomplete="current-password">
+                </div>
+
+                <button type="submit" id="login-btn" class="login-btn">
+                    🔐 Đăng nhập
+                </button>
+            </form>
+
+            <!-- Info -->
+            <div class="login-info">
+                <div class="info-title">ℹ️ Thông tin quan trọng:</div>
+                <div class="info-text">
+                    Công cụ giáo viên cho phép tùy chỉnh nội dung thí nghiệm. 
+                    Chỉ giáo viên được cấp quyền mới có thể truy cập.
+                </div>
+            </div>
+
+            <!-- Back link -->
+            <div class="back-link">
+                <a href="index.html">← Về trang chủ EduLab</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Teacher credentials (in a real system, this should be on the server)
+            const TEACHER_CREDENTIALS = {
+                username: 'edulab',
+                password: 'dandngoquyen2007'
+            };
+
+            // Session storage key
+            const SESSION_KEY = 'edulab_teacher_session';
+
+            // Elements
+            const form = document.getElementById('login-form');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginBtn = document.getElementById('login-btn');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+
+            // Check if already logged in
+            if (isLoggedIn()) {
+                showSuccess('Đã đăng nhập. Đang chuyển hướng...');
+                setTimeout(() => {
+                    window.location.href = 'teacher-tools.html';
+                }, 1000);
+            }
+
+            // Form submit handler
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                attemptLogin();
+            });
+
+            // Enter key handler
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    attemptLogin();
+                }
+            });
+
+            function attemptLogin() {
+                const username = usernameInput.value.trim();
+                const password = passwordInput.value;
+
+                // Hide previous messages
+                hideMessages();
+
+                // Validate inputs
+                if (!username || !password) {
+                    showError('Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu');
+                    return;
+                }
+
+                // Disable form
+                setFormLoading(true);
+
+                // Simulate server delay
+                setTimeout(() => {
+                    if (username === TEACHER_CREDENTIALS.username && 
+                        password === TEACHER_CREDENTIALS.password) {
+                        
+                        // Login successful
+                        createSession();
+                        showSuccess('Đăng nhập thành công! Đang chuyển hướng...');
+                        
+                        setTimeout(() => {
+                            // Check for redirect URL
+                            const redirectUrl = sessionStorage.getItem('edulab_redirect_after_login') || 'teacher-tools.html';
+                            sessionStorage.removeItem('edulab_redirect_after_login');
+                            window.location.href = redirectUrl;
+                        }, 1500);
+
+                    } else {
+                        // Login failed
+                        showError('Tên đăng nhập hoặc mật khẩu không đúng');
+                        setFormLoading(false);
+                        passwordInput.focus();
+                    }
+                }, 1000);
+            }
+
+            function createSession() {
+                const sessionData = {
+                    username: TEACHER_CREDENTIALS.username,
+                    loginTime: Date.now(),
+                    expiresAt: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
+                };
+
+                try {
+                    sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
+                    localStorage.setItem(SESSION_KEY, JSON.stringify(sessionData)); // Backup in localStorage
+                } catch (error) {
+                    console.warn('Failed to create session:', error);
+                }
+            }
+
+            function isLoggedIn() {
+                try {
+                    // Check sessionStorage first, then localStorage
+                    let sessionData = sessionStorage.getItem(SESSION_KEY);
+                    if (!sessionData) {
+                        sessionData = localStorage.getItem(SESSION_KEY);
+                    }
+
+                    if (!sessionData) return false;
+
+                    const session = JSON.parse(sessionData);
+                    
+                    // Check if session is expired
+                    if (Date.now() > session.expiresAt) {
+                        clearSession();
+                        return false;
+                    }
+
+                    return true;
+
+                } catch (error) {
+                    console.warn('Failed to check login status:', error);
+                    return false;
+                }
+            }
+
+            function clearSession() {
+                try {
+                    sessionStorage.removeItem(SESSION_KEY);
+                    localStorage.removeItem(SESSION_KEY);
+                } catch (error) {
+                    console.warn('Failed to clear session:', error);
+                }
+            }
+
+            function setFormLoading(loading) {
+                loginBtn.disabled = loading;
+                usernameInput.disabled = loading;
+                passwordInput.disabled = loading;
+
+                if (loading) {
+                    loginBtn.innerHTML = '⏳ Đang đăng nhập...';
+                } else {
+                    loginBtn.innerHTML = '🔐 Đăng nhập';
+                }
+            }
+
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            }
+
+            function showSuccess(message) {
+                successMessage.textContent = message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            }
+
+            function hideMessages() {
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+            }
+
+            // Auto-focus username field
+            usernameInput.focus();
+
+            // Expose login check function globally
+            window.TeacherAuth = {
+                isLoggedIn: isLoggedIn,
+                logout: function() {
+                    clearSession();
+                    window.location.href = 'teacher-login.html';
+                },
+                requireLogin: function() {
+                    if (!isLoggedIn()) {
+                        window.location.href = 'teacher-login.html';
+                        return false;
+                    }
+                    return true;
+                }
+            };
+
+        })();
+    </script>
+
+</body>
+</html>

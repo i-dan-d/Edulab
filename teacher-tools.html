@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Công cụ giáo viên - Tùy chỉnh hướng dẫn và mục tiêu học tập cho thí nghiệm PhET">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <title>Công cụ Giáo viên - EduLab</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/completion-status.css">
+    <link rel="stylesheet" href="css/teacher-interface.css">
+    <link rel="stylesheet" href="css/simulation-manager.css">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://phet.colorado.edu">
+</head>
+<body>
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#teacher-content" class="skip-link">Chuyển đến nội dung chính</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header-container">
+            <div class="header-brand">
+                <a href="index.html" class="brand-link" aria-label="Trở về trang chủ EduLab">
+                    <h1 class="brand-title">EduLab</h1>
+                    <span class="brand-subtitle">Công cụ Giáo viên</span>
+                </a>
+            </div>
+            
+            <nav class="header-nav" role="navigation" aria-label="Điều hướng chính">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">🏠 Trang chủ</a></li>
+                    <li><a href="browse.html" class="nav-link">🔍 Thư viện</a></li>
+                    <li><a href="teacher-tools.html" class="nav-link active">👨‍🏫 Công cụ GV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="teacher-content" class="main" role="main">
+        <div class="teacher-container">
+            
+            <!-- Page header -->
+            <div class="teacher-header">
+                <h2 class="teacher-title">👨‍🏫 Công cụ Giáo viên</h2>
+                <p class="teacher-subtitle">
+                    Tùy chỉnh hướng dẫn và mục tiêu học tập cho từng thí nghiệm. 
+                    Tất cả thay đổi được lưu trữ cục bộ trên máy tính của bạn.
+                </p>
+            </div>
+
+            <!-- Teacher session info -->
+            <div id="teacher-session-container">
+                <!-- Session info will be rendered here by JavaScript -->
+            </div>
+
+            <!-- Navigation tabs -->
+            <div class="teacher-nav-tabs">
+                <button class="nav-tab active" onclick="switchTab('customization')" id="tab-customization">
+                    ✏️ Tùy chỉnh thí nghiệm
+                </button>
+                <button class="nav-tab" onclick="switchTab('management')" id="tab-management">
+                    🛠️ Quản lý thí nghiệm
+                </button>
+            </div>
+
+            <!-- Customization Tab Content -->
+            <section class="tab-content active" id="customization-tab">
+                <!-- Action buttons -->
+                <div class="teacher-actions">
+                <button id="import-btn" class="teacher-btn secondary" onclick="importCustomizations()">
+                    📥 Nhập dữ liệu
+                </button>
+                <button id="export-btn" class="teacher-btn secondary" onclick="exportCustomizations()">
+                    📤 Xuất dữ liệu
+                </button>
+                <button id="reset-btn" class="teacher-btn danger" onclick="resetAllCustomizations()">
+                    🔄 Đặt lại tất cả
+                </button>
+            </div>
+
+            <!-- Simulation selector -->
+            <div class="simulation-selector">
+                <h3 class="section-title">📋 Chọn thí nghiệm để tùy chỉnh</h3>
+                
+                <!-- Subject filter -->
+                <div class="subject-filter">
+                    <label for="subject-select" class="filter-label">Môn học:</label>
+                    <select id="subject-select" class="filter-select" onchange="filterSimulations()">
+                        <option value="">Tất cả môn học</option>
+                        <option value="physics">Vật lý</option>
+                        <option value="chemistry">Hóa học</option>
+                        <option value="biology">Sinh học</option>
+                        <option value="mathematics">Toán học</option>
+                    </select>
+                </div>
+
+                <!-- Search -->
+                <div class="search-container">
+                    <label for="simulation-search" class="search-label">Tìm kiếm thí nghiệm:</label>
+                    <div style="position: relative; display: flex; gap: 8px;">
+                        <input type="text" id="simulation-search" class="search-input" 
+                               placeholder="Tìm kiếm: forces, lực, motion, điện, chemistry..." 
+                               oninput="searchSimulations()"
+                               onkeyup="searchSimulations()"
+                               aria-describedby="search-help"
+                               style="flex: 1;">
+                        <button type="button" onclick="clearSearch()" class="teacher-btn secondary" 
+                                style="padding: 8px 16px; min-width: auto;">
+                            🗑️ Xóa
+                        </button>
+                    </div>
+                    <div id="search-help" class="search-help">
+                        Tìm kiếm theo tên, mô tả, chủ đề thí nghiệm. Hỗ trợ tiếng Việt và tiếng Anh.<br>
+                        <strong>Ví dụ:</strong> "lực", "forces", "motion", "điện", "hóa học", "acid"
+                    </div>
+                </div>
+
+                <!-- Search status -->
+                <div id="search-status" class="search-status" style="display: none; margin-bottom: 16px; padding: 12px; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; color: #0369a1;">
+                    <!-- Search status will be shown here -->
+                </div>
+
+                <!-- Simulation list -->
+                <div id="simulation-list" class="simulation-list" role="list">
+                    <div class="loading-state">
+                        <div class="loading-spinner"></div>
+                        <p>Đang tải danh sách thí nghiệm...</p>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+            <!-- Management Tab Content -->
+            <section class="tab-content" id="management-tab">
+                <!-- Simulation Management Section -->
+                <div class="simulation-manager" id="simulation-management">
+                <div class="manager-header">
+                    <h2 class="manager-title">
+                        🛠️ Quản lý Thí nghiệm Tùy chỉnh
+                    </h2>
+                    <div class="manager-actions">
+                        <button type="button" class="btn-secondary-large" onclick="toggleAddForm()">
+                            ➕ Thêm thí nghiệm
+                        </button>
+                        <button type="button" class="btn-secondary-large" onclick="exportCustomSimulations()">
+                            📥 Xuất dữ liệu
+                        </button>
+                        <button type="button" class="btn-secondary-large" onclick="showImportDialog()">
+                            📤 Nhập dữ liệu
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number" id="total-custom-sims">0</span>
+                        <span class="stat-label">Thí nghiệm tùy chỉnh</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="recent-additions">0</span>
+                        <span class="stat-label">Thêm gần đây (7 ngày)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="total-collections">0</span>
+                        <span class="stat-label">Bộ sưu tập</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="total-access">0</span>
+                        <span class="stat-label">Lượt truy cập</span>
+                    </div>
+                </div>
+
+                <!-- Add Simulation Form -->
+                <div class="add-simulation-form" id="add-simulation-form" style="display: none;">
+                    <form id="simulation-form" onsubmit="addCustomSimulation(event)">
+                        
+                        <!-- Form Header -->
+                        <div class="form-header" style="text-align: center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid var(--accent-color);">
+                            <h2 style="color: var(--accent-color); margin-bottom: 0.5rem;">➕ Thêm thí nghiệm PhET tùy chỉnh</h2>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">
+                                Nhấn <kbd style="background: var(--bg-light); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;">ESC</kbd> hoặc click bên ngoài để đóng
+                            </p>
+                        </div>
+
+                        <!-- Basic Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">📝 Thông tin cơ bản</h3>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="phet-url" class="form-label required">URL PhET Simulation</label>
+                                    <input type="url" id="phet-url" name="phetUrl" class="form-input" 
+                                           placeholder="https://phet.colorado.edu/sims/html/..." 
+                                           onblur="validatePhETURL()" required>
+                                    <div id="url-validation" class="url-validation" style="display: none;">
+                                        <div class="validation-message">
+                                            <span id="validation-icon">⏳</span>
+                                            <span id="validation-text">Đang kiểm tra URL...</span>
+                                        </div>
+                                        <div id="validation-suggestion" class="validation-suggestion"></div>
+                                        <div id="url-metadata" class="metadata-display" style="display: none;"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="sim-title" class="form-label required">Tiêu đề (Tiếng Việt)</label>
+                                    <input type="text" id="sim-title" name="title" class="form-input" 
+                                           placeholder="Ví dụ: Lực và Chuyển động Cơ bản" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="sim-subject" class="form-label required">Môn học</label>
+                                    <select id="sim-subject" name="subject" class="form-select" required>
+                                        <option value="">Chọn môn học</option>
+                                        <option value="physics">Vật lý</option>
+                                        <option value="chemistry">Hóa học</option>
+                                        <option value="biology">Sinh học</option>
+                                        <option value="mathematics">Toán học</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label for="sim-description" class="form-label required">Mô tả</label>
+                                    <textarea id="sim-description" name="description" class="form-textarea" 
+                                              placeholder="Mô tả ngắn gọn về thí nghiệm này..." required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Educational Information -->
+                        <div class="form-section">
+                            <h3 class="section-title">🎓 Thông tin giáo dục</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label required">Cấp lớp phù hợp</label>
+                                    <div class="grade-level-container">
+                                        <div class="grade-level-checkbox">
+                                            <input type="checkbox" id="grade-6" name="gradeLevel" value="6">
+                                            <label for="grade-6">Lớp 6</label>
+                                        </div>
+                                        <div class="grade-level-checkbox">
+                                            <input type="checkbox" id="grade-7" name="gradeLevel" value="7">
+                                            <label for="grade-7">Lớp 7</label>
+                                        </div>
+                                        <div class="grade-level-checkbox">
+                                            <input type="checkbox" id="grade-8" name="gradeLevel" value="8">
+                                            <label for="grade-8">Lớp 8</label>
+                                        </div>
+                                        <div class="grade-level-checkbox">
+                                            <input type="checkbox" id="grade-9" name="gradeLevel" value="9">
+                                            <label for="grade-9">Lớp 9</label>
+                                        </div>
+                                        <div class="grade-level-checkbox">
+                                            <input type="checkbox" id="grade-10" name="gradeLevel" value="10">
+                                            <label for="grade-10">Lớp 10</label>
+                                        </div>
+                                        <div class="grade-level-checkbox">
+                                            <input type="checkbox" id="grade-11" name="gradeLevel" value="11">
+                                            <label for="grade-11">Lớp 11</label>
+                                        </div>
+                                        <div class="grade-level-checkbox">
+                                            <input type="checkbox" id="grade-12" name="gradeLevel" value="12">
+                                            <label for="grade-12">Lớp 12</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="sim-difficulty" class="form-label">Độ khó</label>
+                                    <select id="sim-difficulty" name="difficulty" class="form-select">
+                                        <option value="beginner">Cơ bản</option>
+                                        <option value="intermediate">Trung bình</option>
+                                        <option value="advanced">Nâng cao</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="sim-duration" class="form-label">Thời gian (phút)</label>
+                                    <input type="number" id="sim-duration" name="duration" class="form-input" 
+                                           min="5" max="120" placeholder="30">
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label for="sim-topics" class="form-label">Chủ đề</label>
+                                    <input type="text" id="sim-topics" name="topics" class="form-input" 
+                                           placeholder="Ví dụ: Lực, Chuyển động, Năng lượng (phân cách bằng dấu phẩy)">
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label for="sim-objectives" class="form-label">Mục tiêu học tập</label>
+                                    <textarea id="sim-objectives" name="learningObjectives" class="form-textarea" 
+                                              placeholder="Học sinh sẽ học được gì từ thí nghiệm này?"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tags and Collections -->
+                        <div class="form-section">
+                            <h3 class="section-title">🏷️ Phân loại</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Từ khóa</label>
+                                    <div class="tags-container" id="tags-container">
+                                        <input type="text" class="tag-input" placeholder="Thêm từ khóa..." 
+                                               onkeypress="addTag(event)">
+                                    </div>
+                                    <input type="hidden" id="sim-tags" name="tags">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Bộ sưu tập</label>
+                                    <div class="collections-grid" id="collections-selection">
+                                        <!-- Collections will be populated here -->
+                                    </div>
+                                    <input type="hidden" id="sim-collections" name="collections">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preview Section -->
+                        <div class="preview-section">
+                            <div class="preview-header">
+                                <h3 class="preview-title">👁️ Xem trước thí nghiệm</h3>
+                                <button type="button" class="btn-secondary-large" onclick="previewSimulation()">
+                                    🔄 Làm mới
+                                </button>
+                            </div>
+                            <div class="preview-container" id="preview-container">
+                                <div class="preview-placeholder">
+                                    Nhập URL hợp lệ để xem trước thí nghiệm
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary-large" onclick="cancelAddForm()">
+                                ❌ Hủy bỏ
+                            </button>
+                            <button type="submit" class="btn-primary-large" id="submit-btn">
+                                ✅ Thêm thí nghiệm
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Custom Simulations List -->
+                <div class="custom-simulations-list">
+                    <div class="simulations-header">
+                        <h3>📚 Thí nghiệm tùy chỉnh</h3>
+                        <div class="manager-actions">
+                            <button type="button" class="btn-secondary-large" onclick="refreshCustomSimulations()">
+                                🔄 Làm mới
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="simulations-grid" id="custom-simulations-grid">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🎯</div>
+                            <div class="empty-state-title">Chưa có thí nghiệm tùy chỉnh</div>
+                            <div class="empty-state-description">
+                                Thêm thí nghiệm PhET tùy chỉnh để mở rộng thư viện của bạn
+                            </div>
+                            <button type="button" class="btn-primary-large" onclick="toggleAddForm()">
+                                ➕ Thêm thí nghiệm đầu tiên
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            <!-- Customization editor -->
+            <div id="customization-editor" class="customization-editor" style="display: none;">
+                <div class="editor-header">
+                    <h3 class="editor-title">✏️ Tùy chỉnh thí nghiệm</h3>
+                    <button id="close-editor-btn" class="close-btn" onclick="closeEditor()" aria-label="Đóng trình chỉnh sửa">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- Simulation info -->
+                <div id="simulation-info" class="simulation-info">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+
+                <!-- Custom learning objectives -->
+                <div class="editor-section">
+                    <label for="custom-objectives" class="editor-label">
+                        🎯 Mục tiêu học tập tùy chỉnh
+                    </label>
+                    <div class="editor-toolbar">
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-objectives', 'bold')" title="In đậm">
+                            <strong>B</strong>
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-objectives', 'italic')" title="In nghiêng">
+                            <em>I</em>
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-objectives', 'list')" title="Danh sách">
+                            📋
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-objectives', 'link')" title="Liên kết">
+                            🔗
+                        </button>
+                    </div>
+                    <textarea id="custom-objectives" class="editor-textarea" 
+                              placeholder="Nhập mục tiêu học tập tùy chỉnh của bạn...&#10;&#10;Ví dụ:&#10;- Học sinh có thể giải thích khái niệm lực&#10;- Học sinh có thể áp dụng định luật Newton&#10;- Học sinh có thể phân tích chuyển động"
+                              rows="6"
+                              oninput="saveCustomization()"></textarea>
+                    <div class="editor-help">
+                        Sử dụng markdown đơn giản: **in đậm**, *in nghiêng*, - danh sách
+                    </div>
+                </div>
+
+                <!-- Custom instructions -->
+                <div class="editor-section">
+                    <label for="custom-instructions" class="editor-label">
+                        📝 Hướng dẫn tùy chỉnh
+                    </label>
+                    <div class="editor-toolbar">
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-instructions', 'bold')" title="In đậm">
+                            <strong>B</strong>
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-instructions', 'italic')" title="In nghiêng">
+                            <em>I</em>
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-instructions', 'list')" title="Danh sách">
+                            📋
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-instructions', 'link')" title="Liên kết">
+                            🔗
+                        </button>
+                        <button type="button" class="toolbar-btn" onclick="formatText('custom-instructions', 'step')" title="Bước">
+                            📋
+                        </button>
+                    </div>
+                    <textarea id="custom-instructions" class="editor-textarea" 
+                              placeholder="Nhập hướng dẫn từng bước cho học sinh...&#10;&#10;Ví dụ:&#10;1. Mở thí nghiệm và quan sát giao diện&#10;2. Thử thay đổi các thông số&#10;3. Ghi chú những gì quan sát được&#10;4. Thảo luận kết quả với nhóm"
+                              rows="8"
+                              oninput="saveCustomization()"></textarea>
+                    <div class="editor-help">
+                        Thêm hướng dẫn chi tiết để giúp học sinh sử dụng thí nghiệm hiệu quả
+                    </div>
+                </div>
+
+                <!-- Preview section -->
+                <div class="editor-section">
+                    <h4 class="preview-title">👁️ Xem trước</h4>
+                    <div id="preview-container" class="preview-container">
+                        <div class="preview-section">
+                            <h5>Mục tiêu học tập:</h5>
+                            <div id="objectives-preview" class="preview-content">
+                                <em>Chưa có mục tiêu tùy chỉnh</em>
+                            </div>
+                        </div>
+                        <div class="preview-section">
+                            <h5>Hướng dẫn:</h5>
+                            <div id="instructions-preview" class="preview-content">
+                                <em>Chưa có hướng dẫn tùy chỉnh</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="editor-actions">
+                    <button id="save-btn" class="teacher-btn primary" onclick="saveAndClose()">
+                        💾 Lưu và đóng
+                    </button>
+                    <button id="preview-btn" class="teacher-btn secondary" onclick="previewSimulation()">
+                        👁️ Xem thí nghiệm
+                    </button>
+                    <button id="clear-btn" class="teacher-btn danger" onclick="clearCustomization()">
+                        🗑️ Xóa tùy chỉnh
+                    </button>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div id="customization-stats" class="customization-stats">
+                <h3 class="stats-title">📊 Thống kê tùy chỉnh</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-customizations">0</div>
+                        <div class="stat-label">Thí nghiệm đã tùy chỉnh</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-objectives">0</div>
+                        <div class="stat-label">Mục tiêu đã thêm</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-instructions">0</div>
+                        <div class="stat-label">Hướng dẫn đã thêm</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="last-updated">Chưa có</div>
+                        <div class="stat-label">Cập nhật lần cuối</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p>&copy; 2024 EduLab - Nền tảng Thí nghiệm Ảo cho Giáo dục</p>
+                <p>Được xây dựng với ❤️ cho giáo dục Việt Nam</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/teacher-auth.js"></script>
+    <script src="js/data-manager.js"></script>
+    <script src="js/content-filter.js"></script>
+    <script src="js/completion-tracker.js"></script>
+    <script src="js/teacher-customization.js"></script>
+    <script src="js/instruction-editor.js"></script>
+    <script src="js/url-validator.js"></script>
+    <script src="js/simulation-manager.js"></script>
+    <script src="js/collection-manager.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Teacher tools specific script -->
+    <script>
+        (function() {
+            'use strict';
+
+            let allSimulations = [];
+            let filteredSimulations = [];
+            let currentSimulation = null;
+
+            /**
+             * Ensure managers exist and are initialized
+             */
+            async function ensureManagersExist() {
+                console.log('Ensuring managers exist...');
+                
+                // Force trigger the auto-initialization scripts
+                // The scripts should have already run, but let's make sure
+                
+                return new Promise((resolve) => {
+                    let checkCount = 0;
+                    const maxChecks = 20;
+                    
+                    const checkAndCreate = async () => {
+                        checkCount++;
+                        console.log(`Check ${checkCount}: Looking for managers...`);
+                        
+                        // Check if managers exist and are ready
+                        const simManagerReady = window.SimulationManager && 
+                            typeof window.SimulationManager.isReady === 'function' && 
+                            window.SimulationManager.isReady();
+                            
+                        const colManagerReady = window.CollectionManager && 
+                            typeof window.CollectionManager.isReady === 'function' && 
+                            window.CollectionManager.isReady();
+                            
+                        if (simManagerReady && colManagerReady) {
+                            console.log('✅ Both managers found and ready!');
+                            resolve();
+                        } else if (window.SimulationManager && window.CollectionManager && checkCount > 10) {
+                            // Managers exist but not ready - try to force initialize them
+                            console.log('🔄 Managers exist but not ready, force initializing...');
+                            try {
+                                if (!simManagerReady && window.SimulationManager.initialize) {
+                                    await window.SimulationManager.initialize();
+                                }
+                                if (!colManagerReady && window.CollectionManager.initialize) {
+                                    await window.CollectionManager.initialize();
+                                }
+                                console.log('✅ Force initialization completed!');
+                                resolve();
+                            } catch (error) {
+                                console.warn('⚠️ Force initialization failed:', error);
+                                // Continue to fallback creation
+                            }
+                        } else if (checkCount >= maxChecks) {
+                            console.log('⏰ Max checks reached, creating instances or fallbacks...');
+                            
+                            // Try to create instances from classes first
+                            if (window.SimulationManager && typeof window.SimulationManager === 'function') {
+                                try {
+                                    console.log('Creating SimulationManager instance from class...');
+                                    const manager = new window.SimulationManager();
+                                    await manager.initialize();
+                                    window.SimulationManager = manager;
+                                    console.log('✅ SimulationManager instance created');
+                                } catch (error) {
+                                    console.error('❌ Failed to create SimulationManager instance:', error);
+                                }
+                            }
+                            
+                            if (window.CollectionManager && typeof window.CollectionManager === 'function') {
+                                try {
+                                    console.log('Creating CollectionManager instance from class...');
+                                    const manager = new window.CollectionManager();
+                                    await manager.initialize();
+                                    window.CollectionManager = manager;
+                                    console.log('✅ CollectionManager instance created');
+                                } catch (error) {
+                                    console.error('❌ Failed to create CollectionManager instance:', error);
+                                }
+                            }
+                            
+                            // Create minimal fallbacks only if still not available
+                            if (!window.SimulationManager || typeof window.SimulationManager.isReady !== 'function') {
+                                window.SimulationManager = {
+                                    isReady: () => true,
+                                    addSimulation: async (data) => {
+                                        console.log('Adding simulation to fallback:', data);
+                                        return { id: 'fallback-' + Date.now(), ...data };
+                                    },
+                                    getCustomSimulations: () => [],
+                                    getStatistics: () => ({ total: 0, recentlyAdded: 0, totalAccess: 0 }),
+                                    exportSimulations: () => ({ simulations: [] })
+                                };
+                            }
+                            
+                            if (!window.CollectionManager || typeof window.CollectionManager.isReady !== 'function') {
+                                window.CollectionManager = {
+                                    isReady: () => true,
+                                    getCollections: () => [
+                                        { id: 'default-physics', name: 'Vật lý', icon: '🔬', description: 'Thí nghiệm Vật lý' },
+                                        { id: 'default-chemistry', name: 'Hóa học', icon: '🧪', description: 'Thí nghiệm Hóa học' },
+                                        { id: 'default-biology', name: 'Sinh học', icon: '🌱', description: 'Thí nghiệm Sinh học' },
+                                        { id: 'default-mathematics', name: 'Toán học', icon: '📊', description: 'Thí nghiệm Toán học' }
+                                    ],
+                                    getStatistics: () => ({ total: 4 })
+                                };
+                            }
+                            
+                            resolve();
+                        } else {
+                            setTimeout(checkAndCreate, 200);
+                        }
+                    };
+                    
+                    checkAndCreate();
+                });
+            }
+
+            /**
+             * Wait for simulation management dependencies
+             */
+            async function waitForSimulationManagers() {
+                return new Promise((resolve, reject) => {
+                    let attempts = 0;
+                    const maxAttempts = 50; // 5 seconds timeout
+                    
+                    const checkManagers = () => {
+                        attempts++;
+                        
+                        if (attempts <= 5) {
+                            console.log(`Attempt ${attempts}: Checking managers...`);
+                        }
+                        
+                        const simulationManagerReady = window.SimulationManager && 
+                            typeof window.SimulationManager.isReady === 'function' && 
+                            window.SimulationManager.isReady();
+                            
+                        const collectionManagerReady = window.CollectionManager && 
+                            typeof window.CollectionManager.isReady === 'function' && 
+                            window.CollectionManager.isReady();
+                            
+                        if (attempts <= 5) {
+                            console.log('SimulationManager ready:', simulationManagerReady);
+                            console.log('CollectionManager ready:', collectionManagerReady);
+                        }
+                            
+                        if (simulationManagerReady && collectionManagerReady) {
+                            console.log('✅ Both managers ready!');
+                            resolve();
+                        } else if (attempts >= maxAttempts) {
+                            console.error('❌ Managers not ready after timeout');
+                            console.error('SimulationManager status:', {
+                                exists: !!window.SimulationManager,
+                                type: typeof window.SimulationManager,
+                                hasIsReady: typeof window.SimulationManager?.isReady,
+                                ready: window.SimulationManager?.isReady?.()
+                            });
+                            console.error('CollectionManager status:', {
+                                exists: !!window.CollectionManager,
+                                type: typeof window.CollectionManager,
+                                hasIsReady: typeof window.CollectionManager?.isReady,
+                                ready: window.CollectionManager?.isReady?.()
+                            });
+                            reject(new Error('Simulation managers not ready after timeout'));
+                        } else {
+                            setTimeout(checkManagers, 100);
+                        }
+                    };
+                    
+                    checkManagers();
+                });
+            }
+
+            // Initialize page
+            async function initializeTeacherTools() {
+                try {
+                    console.log('Initializing teacher tools...');
+
+                    // Wait for dependencies
+                    await waitForDependencies();
+
+                    // Load simulations data - get all simulations from all subjects
+                    const data = await window.DataManager.loadSimulations();
+                    allSimulations = data.simulations || [];
+                    filteredSimulations = [...allSimulations];
+
+                    console.log('Loaded simulations:', allSimulations.length);
+                    console.log('Sample simulation:', allSimulations[0]);
+
+                    // Render simulation list
+                    renderSimulationList();
+
+                    // Wait for simulation management dependencies (non-blocking)
+                    setTimeout(() => {
+                        waitForSimulationManagers().then(() => {
+                            console.log('✅ Simulation managers ready');
+                        }).catch(error => {
+                            console.warn('⚠️ Simulation managers not available:', error);
+                        });
+                    }, 1000); // Wait 1 second for scripts to load
+
+                    // Render teacher session info
+                    if (window.TeacherAuth) {
+                        window.TeacherAuth.renderLogoutButton('teacher-session-container');
+                    }
+
+                    console.log('Teacher tools initialized successfully');
+
+                } catch (error) {
+                    console.error('Failed to initialize teacher tools:', error);
+                    showError('Có lỗi xảy ra khi tải công cụ giáo viên: ' + error.message);
+                }
+            }
+
+            async function waitForDependencies() {
+                let attempts = 0;
+                const maxAttempts = 50;
+
+                return new Promise((resolve) => {
+                    function checkDependencies() {
+                        if (window.DataManager && 
+                            typeof window.DataManager.getSimulationsBySubject === 'function' &&
+                            window.TeacherCustomization &&
+                            window.InstructionEditor) {
+                            resolve();
+                        } else if (attempts < maxAttempts) {
+                            attempts++;
+                            setTimeout(checkDependencies, 100);
+                        } else {
+                            console.warn('Dependencies not fully loaded, proceeding anyway');
+                            resolve();
+                        }
+                    }
+                    checkDependencies();
+                });
+            }
+
+            function renderSimulationList() {
+                const listContainer = document.getElementById('simulation-list');
+                
+                console.log('Rendering simulation list with', filteredSimulations.length, 'items');
+                
+                if (!listContainer) {
+                    console.error('simulation-list container not found!');
+                    return;
+                }
+                
+                if (filteredSimulations.length === 0) {
+                    listContainer.innerHTML = `
+                        <div class="empty-state">
+                            <p>Không tìm thấy thí nghiệm phù hợp</p>
+                            <p style="font-size: 14px; color: #666; margin-top: 8px;">
+                                Hãy thử tìm kiếm với từ khóa khác hoặc thay đổi bộ lọc môn học
+                            </p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const simulationItems = filteredSimulations.map(sim => {
+                    const hasCustomization = window.TeacherCustomization ? 
+                        window.TeacherCustomization.hasCustomization(sim.id) : false;
+                    
+                    return `
+                        <div class="simulation-item ${hasCustomization ? 'customized' : ''}" 
+                             role="listitem" 
+                             data-simulation-id="${sim.id}"
+                             onclick="selectSimulation('${sim.id}')">
+                            
+                            <div class="simulation-item-content">
+                                <h4 class="simulation-item-title">${escapeHTML(sim.title)}</h4>
+                                <p class="simulation-item-meta">
+                                    ${getSubjectName(sim.subject)} • ${getDifficultyName(sim.difficulty)} • ${sim.gradeLevel}
+                                </p>
+                                <p class="simulation-item-description">${escapeHTML(sim.description)}</p>
+                            </div>
+                            
+                            <div class="simulation-item-actions">
+                                ${hasCustomization ? 
+                                    '<span class="customization-badge">✏️ Đã tùy chỉnh</span>' : 
+                                    '<span class="customization-badge empty">➕ Tùy chỉnh</span>'
+                                }
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                listContainer.innerHTML = simulationItems;
+            }
+
+            function filterSimulations() {
+                const selectedSubject = document.getElementById('subject-select').value;
+                const searchTerm = document.getElementById('simulation-search').value.toLowerCase().trim();
+
+                console.log('Filtering with subject:', selectedSubject, 'search:', searchTerm);
+                console.log('Total simulations before filter:', allSimulations.length);
+
+                filteredSimulations = allSimulations.filter(sim => {
+                    const matchesSubject = !selectedSubject || sim.subject === selectedSubject;
+                    
+                    let matchesSearch = !searchTerm;
+                    
+                    if (searchTerm) {
+                        // Tìm kiếm trong tiêu đề, mô tả, chủ đề, và mục tiêu học tập
+                        matchesSearch = 
+                            sim.title.toLowerCase().includes(searchTerm) ||
+                            sim.description.toLowerCase().includes(searchTerm) ||
+                            (sim.topics && sim.topics.some(topic => topic.toLowerCase().includes(searchTerm))) ||
+                            (sim.learningObjectives && sim.learningObjectives.some(obj => obj.toLowerCase().includes(searchTerm))) ||
+                            (sim.tags && sim.tags.some(tag => tag.toLowerCase().includes(searchTerm)));
+                        
+                        // Tìm kiếm theo từ khóa tiếng Việt thông dụng
+                        if (!matchesSearch) {
+                            const searchKeywords = {
+                                'luc': ['force', 'forces'],
+                                'van toc': ['velocity', 'speed'],
+                                'chuyen dong': ['motion'],
+                                'dien': ['electric', 'electricity'],
+                                'anh sang': ['light'],
+                                'song': ['wave'],
+                                'nhiet': ['heat', 'thermal'],
+                                'than': ['gravity'],
+                                'nam cham': ['magnet'],
+                                'hoa hoc': ['chemistry', 'chemical'],
+                                'phan ung': ['reaction'],
+                                'acid': ['acid'],
+                                'toan': ['math'],
+                                'do thi': ['graph']
+                            };
+                            
+                            for (const [vietnamese, englishTerms] of Object.entries(searchKeywords)) {
+                                if (searchTerm.includes(vietnamese)) {
+                                    matchesSearch = englishTerms.some(term => 
+                                        sim.title.toLowerCase().includes(term) ||
+                                        sim.description.toLowerCase().includes(term) ||
+                                        (sim.topics && sim.topics.some(topic => topic.toLowerCase().includes(term)))
+                                    );
+                                    if (matchesSearch) break;
+                                }
+                            }
+                        }
+                    }
+                    
+                    const matches = matchesSubject && matchesSearch;
+                    
+                    if (searchTerm && matches) {
+                        console.log('Found match:', sim.title);
+                    }
+                    
+                    return matches;
+                });
+
+                console.log('Filtered simulations:', filteredSimulations.length);
+                
+                // Update search status
+                updateSearchStatus(selectedSubject, searchTerm, filteredSimulations.length, allSimulations.length);
+                
+                renderSimulationList();
+            }
+
+            function searchSimulations() {
+                filterSimulations();
+            }
+
+            function updateSearchStatus(selectedSubject, searchTerm, filteredCount, totalCount) {
+                const statusDiv = document.getElementById('search-status');
+                if (!statusDiv) return;
+
+                if (!selectedSubject && !searchTerm) {
+                    // No filters applied
+                    statusDiv.style.display = 'none';
+                    return;
+                }
+
+                let statusText = '';
+                if (searchTerm && selectedSubject) {
+                    statusText = `Hiển thị ${filteredCount}/${totalCount} thí nghiệm với từ khóa "${searchTerm}" trong môn ${getSubjectName(selectedSubject)}`;
+                } else if (searchTerm) {
+                    statusText = `Hiển thị ${filteredCount}/${totalCount} thí nghiệm với từ khóa "${searchTerm}"`;
+                } else if (selectedSubject) {
+                    statusText = `Hiển thị ${filteredCount}/${totalCount} thí nghiệm môn ${getSubjectName(selectedSubject)}`;
+                }
+
+                if (filteredCount === 0) {
+                    statusDiv.style.background = '#fef2f2';
+                    statusDiv.style.borderColor = '#fecaca';
+                    statusDiv.style.color = '#dc2626';
+                    statusText = '❌ ' + statusText.replace('Hiển thị', 'Không tìm thấy');
+                } else {
+                    statusDiv.style.background = '#f0f9ff';
+                    statusDiv.style.borderColor = '#bae6fd';
+                    statusDiv.style.color = '#0369a1';
+                    statusText = '✅ ' + statusText;
+                }
+
+                statusDiv.textContent = statusText;
+                statusDiv.style.display = 'block';
+            }
+
+            function selectSimulation(simulationId) {
+                const simulation = allSimulations.find(sim => sim.id === simulationId);
+                if (!simulation) return;
+
+                currentSimulation = simulation;
+                showEditor(simulation);
+            }
+
+            function showEditor(simulation) {
+                const editor = document.getElementById('customization-editor');
+                const simulationInfo = document.getElementById('simulation-info');
+
+                // Populate simulation info
+                simulationInfo.innerHTML = `
+                    <div class="simulation-info-content">
+                        <h4>${escapeHTML(simulation.title)}</h4>
+                        <p class="simulation-meta">
+                            ${getSubjectName(simulation.subject)} • ${getDifficultyName(simulation.difficulty)} • ${simulation.gradeLevel}
+                        </p>
+                        <p class="simulation-description">${escapeHTML(simulation.description)}</p>
+                    </div>
+                `;
+
+                // Load existing customizations
+                if (window.TeacherCustomization) {
+                    const customization = window.TeacherCustomization.getCustomization(simulation.id);
+                    
+                    document.getElementById('custom-objectives').value = customization.objectives || '';
+                    document.getElementById('custom-instructions').value = customization.instructions || '';
+                    
+                    // Update preview
+                    updatePreview();
+                }
+
+                // Show editor
+                editor.style.display = 'block';
+                editor.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            function closeEditor() {
+                const editor = document.getElementById('customization-editor');
+                editor.style.display = 'none';
+                currentSimulation = null;
+                
+                // Refresh simulation list to show updated customization status
+                renderSimulationList();
+                updateStatistics();
+            }
+
+            function updatePreview() {
+                if (!window.InstructionEditor) return;
+
+                const objectives = document.getElementById('custom-objectives').value;
+                const instructions = document.getElementById('custom-instructions').value;
+
+                const objectivesPreview = document.getElementById('objectives-preview');
+                const instructionsPreview = document.getElementById('instructions-preview');
+
+                if (objectives.trim()) {
+                    objectivesPreview.innerHTML = window.InstructionEditor.markdownToHTML(objectives);
+                } else {
+                    objectivesPreview.innerHTML = '<em>Chưa có mục tiêu tùy chỉnh</em>';
+                }
+
+                if (instructions.trim()) {
+                    instructionsPreview.innerHTML = window.InstructionEditor.markdownToHTML(instructions);
+                } else {
+                    instructionsPreview.innerHTML = '<em>Chưa có hướng dẫn tùy chỉnh</em>';
+                }
+            }
+
+            function saveCustomization() {
+                if (!currentSimulation || !window.TeacherCustomization) return;
+
+                const objectives = document.getElementById('custom-objectives').value;
+                const instructions = document.getElementById('custom-instructions').value;
+
+                window.TeacherCustomization.saveCustomization(currentSimulation.id, {
+                    objectives: objectives.trim(),
+                    instructions: instructions.trim(),
+                    simulationTitle: currentSimulation.title
+                });
+
+                updatePreview();
+            }
+
+            function saveAndClose() {
+                saveCustomization();
+                closeEditor();
+            }
+
+            function clearCustomization() {
+                if (!currentSimulation) return;
+
+                if (confirm('Bạn có chắc chắn muốn xóa tất cả tùy chỉnh cho thí nghiệm này?')) {
+                    window.TeacherCustomization.clearCustomization(currentSimulation.id);
+                    
+                    // Clear form
+                    document.getElementById('custom-objectives').value = '';
+                    document.getElementById('custom-instructions').value = '';
+                    updatePreview();
+                }
+            }
+
+            function previewSimulation() {
+                if (!currentSimulation) return;
+                
+                // Save current changes first
+                saveCustomization();
+                
+                // Open simulation in new tab
+                window.open(`simulation.html?id=${currentSimulation.id}`, '_blank');
+            }
+
+            function updateStatistics() {
+                if (!window.TeacherCustomization) return;
+
+                const stats = window.TeacherCustomization.getStatistics();
+                
+                document.getElementById('total-customizations').textContent = stats.totalCustomizations;
+                document.getElementById('total-objectives').textContent = stats.totalObjectives;
+                document.getElementById('total-instructions').textContent = stats.totalInstructions;
+                
+                const lastUpdatedEl = document.getElementById('last-updated');
+                if (stats.lastUpdated) {
+                    const date = new Date(stats.lastUpdated);
+                    lastUpdatedEl.textContent = date.toLocaleDateString('vi-VN');
+                } else {
+                    lastUpdatedEl.textContent = 'Chưa có';
+                }
+            }
+
+            // Global functions for toolbar and actions
+            window.formatText = function(textareaId, format) {
+                if (window.InstructionEditor) {
+                    window.InstructionEditor.formatText(textareaId, format);
+                    updatePreview();
+                    saveCustomization();
+                }
+            };
+
+            // Clear search function
+            window.clearSearch = function() {
+                document.getElementById('simulation-search').value = '';
+                document.getElementById('subject-select').value = '';
+                filterSimulations();
+            };
+
+            window.filterSimulations = filterSimulations;
+            window.searchSimulations = searchSimulations;
+            window.selectSimulation = selectSimulation;
+            window.closeEditor = closeEditor;
+            window.saveAndClose = saveAndClose;
+            window.clearCustomization = clearCustomization;
+            window.previewSimulation = previewSimulation;
+
+            // Import/Export functions
+            window.exportCustomizations = function() {
+                if (window.TeacherCustomization) {
+                    window.TeacherCustomization.exportCustomizations();
+                }
+            };
+
+            window.importCustomizations = function() {
+                if (window.TeacherCustomization) {
+                    window.TeacherCustomization.importCustomizations();
+                }
+            };
+
+            window.resetAllCustomizations = function() {
+                if (confirm('Bạn có chắc chắn muốn xóa TẤT CẢ tùy chỉnh? Hành động này không thể hoàn tác.')) {
+                    if (window.TeacherCustomization) {
+                        window.TeacherCustomization.resetAll();
+                        renderSimulationList();
+                        updateStatistics();
+                        closeEditor();
+                    }
+                }
+            };
+
+            // Utility functions
+            function getSubjectName(subject) {
+                const subjects = {
+                    physics: 'Vật lý',
+                    chemistry: 'Hóa học', 
+                    biology: 'Sinh học',
+                    mathematics: 'Toán học'
+                };
+                return subjects[subject] || subject;
+            }
+
+            function getDifficultyName(difficulty) {
+                const difficulties = {
+                    beginner: 'Cơ bản',
+                    intermediate: 'Trung bình',
+                    advanced: 'Nâng cao'
+                };
+                return difficulties[difficulty] || difficulty;
+            }
+
+            function escapeHTML(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function showError(message) {
+                const listContainer = document.getElementById('simulation-list');
+                listContainer.innerHTML = `
+                    <div class="error-state">
+                        <h3>Có lỗi xảy ra</h3>
+                        <p>${escapeHTML(message)}</p>
+                        <button onclick="location.reload()" class="retry-btn">Thử lại</button>
+                    </div>
+                `;
+            }
+
+            // ========================================
+            // Tab Navigation Functions
+            // ========================================
+
+            async function switchTab(tabName) {
+                // Update tab buttons
+                document.querySelectorAll('.nav-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.getElementById(`tab-${tabName}`).classList.add('active');
+                
+                // Update tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(`${tabName}-tab`).classList.add('active');
+                
+                // Initialize appropriate content
+                if (tabName === 'management') {
+                    await initializeSimulationManagement();
+                }
+            }
+
+            // ========================================
+            // Simulation Management Functions
+            // ========================================
+
+            async function initializeSimulationManagement() {
+                console.log('Initializing simulation management...');
+                
+                // Force create managers if they don't exist or aren't ready
+                await ensureManagersExist();
+                
+                // Try to wait for managers if they're not ready
+                try {
+                    await waitForSimulationManagers();
+                } catch (error) {
+                    console.warn('Continuing without simulation managers:', error);
+                }
+                
+                loadCollections();
+                updateStatistics();
+                refreshCustomSimulations();
+            }
+
+            function toggleAddForm() {
+                const form = document.getElementById('add-simulation-form');
+                const isVisible = form.style.display !== 'none';
+                
+                if (isVisible) {
+                    // Hide form
+                    hideAddForm();
+                } else {
+                    // Show form
+                    showAddForm();
+                }
+            }
+
+            function showAddForm() {
+                const form = document.getElementById('add-simulation-form');
+                form.style.display = 'block';
+                
+                // Reset form when showing
+                document.getElementById('simulation-form').reset();
+                clearValidation();
+                clearPreview();
+                loadCollections();
+                
+                // Add ESC key listener
+                document.addEventListener('keydown', handleEscapeKey);
+                
+                // Focus on first input
+                const firstInput = form.querySelector('input[type="url"]');
+                if (firstInput) {
+                    firstInput.focus();
+                }
+                
+                // Add overlay to close form when clicking outside
+                addFormOverlay();
+            }
+
+            function hideAddForm() {
+                const form = document.getElementById('add-simulation-form');
+                form.style.display = 'none';
+                
+                // Remove ESC key listener
+                document.removeEventListener('keydown', handleEscapeKey);
+                
+                // Remove overlay
+                removeFormOverlay();
+            }
+
+            function handleEscapeKey(event) {
+                if (event.key === 'Escape') {
+                    event.preventDefault();
+                    hideAddForm();
+                }
+            }
+
+            function addFormOverlay() {
+                // Remove existing overlay if any
+                removeFormOverlay();
+                
+                const overlay = document.createElement('div');
+                overlay.id = 'form-overlay';
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 999;
+                    backdrop-filter: blur(2px);
+                `;
+                
+                // Close form when clicking overlay
+                overlay.addEventListener('click', hideAddForm);
+                
+                document.body.appendChild(overlay);
+                
+                // Make form appear above overlay
+                const form = document.getElementById('add-simulation-form');
+                form.style.position = 'relative';
+                form.style.zIndex = '1000';
+            }
+
+            function removeFormOverlay() {
+                const overlay = document.getElementById('form-overlay');
+                if (overlay) {
+                    overlay.remove();
+                }
+                
+                // Reset form z-index
+                const form = document.getElementById('add-simulation-form');
+                if (form) {
+                    form.style.position = '';
+                    form.style.zIndex = '';
+                }
+            }
+
+            function cancelAddForm() {
+                hideAddForm();
+            }
+
+            async function validatePhETURL() {
+                const urlInput = document.getElementById('phet-url');
+                const validationDiv = document.getElementById('url-validation');
+                const url = urlInput.value.trim();
+                
+                if (!url) {
+                    validationDiv.style.display = 'none';
+                    return;
+                }
+                
+                validationDiv.style.display = 'block';
+                validationDiv.className = 'url-validation validating';
+                document.getElementById('validation-icon').textContent = '⏳';
+                document.getElementById('validation-text').textContent = 'Đang kiểm tra URL...';
+                
+                try {
+                    const result = await window.URLValidator.validatePhETURL(url);
+                    
+                    if (result.isValid) {
+                        validationDiv.className = 'url-validation valid';
+                        document.getElementById('validation-icon').textContent = '✅';
+                        document.getElementById('validation-text').textContent = result.message;
+                        
+                        // Show metadata
+                        if (result.metadata) {
+                            displayMetadata(result.metadata);
+                            
+                            // Auto-fill title suggestions
+                            const titleInput = document.getElementById('sim-title');
+                            if (!titleInput.value && result.metadata.simulationName) {
+                                const suggestions = window.URLValidator.generateVietnameseTitles(result.metadata.simulationName);
+                                if (suggestions.length > 0) {
+                                    titleInput.value = suggestions[0];
+                                }
+                            }
+                        }
+                        
+                        // Auto-preview
+                        setTimeout(() => previewSimulation(), 1000);
+                        
+                    } else {
+                        validationDiv.className = 'url-validation invalid';
+                        document.getElementById('validation-icon').textContent = '❌';
+                        document.getElementById('validation-text').textContent = result.message;
+                        
+                        if (result.suggestion) {
+                            document.getElementById('validation-suggestion').textContent = result.suggestion;
+                        }
+                    }
+                    
+                } catch (error) {
+                    validationDiv.className = 'url-validation invalid';
+                    document.getElementById('validation-icon').textContent = '❌';
+                    document.getElementById('validation-text').textContent = 'Có lỗi xảy ra khi kiểm tra URL';
+                    console.error('URL validation error:', error);
+                }
+            }
+
+            function displayMetadata(metadata) {
+                const metadataDiv = document.getElementById('url-metadata');
+                metadataDiv.style.display = 'block';
+                metadataDiv.innerHTML = `
+                    <div class="metadata-item">
+                        <span class="metadata-label">Tên thí nghiệm:</span>
+                        <span class="metadata-value">${metadata.simulationName || 'N/A'}</span>
+                    </div>
+                    <div class="metadata-item">
+                        <span class="metadata-label">Ngôn ngữ:</span>
+                        <span class="metadata-value">${metadata.language === 'vi' ? 'Tiếng Việt' : 'Tiếng Anh'}</span>
+                    </div>
+                    <div class="metadata-item">
+                        <span class="metadata-label">Loại:</span>
+                        <span class="metadata-value">${metadata.isHTML5 ? 'HTML5' : 'Flash'}</span>
+                    </div>
+                    <div class="metadata-item">
+                        <span class="metadata-label">Phiên bản:</span>
+                        <span class="metadata-value">${metadata.isLatest ? 'Mới nhất' : 'Cũ'}</span>
+                    </div>
+                `;
+            }
+
+            function clearValidation() {
+                const validationDiv = document.getElementById('url-validation');
+                validationDiv.style.display = 'none';
+                document.getElementById('url-metadata').style.display = 'none';
+                document.getElementById('validation-suggestion').textContent = '';
+            }
+
+            async function previewSimulation() {
+                const urlInput = document.getElementById('phet-url');
+                const previewContainer = document.getElementById('preview-container');
+                const url = urlInput.value.trim();
+                
+                if (!url) {
+                    previewContainer.innerHTML = '<div class="preview-placeholder">Nhập URL hợp lệ để xem trước thí nghiệm</div>';
+                    return;
+                }
+                
+                try {
+                    const result = await window.URLValidator.previewSimulation(url, previewContainer);
+                    
+                    if (!result.success) {
+                        previewContainer.innerHTML = `<div class="preview-error">${result.message}</div>`;
+                    }
+                    
+                } catch (error) {
+                    console.error('Preview error:', error);
+                    previewContainer.innerHTML = '<div class="preview-error">Không thể tải xem trước thí nghiệm</div>';
+                }
+            }
+
+            function clearPreview() {
+                const previewContainer = document.getElementById('preview-container');
+                previewContainer.innerHTML = '<div class="preview-placeholder">Nhập URL hợp lệ để xem trước thí nghiệm</div>';
+            }
+
+            function addTag(event) {
+                if (event.key === 'Enter' || event.key === ',') {
+                    event.preventDefault();
+                    const input = event.target;
+                    const tag = input.value.trim();
+                    
+                    if (tag && tag !== ',') {
+                        const tagsContainer = document.getElementById('tags-container');
+                        const tagElement = document.createElement('div');
+                        tagElement.className = 'tag-item';
+                        tagElement.innerHTML = `
+                            ${escapeHTML(tag)}
+                            <button type="button" class="tag-remove" onclick="removeTag(this)">×</button>
+                        `;
+                        
+                        tagsContainer.insertBefore(tagElement, input);
+                        input.value = '';
+                        updateTagsInput();
+                    }
+                }
+            }
+
+            function removeTag(button) {
+                button.parentElement.remove();
+                updateTagsInput();
+            }
+
+            function updateTagsInput() {
+                const tags = Array.from(document.querySelectorAll('.tag-item'))
+                    .map(tag => tag.textContent.replace('×', '').trim())
+                    .filter(tag => tag);
+                document.getElementById('sim-tags').value = JSON.stringify(tags);
+            }
+
+            function loadCollections() {
+                const collectionsContainer = document.getElementById('collections-selection');
+                
+                if (!collectionsContainer) {
+                    console.warn('Collections container not found');
+                    return;
+                }
+                
+                if (window.CollectionManager && 
+                    typeof window.CollectionManager.isReady === 'function' && 
+                    window.CollectionManager.isReady()) {
+                    
+                    try {
+                        const collections = window.CollectionManager.getCollections();
+                        collectionsContainer.innerHTML = collections.map(collection => `
+                            <div class="collection-card" onclick="toggleCollection('${collection.id}')">
+                                <div class="collection-icon">${collection.icon || '📂'}</div>
+                                <div class="collection-name">${collection.name}</div>
+                                <div class="collection-description">${collection.description || ''}</div>
+                                <input type="checkbox" name="selectedCollections" value="${collection.id}" style="display: none;">
+                            </div>
+                        `).join('');
+                    } catch (error) {
+                        console.warn('Error loading collections:', error);
+                        collectionsContainer.innerHTML = '<p>Lỗi khi tải bộ sưu tập</p>';
+                    }
+                } else {
+                    collectionsContainer.innerHTML = '<p>Đang tải bộ sưu tập...</p>';
+                }
+            }
+
+            function toggleCollection(collectionId) {
+                const card = event.currentTarget;
+                const checkbox = card.querySelector('input[type="checkbox"]');
+                
+                checkbox.checked = !checkbox.checked;
+                card.classList.toggle('selected', checkbox.checked);
+                
+                updateCollectionsInput();
+            }
+
+            function updateCollectionsInput() {
+                const selectedCollections = Array.from(document.querySelectorAll('input[name="selectedCollections"]:checked'))
+                    .map(cb => cb.value);
+                document.getElementById('sim-collections').value = JSON.stringify(selectedCollections);
+            }
+
+            async function addCustomSimulation(event) {
+                event.preventDefault();
+                
+                const formData = new FormData(event.target);
+                const submitBtn = document.getElementById('submit-btn');
+                const originalText = submitBtn.innerHTML;
+                
+                try {
+                    submitBtn.innerHTML = '⏳ Đang thêm...';
+                    submitBtn.disabled = true;
+                    
+                    // Collect grade levels
+                    const gradeLevels = Array.from(document.querySelectorAll('input[name="gradeLevel"]:checked'))
+                        .map(cb => parseInt(cb.value));
+                    
+                    if (gradeLevels.length === 0) {
+                        throw new Error('Vui lòng chọn ít nhất một cấp lớp');
+                    }
+                    
+                    // Collect tags
+                    const tags = JSON.parse(document.getElementById('sim-tags').value || '[]');
+                    
+                    // Collect collections
+                    const collections = JSON.parse(document.getElementById('sim-collections').value || '[]');
+                    
+                    // Parse topics
+                    const topics = formData.get('topics')
+                        ? formData.get('topics').split(',').map(topic => topic.trim()).filter(topic => topic)
+                        : [];
+                    
+                    const simulationData = {
+                        title: formData.get('title'),
+                        description: formData.get('description'),
+                        phetUrl: formData.get('phetUrl'),
+                        subject: formData.get('subject'),
+                        gradeLevel: gradeLevels,
+                        difficulty: formData.get('difficulty') || 'intermediate',
+                        duration: parseInt(formData.get('duration')) || 30,
+                        topics: topics,
+                        learningObjectives: formData.get('learningObjectives') || '',
+                        tags: tags,
+                        collections: collections,
+                        thumbnailUrl: '', // Could be extracted from PhET if available
+                        isCustom: true
+                    };
+                    
+                    // Add simulation
+                    const result = await window.SimulationManager.addSimulation(simulationData);
+                    
+                    // Success
+                    showMessage('✅ Thí nghiệm đã được thêm thành công!', 'success');
+                    hideAddForm();
+                    refreshCustomSimulations();
+                    updateStatistics();
+                    
+                } catch (error) {
+                    console.error('Error adding simulation:', error);
+                    showMessage('❌ Có lỗi xảy ra: ' + error.message, 'error');
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            }
+
+            function updateStatistics() {
+                // Safely update statistics only if managers are ready
+                if (window.SimulationManager && 
+                    typeof window.SimulationManager.isReady === 'function' && 
+                    window.SimulationManager.isReady()) {
+                    
+                    try {
+                        const stats = window.SimulationManager.getStatistics();
+                        const totalElement = document.getElementById('total-custom-sims');
+                        const recentElement = document.getElementById('recent-additions');
+                        const accessElement = document.getElementById('total-access');
+                        
+                        if (totalElement) totalElement.textContent = stats.total;
+                        if (recentElement) recentElement.textContent = stats.recentlyAdded;
+                        if (accessElement) accessElement.textContent = stats.totalAccess;
+                    } catch (error) {
+                        console.warn('Error updating simulation statistics:', error);
+                    }
+                }
+                
+                if (window.CollectionManager && 
+                    typeof window.CollectionManager.isReady === 'function' && 
+                    window.CollectionManager.isReady()) {
+                    
+                    try {
+                        const collectionsStats = window.CollectionManager.getStatistics();
+                        const collectionsElement = document.getElementById('total-collections');
+                        if (collectionsElement) collectionsElement.textContent = collectionsStats.total;
+                    } catch (error) {
+                        console.warn('Error updating collection statistics:', error);
+                    }
+                }
+            }
+
+            function refreshCustomSimulations() {
+                const gridContainer = document.getElementById('custom-simulations-grid');
+                
+                if (!gridContainer) {
+                    console.warn('Custom simulations grid container not found');
+                    return;
+                }
+                
+                if (window.SimulationManager && 
+                    typeof window.SimulationManager.isReady === 'function' && 
+                    window.SimulationManager.isReady()) {
+                    const customSims = window.SimulationManager.getCustomSimulations();
+                    
+                    if (customSims.length === 0) {
+                        gridContainer.innerHTML = `
+                            <div class="empty-state">
+                                <div class="empty-state-icon">🎯</div>
+                                <div class="empty-state-title">Chưa có thí nghiệm tùy chỉnh</div>
+                                <div class="empty-state-description">
+                                    Thêm thí nghiệm PhET tùy chỉnh để mở rộng thư viện của bạn
+                                </div>
+                                <button type="button" class="btn-primary-large" onclick="toggleAddForm()">
+                                    ➕ Thêm thí nghiệm đầu tiên
+                                </button>
+                            </div>
+                        `;
+                    } else {
+                        gridContainer.innerHTML = customSims.map(sim => `
+                            <div class="simulation-item fade-in">
+                                <div class="simulation-header">
+                                    <div>
+                                        <div class="simulation-title">${escapeHTML(sim.title)}</div>
+                                        <div class="simulation-url">${escapeHTML(sim.phetUrl)}</div>
+                                    </div>
+                                    <div class="simulation-actions">
+                                        <button class="btn-small btn-preview" onclick="previewCustomSimulation('${sim.id}')">
+                                            👁️ Xem
+                                        </button>
+                                        <button class="btn-small btn-edit" onclick="editCustomSimulation('${sim.id}')">
+                                            ✏️ Sửa
+                                        </button>
+                                        <button class="btn-small btn-delete" onclick="deleteCustomSimulation('${sim.id}')">
+                                            🗑️ Xóa
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="simulation-meta">
+                                    <span class="meta-item">${getSubjectName(sim.subject)}</span>
+                                    <span class="meta-item">Lớp ${sim.gradeLevel.join(', ')}</span>
+                                    <span class="meta-item">${getDifficultyName(sim.difficulty)}</span>
+                                    <span class="meta-item">${sim.duration} phút</span>
+                                </div>
+                                <div class="simulation-description">${escapeHTML(sim.description)}</div>
+                            </div>
+                        `).join('');
+                    }
+                }
+            }
+
+            function showMessage(message, type) {
+                // Remove existing messages
+                document.querySelectorAll('.message').forEach(msg => msg.remove());
+                
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${type}`;
+                messageDiv.innerHTML = message;
+                
+                const form = document.getElementById('add-simulation-form');
+                form.insertBefore(messageDiv, form.firstChild);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => messageDiv.remove(), 5000);
+            }
+
+            async function exportCustomSimulations() {
+                try {
+                    if (!window.SimulationManager || 
+                        typeof window.SimulationManager.exportSimulations !== 'function') {
+                        throw new Error('SimulationManager not available');
+                    }
+                    
+                    const data = window.SimulationManager.exportSimulations();
+                    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `edulab-custom-simulations-${new Date().toISOString().split('T')[0]}.json`;
+                    a.click();
+                    
+                    URL.revokeObjectURL(url);
+                    showMessage('✅ Dữ liệu đã được xuất thành công!', 'success');
+                } catch (error) {
+                    console.error('Export error:', error);
+                    showMessage('❌ Có lỗi xảy ra khi xuất dữ liệu: ' + error.message, 'error');
+                }
+            }
+
+            function showImportDialog() {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = '.json';
+                input.onchange = importCustomSimulations;
+                input.click();
+            }
+
+            async function importCustomSimulations(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                try {
+                    const text = await file.text();
+                    const data = JSON.parse(text);
+                    
+                    const result = await window.SimulationManager.importSimulations(data, true);
+                    
+                    let message = `✅ Nhập thành công ${result.imported} thí nghiệm`;
+                    if (result.skipped > 0) {
+                        message += `, bỏ qua ${result.skipped} thí nghiệm đã tồn tại`;
+                    }
+                    if (result.errors.length > 0) {
+                        message += `, ${result.errors.length} lỗi`;
+                    }
+                    
+                    showMessage(message, result.errors.length > 0 ? 'warning' : 'success');
+                    refreshCustomSimulations();
+                    updateStatistics();
+                    
+                } catch (error) {
+                    console.error('Import error:', error);
+                    showMessage('❌ Có lỗi xảy ra khi nhập dữ liệu: ' + error.message, 'error');
+                }
+            }
+
+            // Expose functions globally for onclick handlers
+            window.switchTab = (tabName) => {
+                // Wrapper to handle async function in onclick
+                switchTab(tabName).catch(error => {
+                    console.error('Error switching tab:', error);
+                });
+            };
+            window.toggleAddForm = toggleAddForm;
+            window.showAddForm = showAddForm;
+            window.hideAddForm = hideAddForm;
+            window.cancelAddForm = cancelAddForm;
+            window.validatePhETURL = validatePhETURL;
+            window.previewSimulation = previewSimulation;
+            window.addTag = addTag;
+            window.removeTag = removeTag;
+            window.toggleCollection = toggleCollection;
+            window.addCustomSimulation = addCustomSimulation;
+            window.refreshCustomSimulations = refreshCustomSimulations;
+            window.exportCustomSimulations = exportCustomSimulations;
+            window.showImportDialog = showImportDialog;
+            
+            // Debug helpers
+            window.debugManagers = () => {
+                console.log('=== MANAGER DEBUG ===');
+                console.log('SimulationManager:', window.SimulationManager);
+                console.log('CollectionManager:', window.CollectionManager);
+                if (window.SimulationManager) {
+                    console.log('SimulationManager.isReady:', typeof window.SimulationManager.isReady);
+                    if (typeof window.SimulationManager.isReady === 'function') {
+                        console.log('SimulationManager ready status:', window.SimulationManager.isReady());
+                    }
+                }
+                if (window.CollectionManager) {
+                    console.log('CollectionManager.isReady:', typeof window.CollectionManager.isReady);
+                    if (typeof window.CollectionManager.isReady === 'function') {
+                        console.log('CollectionManager ready status:', window.CollectionManager.isReady());
+                    }
+                }
+                console.log('====================');
+            };
+            
+            window.forceInitManagers = async () => {
+                console.log('Force initializing managers...');
+                await initializeSimulationManagement();
+            };
+            
+            window.manualInitManagers = async () => {
+                console.log('Manual manager initialization...');
+                
+                // Fix: Create instances from the classes
+                if (window.SimulationManager && typeof window.SimulationManager === 'function') {
+                    try {
+                        console.log('Creating SimulationManager instance...');
+                        console.log('SimulationManager before:', window.SimulationManager);
+                        const manager = new window.SimulationManager();
+                        console.log('Created manager instance:', manager);
+                        await manager.initialize();
+                        console.log('Manager initialized, isReady:', manager.isReady());
+                        window.SimulationManager = manager; // Replace class with instance
+                        console.log('✅ SimulationManager instance created and initialized');
+                        console.log('SimulationManager after:', window.SimulationManager);
+                    } catch (error) {
+                        console.error('❌ SimulationManager initialization failed:', error);
+                        console.error('Error details:', error.stack);
+                    }
+                }
+                
+                if (window.CollectionManager && typeof window.CollectionManager === 'function') {
+                    try {
+                        console.log('Creating CollectionManager instance...');
+                        console.log('CollectionManager before:', window.CollectionManager);
+                        const manager = new window.CollectionManager();
+                        console.log('Created manager instance:', manager);
+                        await manager.initialize();
+                        console.log('Manager initialized, isReady:', manager.isReady());
+                        window.CollectionManager = manager; // Replace class with instance
+                        console.log('✅ CollectionManager instance created and initialized');
+                        console.log('CollectionManager after:', window.CollectionManager);
+                    } catch (error) {
+                        console.error('❌ CollectionManager initialization failed:', error);
+                        console.error('Error details:', error.stack);
+                    }
+                }
+                
+                console.log('Manual initialization complete');
+                checkScripts();
+            };
+            
+            window.checkScripts = () => {
+                console.log('=== SCRIPT STATUS ===');
+                console.log('SimulationManager in window:', !!window.SimulationManager);
+                console.log('CollectionManager in window:', !!window.CollectionManager);
+                console.log('URLValidator in window:', !!window.URLValidator);
+                
+                if (window.SimulationManager) {
+                    console.log('SimulationManager type:', typeof window.SimulationManager);
+                    console.log('SimulationManager.isReady:', typeof window.SimulationManager.isReady);
+                    if (typeof window.SimulationManager.isReady === 'function') {
+                        console.log('SimulationManager ready status:', window.SimulationManager.isReady());
+                    }
+                    console.log('SimulationManager methods:', Object.keys(window.SimulationManager));
+                }
+                
+                if (window.CollectionManager) {
+                    console.log('CollectionManager type:', typeof window.CollectionManager);
+                    console.log('CollectionManager.isReady:', typeof window.CollectionManager.isReady);
+                    if (typeof window.CollectionManager.isReady === 'function') {
+                        console.log('CollectionManager ready status:', window.CollectionManager.isReady());
+                    }
+                    console.log('CollectionManager methods:', Object.keys(window.CollectionManager));
+                }
+                
+                console.log('====================');
+            };
+            
+            // Create working test managers for immediate use
+            window.createTestManagers = () => {
+                console.log('Creating test managers...');
+                
+                window.SimulationManager = {
+                    isReady: () => true,
+                    addSimulation: async (data) => {
+                        console.log('Test: Adding simulation:', data);
+                        
+                        // Save to localStorage
+                        const stored = JSON.parse(localStorage.getItem('edulab_test_simulations') || '[]');
+                        const newSim = {
+                            ...data,
+                            id: 'test-' + Date.now(),
+                            addedDate: new Date().toISOString(),
+                            isCustom: true
+                        };
+                        stored.push(newSim);
+                        localStorage.setItem('edulab_test_simulations', JSON.stringify(stored));
+                        
+                        console.log('✅ Simulation saved to localStorage');
+                        return newSim;
+                    },
+                    getCustomSimulations: () => {
+                        return JSON.parse(localStorage.getItem('edulab_test_simulations') || '[]');
+                    },
+                    getStatistics: () => {
+                        const sims = JSON.parse(localStorage.getItem('edulab_test_simulations') || '[]');
+                        return {
+                            total: sims.length,
+                            recentlyAdded: sims.filter(s => {
+                                const added = new Date(s.addedDate);
+                                const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+                                return added > weekAgo;
+                            }).length,
+                            totalAccess: 0
+                        };
+                    },
+                    exportSimulations: () => {
+                        const sims = JSON.parse(localStorage.getItem('edulab_test_simulations') || '[]');
+                        return {
+                            version: '1.0',
+                            exportDate: new Date().toISOString(),
+                            simulations: sims
+                        };
+                    }
+                };
+                
+                window.CollectionManager = {
+                    isReady: () => true,
+                    getCollections: () => [
+                        { id: 'default-physics', name: 'Vật lý', icon: '🔬', description: 'Thí nghiệm Vật lý' },
+                        { id: 'default-chemistry', name: 'Hóa học', icon: '🧪', description: 'Thí nghiệm Hóa học' },
+                        { id: 'default-biology', name: 'Sinh học', icon: '🌱', description: 'Thí nghiệm Sinh học' },
+                        { id: 'default-mathematics', name: 'Toán học', icon: '📊', description: 'Thí nghiệm Toán học' }
+                    ],
+                    getStatistics: () => ({ total: 4 })
+                };
+                
+                console.log('✅ Test managers created and ready!');
+                checkScripts();
+            };
+
+            // Auto-check scripts status after a delay
+            setTimeout(() => {
+                console.log('🔍 Auto-checking scripts after 2 seconds...');
+                if (window.checkScripts) window.checkScripts();
+            }, 2000);
+
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initializeTeacherTools);
+            } else {
+                initializeTeacherTools();
+            }
+
+        })();
+    </script>
+
+</body>
+</html>

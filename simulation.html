@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang xem thí nghiệm PhET Interactive Simulations của EduLab">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <title>Thí nghiệm - EduLab</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/simulation-embed.css">
+    <link rel="stylesheet" href="css/completion-status.css">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://phet.colorado.edu">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#simulation-content" class="skip-link">Chuyển đến thí nghiệm</a>
+    
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Điều hướng chính">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1 class="logo">
+                        <a href="index.html" style="color: inherit; text-decoration: none;">
+                            <span class="logo-icon" aria-hidden="true">🧪</span>
+                            EduLab
+                        </a>
+                    </h1>
+                    <p class="tagline">Thí nghiệm Ảo</p>
+                </div>
+                
+                <!-- Navigation menu -->
+                <ul class="nav-menu" role="menubar">
+                    <li role="none">
+                        <a href="index.html" class="nav-link" role="menuitem">← Về trang chủ</a>
+                    </li>
+                    <li role="none">
+                        <a href="browse.html" class="nav-link" role="menuitem">🔍 Thư viện</a>
+                    </li>
+                    <li role="none">
+                        <a href="teacher-login.html" class="nav-link" role="menuitem">👨‍🏫 Công cụ GV</a>
+                    </li>
+                    <li role="none">
+                        <a href="#help" class="nav-link" role="menuitem">Hướng dẫn</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main id="simulation-content" class="main" role="main">
+        <!-- Simulation section -->
+        <section class="simulation-section" style="padding: var(--spacing-xl) 0;">
+            <div class="container">
+                <!-- Simulation will be loaded here -->
+                <div id="simulation-container">
+                    <!-- Initial loading state -->
+                    <div class="initial-loading" style="text-align: center; padding: 4rem 2rem;">
+                        <div class="spinner" style="margin: 0 auto var(--spacing-lg);"></div>
+                        <h2>Đang tải thí nghiệm...</h2>
+                        <p style="color: var(--text-secondary);">Vui lòng đợi trong giây lát</p>
+                    </div>
+                </div>
+
+                <!-- Simulation details -->
+                <div id="simulation-details" class="simulation-details" style="margin-top: var(--spacing-2xl); display: none;">
+                    
+                    <!-- Completion tracking -->
+                    <div id="completion-section" class="completion-section" style="margin-bottom: var(--spacing-xl); text-align: center;">
+                        <button id="mark-completed-btn" class="completion-btn" onclick="markSimulationCompleted()" style="display: none;">
+                            ✓ Đánh dấu đã hoàn thành
+                        </button>
+                        <div id="completion-status" class="completion-status" style="display: none; color: var(--secondary-color); font-weight: var(--font-weight-medium);">
+                            ✅ Bạn đã hoàn thành thí nghiệm này
+                        </div>
+                    </div>
+                    
+                    <div class="details-grid" style="display: grid; gap: var(--spacing-xl); grid-template-columns: 1fr;">
+                        
+                        <!-- Learning objectives -->
+                        <div class="detail-section">
+                            <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">🎯 Mục tiêu học tập</h3>
+                            <ul id="learning-objectives" class="objectives-list" style="list-style: none; padding: 0;">
+                                <!-- Objectives will be populated by JavaScript -->
+                            </ul>
+                        </div>
+
+                        <!-- Instructions -->
+                        <div class="detail-section">
+                            <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">📋 Hướng dẫn sử dụng</h3>
+                            <div id="simulation-instructions" class="instructions-content">
+                                <!-- Instructions will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Vocabulary -->
+                        <div class="detail-section" id="vocabulary-section" style="display: none;">
+                            <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">📚 Từ vựng khoa học</h3>
+                            <div id="vocabulary-list" class="vocabulary-grid">
+                                <!-- Vocabulary will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Extensions -->
+                        <div class="detail-section" id="extensions-section" style="display: none;">
+                            <h3 style="color: var(--primary-color); margin-bottom: var(--spacing-md);">🚀 Hoạt động mở rộng</h3>
+                            <ul id="extensions-list" class="extensions-list">
+                                <!-- Extensions will be populated by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related simulations -->
+                <div id="related-simulations" class="related-section" style="margin-top: var(--spacing-3xl); display: none;">
+                    <h3 style="text-align: center; margin-bottom: var(--spacing-xl);">Thí nghiệm liên quan</h3>
+                    <div id="related-grid" class="subject-grid">
+                        <!-- Related simulations will be populated -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">EduLab</h3>
+                    <p class="footer-description">
+                        Nền tảng thí nghiệm ảo miễn phí cho giáo dục Việt Nam
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Liên kết hữu ích</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://phet.colorado.edu" target="_blank" rel="noopener">PhET Interactive Simulations</a></li>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="#help">Hướng dẫn</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-heading">Hỗ trợ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#feedback">Góp ý</a></li>
+                        <li><a href="#accessibility">Trợ năng</a></li>
+                        <li><a href="index.html#about">Giới thiệu</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 EduLab. Dự án mã nguồn mở vì giáo dục.</p>
+                <p>Được xây dựng với ❤️ cho giáo dục Việt Nam</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/data-manager.js"></script>
+    <script src="js/content-filter.js"></script>
+    <script src="js/phet-integration.js"></script>
+    <script src="js/simulation-loader.js"></script>
+    <script src="js/completion-tracker.js"></script>
+    <script src="js/progress-display.js"></script>
+    <script src="js/teacher-customization.js"></script>
+    <script src="js/instruction-editor.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Simulation page specific script -->
+    <script>
+        (function() {
+            'use strict';
+
+            let currentSimulation = null;
+
+            // Initialize simulation page
+            document.addEventListener('DOMContentLoaded', function() {
+                initializeSimulationPage();
+            });
+
+            async function initializeSimulationPage() {
+                try {
+                    // Get simulation ID from URL parameters
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const simulationId = urlParams.get('id');
+
+                    if (!simulationId) {
+                        showError('Không tìm thấy ID thí nghiệm trong URL');
+                        return;
+                    }
+
+                    console.log('Loading simulation with ID:', simulationId);
+
+                    // Wait for dependencies
+                    await waitForDependencies();
+
+                    // Load simulation data
+                    currentSimulation = await window.DataManager.getSimulationById(simulationId);
+                    
+                    if (!currentSimulation) {
+                        showError('Không tìm thấy thí nghiệm với ID: ' + simulationId);
+                        return;
+                    }
+
+                    // Update page title
+                    document.title = `${currentSimulation.title} - EduLab`;
+
+                    // Mark simulation as accessed
+                    if (window.CompletionTracker) {
+                        window.CompletionTracker.markAccessed(simulationId, {
+                            title: currentSimulation.title,
+                            subject: currentSimulation.subject,
+                            gradeLevel: currentSimulation.gradeLevel
+                        });
+                    }
+
+                    // Load simulation iframe
+                    await loadSimulationEmbed();
+
+                    // Populate simulation details
+                    populateSimulationDetails();
+
+                    // Load teacher customizations if available
+                    loadTeacherCustomizations();
+
+                    // Load related simulations
+                    loadRelatedSimulations();
+
+                    // Smart preload
+                    if (window.SimulationLoader && typeof window.SimulationLoader.smartPreload === 'function') {
+                        try {
+                            await window.SimulationLoader.smartPreload(simulationId);
+                        } catch (error) {
+                            console.warn('Smart preload failed:', error);
+                        }
+                    }
+
+                } catch (error) {
+                    console.error('Failed to initialize simulation page:', error);
+                    showError('Có lỗi xảy ra khi tải trang thí nghiệm: ' + error.message);
+                }
+            }
+
+            async function waitForDependencies() {
+                return new Promise((resolve, reject) => {
+                    let attempts = 0;
+                    const maxAttempts = 100;
+                    
+                    const checkDependencies = () => {
+                        if (window.DataManager && 
+                            window.PhETIntegration && 
+                            window.SimulationLoader &&
+                            typeof window.SimulationLoader.loadSimulation === 'function') {
+                            resolve();
+                            return;
+                        }
+                        
+                        attempts++;
+                        if (attempts >= maxAttempts) {
+                            reject(new Error('Required dependencies not loaded after timeout'));
+                            return;
+                        }
+                        
+                        setTimeout(checkDependencies, 100);
+                    };
+                    
+                    // Also listen for the SimulationLoaderReady event
+                    const onLoaderReady = () => {
+                        if (window.DataManager && window.PhETIntegration) {
+                            window.removeEventListener('SimulationLoaderReady', onLoaderReady);
+                            resolve();
+                        }
+                    };
+                    
+                    window.addEventListener('SimulationLoaderReady', onLoaderReady);
+                    
+                    // Start checking immediately
+                    checkDependencies();
+                });
+            }
+
+            async function loadSimulationEmbed() {
+                const container = document.getElementById('simulation-container');
+                const initialLoading = container.querySelector('.initial-loading');
+
+                try {
+                    // Hide initial loading
+                    if (initialLoading) {
+                        initialLoading.style.display = 'none';
+                    }
+
+                    // Load simulation - try SimulationLoader first, fallback to PhETIntegration
+                    if (window.SimulationLoader && typeof window.SimulationLoader.loadSimulation === 'function') {
+                        await window.SimulationLoader.loadSimulation(
+                            currentSimulation.id,
+                            container,
+                            {
+                                showHeader: true,
+                                showControls: true,
+                                showLoadingMessage: false
+                            }
+                        );
+                    } else if (window.PhETIntegration) {
+                        // Fallback to direct PhET integration
+                        await window.PhETIntegration.embedSimulation(
+                            container,
+                            currentSimulation,
+                            {
+                                showHeader: true,
+                                showControls: true
+                            }
+                        );
+                    } else {
+                        throw new Error('Không tìm thấy công cụ tải thí nghiệm');
+                    }
+
+                } catch (error) {
+                    console.error('Failed to load simulation embed:', error);
+                    
+                    // Show error in container
+                    container.innerHTML = `
+                        <div style="text-align: center; padding: 4rem 2rem; border: 2px dashed #ccc; border-radius: 8px;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                            <h3 style="margin-bottom: 1rem;">Không thể tải thí nghiệm</h3>
+                            <p style="margin-bottom: 1.5rem; color: #666;">
+                                ${error.message}
+                            </p>
+                            <a href="${currentSimulation.phetUrl}" target="_blank" 
+                               style="display: inline-block; padding: 12px 24px; background: #1a73e8; color: white; text-decoration: none; border-radius: 6px;">
+                                Mở thí nghiệm trực tiếp
+                            </a>
+                        </div>
+                    `;
+                }
+            }
+
+            function populateSimulationDetails() {
+                const detailsContainer = document.getElementById('simulation-details');
+                
+                // Learning objectives
+                const objectivesList = document.getElementById('learning-objectives');
+                if (currentSimulation.learningObjectives) {
+                    objectivesList.innerHTML = currentSimulation.learningObjectives.map(objective => 
+                        `<li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray-200);">
+                            <span style="color: var(--primary-color); margin-right: var(--spacing-sm);">✓</span>
+                            ${objective}
+                        </li>`
+                    ).join('');
+                }
+
+                // Instructions
+                const instructionsContent = document.getElementById('simulation-instructions');
+                if (currentSimulation.instructions) {
+                    instructionsContent.innerHTML = `<p>${currentSimulation.instructions}</p>`;
+                }
+
+                // Vocabulary
+                if (currentSimulation.vocabulary && currentSimulation.vocabulary.length > 0) {
+                    const vocabularySection = document.getElementById('vocabulary-section');
+                    const vocabularyList = document.getElementById('vocabulary-list');
+                    
+                    vocabularyList.innerHTML = currentSimulation.vocabulary.map(vocab => 
+                        `<div style="padding: var(--spacing-md); background: var(--gray-50); border-radius: var(--radius-md); margin-bottom: var(--spacing-sm);">
+                            <strong style="color: var(--primary-color);">${vocab.term}</strong>
+                            <p style="margin: var(--spacing-xs) 0 0; color: var(--text-secondary);">${vocab.definition}</p>
+                        </div>`
+                    ).join('');
+                    
+                    vocabularySection.style.display = 'block';
+                }
+
+                // Extensions
+                if (currentSimulation.extensions && currentSimulation.extensions.length > 0) {
+                    const extensionsSection = document.getElementById('extensions-section');
+                    const extensionsList = document.getElementById('extensions-list');
+                    
+                    extensionsList.innerHTML = currentSimulation.extensions.map(extension => 
+                        `<li style="padding: var(--spacing-sm) 0; border-bottom: 1px solid var(--gray-200);">
+                            <span style="color: var(--secondary-color); margin-right: var(--spacing-sm);">→</span>
+                            ${extension}
+                        </li>`
+                    ).join('');
+                    
+                    extensionsSection.style.display = 'block';
+                }
+
+                // Show details
+                detailsContainer.style.display = 'block';
+                
+                // Update completion status
+                updateCompletionStatus();
+            }
+
+            function updateCompletionStatus() {
+                if (!window.CompletionTracker || !currentSimulation) return;
+
+                const isCompleted = window.CompletionTracker.isCompleted(currentSimulation.id);
+                const markButton = document.getElementById('mark-completed-btn');
+                const statusDiv = document.getElementById('completion-status');
+
+                if (isCompleted) {
+                    markButton.style.display = 'none';
+                    statusDiv.style.display = 'block';
+                } else {
+                    markButton.style.display = 'inline-block';
+                    statusDiv.style.display = 'none';
+                }
+            }
+
+            // Global function for completion button
+            window.markSimulationCompleted = function() {
+                if (!window.CompletionTracker || !currentSimulation) return;
+
+                const success = window.CompletionTracker.markCompleted(currentSimulation.id, {
+                    title: currentSimulation.title,
+                    subject: currentSimulation.subject,
+                    gradeLevel: currentSimulation.gradeLevel,
+                    difficulty: currentSimulation.difficulty
+                });
+
+                if (success) {
+                    updateCompletionStatus();
+                    
+                    // Show celebration
+                    if (window.ProgressDisplay) {
+                        window.ProgressDisplay.showCompletionCelebration(
+                            currentSimulation.id,
+                            currentSimulation.title
+                        );
+                    }
+                }
+            }
+
+            function loadTeacherCustomizations() {
+                if (!window.TeacherCustomization || !currentSimulation) return;
+
+                const customization = window.TeacherCustomization.getDisplayContent(currentSimulation.id);
+                
+                if (customization.hasCustomObjectives || customization.hasCustomInstructions) {
+                    insertCustomContent(customization);
+                }
+            }
+
+            function insertCustomContent(customization) {
+                const detailsContainer = document.getElementById('simulation-details');
+                if (!detailsContainer) return;
+
+                // Find the learning objectives section
+                const objectivesSection = detailsContainer.querySelector('.detail-section');
+                
+                if (customization.hasCustomObjectives && objectivesSection) {
+                    // Insert custom objectives before the default ones
+                    const customObjectivesSection = document.createElement('div');
+                    customObjectivesSection.className = 'detail-section teacher-custom-section';
+                    customObjectivesSection.innerHTML = `
+                        <div class="custom-content-header">
+                            <h3 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">
+                                👨‍🏫 Mục tiêu học tập (Tùy chỉnh của giáo viên)
+                            </h3>
+                        </div>
+                        <div class="custom-content-body">
+                            ${window.InstructionEditor ? window.InstructionEditor.markdownToHTML(customization.objectives) : customization.objectives}
+                        </div>
+                    `;
+                    
+                    objectivesSection.parentNode.insertBefore(customObjectivesSection, objectivesSection);
+                }
+
+                if (customization.hasCustomInstructions) {
+                    // Insert custom instructions section
+                    const customInstructionsSection = document.createElement('div');
+                    customInstructionsSection.className = 'detail-section teacher-custom-section';
+                    customInstructionsSection.innerHTML = `
+                        <div class="custom-content-header">
+                            <h3 style="color: var(--secondary-color); margin-bottom: var(--spacing-md);">
+                                📝 Hướng dẫn thực hiện (Tùy chỉnh của giáo viên)
+                            </h3>
+                        </div>
+                        <div class="custom-content-body">
+                            ${window.InstructionEditor ? window.InstructionEditor.markdownToHTML(customization.instructions) : customization.instructions}
+                        </div>
+                    `;
+
+                    // Insert after completion section
+                    const completionSection = document.getElementById('completion-section');
+                    if (completionSection && completionSection.parentNode) {
+                        completionSection.parentNode.insertBefore(customInstructionsSection, completionSection.nextSibling);
+                    } else {
+                        detailsContainer.insertBefore(customInstructionsSection, detailsContainer.firstChild);
+                    }
+                }
+
+                // Add teacher edit link if on teacher tools page
+                addTeacherEditLink();
+            }
+
+            function addTeacherEditLink() {
+                if (!currentSimulation) return;
+
+                // Check if we're viewing from teacher tools (or add a flag)
+                const teacherEditSection = document.createElement('div');
+                teacherEditSection.className = 'teacher-edit-section';
+                teacherEditSection.style.cssText = `
+                    text-align: center;
+                    margin: var(--spacing-xl) 0;
+                    padding: var(--spacing-md);
+                    background: rgba(72, 187, 120, 0.1);
+                    border-radius: var(--radius-md);
+                    border: 1px solid rgba(72, 187, 120, 0.3);
+                `;
+                
+                teacherEditSection.innerHTML = `
+                    <p style="margin-bottom: var(--spacing-sm); color: var(--text-secondary);">
+                        Bạn là giáo viên? Tùy chỉnh nội dung này
+                    </p>
+                    <a href="teacher-login.html" class="teacher-edit-link" 
+                       style="color: var(--secondary-color); font-weight: var(--font-weight-medium); text-decoration: underline;">
+                        👨‍🏫 Mở công cụ giáo viên
+                    </a>
+                `;
+
+                const detailsContainer = document.getElementById('simulation-details');
+                if (detailsContainer) {
+                    detailsContainer.appendChild(teacherEditSection);
+                }
+            }
+
+            async function loadRelatedSimulations() {
+                try {
+                    // Get related simulations by subject
+                    const relatedSims = await window.DataManager.getSimulationsBySubject(currentSimulation.subject);
+                    const filtered = relatedSims.filter(sim => sim.id !== currentSimulation.id).slice(0, 3);
+
+                    if (filtered.length === 0) return;
+
+                    const relatedSection = document.getElementById('related-simulations');
+                    const relatedGrid = document.getElementById('related-grid');
+
+                    relatedGrid.innerHTML = filtered.map(sim => `
+                        <article class="subject-card" tabindex="0">
+                            <div class="subject-icon" aria-hidden="true">${getSubjectIcon(sim.subject)}</div>
+                            <h3 class="subject-title">${sim.title}</h3>
+                            <p class="subject-description">${sim.description}</p>
+                            <a href="simulation.html?id=${sim.id}" class="subject-link" aria-label="Xem thí nghiệm ${sim.title}">
+                                Xem thí nghiệm <span aria-hidden="true">→</span>
+                            </a>
+                        </article>
+                    `).join('');
+
+                    relatedSection.style.display = 'block';
+
+                } catch (error) {
+                    console.warn('Failed to load related simulations:', error);
+                }
+            }
+
+            function getSubjectIcon(subject) {
+                const icons = {
+                    physics: '⚛️',
+                    chemistry: '🧪',
+                    biology: '🔬',
+                    mathematics: '📊'
+                };
+                return icons[subject] || '🧪';
+            }
+
+            function showError(message) {
+                const container = document.getElementById('simulation-container');
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 4rem 2rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">❌</div>
+                        <h2 style="color: var(--accent-color); margin-bottom: 1rem;">Lỗi</h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">${message}</p>
+                        <a href="index.html" style="display: inline-block; padding: 12px 24px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 6px;">
+                            ← Về trang chủ
+                        </a>
+                    </div>
+                `;
+            }
+
+            // Add CSS for simulation details
+            const style = document.createElement('style');
+            style.textContent = `
+                .detail-section {
+                    background: var(--white);
+                    padding: var(--spacing-xl);
+                    border-radius: var(--radius-lg);
+                    box-shadow: var(--shadow-sm);
+                    border: 1px solid var(--gray-200);
+                }
+                
+                .objectives-list li:last-child,
+                .extensions-list li:last-child {
+                    border-bottom: none;
+                }
+                
+                @media (min-width: 768px) {
+                    .details-grid {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                    }
+                }
+                
+                @media (min-width: 1024px) {
+                    .details-grid {
+                        grid-template-columns: repeat(3, 1fr) !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+        })();
+    </script>
+</body>
+</html>

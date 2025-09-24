@@ -1,0 +1,92 @@
+{
+  "version": "1.0",
+  "exportDate": "2025-09-23T16:15:00.000Z",
+  "simulations": [
+    {
+      "title": "Mạch điện cơ bản (PhET Tiếng Việt)",
+      "description": "Thí nghiệm mô phỏng về dòng điện, điện áp và điện trở trong mạch điện đơn giản. Học sinh có thể xây dựng và thử nghiệm các loại mạch khác nhau.",
+      "phetUrl": "https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_vi.html",
+      "subject": "physics",
+      "gradeLevel": [8, 9, 10],
+      "difficulty": "intermediate",
+      "duration": 45,
+      "topics": ["Điện học", "Mạch điện", "Dòng điện", "Điện áp", "Điện trở"],
+      "learningObjectives": "- Hiểu được khái niệm về dòng điện, điện áp và điện trở\n- Xây dựng được các mạch điện cơ bản\n- Đo và tính toán được các đại lượng điện trong mạch\n- Áp dụng định luật Ohm trong thực tế",
+      "tags": ["điện", "mạch", "dòng điện", "điện áp", "ohm", "điện trở"],
+      "collections": ["default-physics"],
+      "thumbnailUrl": "",
+      "isCustom": true
+    },
+    {
+      "title": "Cân bằng hóa học nâng cao",
+      "description": "Mô phỏng các phản ứng hóa học phức tạp và học cách cân bằng phương trình hóa học một cách trực quan và dễ hiểu.",
+      "phetUrl": "https://phet.colorado.edu/sims/html/balancing-chemical-equations/latest/balancing-chemical-equations_vi.html",
+      "subject": "chemistry",
+      "gradeLevel": [10, 11, 12],
+      "difficulty": "advanced",
+      "duration": 40,
+      "topics": ["Phương trình hóa học", "Cân bằng phản ứng", "Hóa học vô cơ", "Mol"],
+      "learningObjectives": "- Hiểu nguyên tắc bảo toàn khối lượng trong phản ứng hóa học\n- Cân bằng được các phương trình hóa học phức tạp\n- Nhận biết được các loại phản ứng hóa học\n- Tính toán được số mol và khối lượng chất tham gia phản ứng",
+      "tags": ["hóa học", "phương trình", "cân bằng", "phản ứng", "mol"],
+      "collections": ["default-chemistry"],
+      "thumbnailUrl": "",
+      "isCustom": true
+    },
+    {
+      "title": "Chuyển động parabol trong thể thao",
+      "description": "Phân tích chuyển động ném xiên qua các ví dụ thực tế như bóng rổ, bóng đá và bóng chuyền. Hiểu rõ các yếu tố ảnh hưởng đến quỹ đạo.",
+      "phetUrl": "https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_vi.html",
+      "subject": "physics",
+      "gradeLevel": [11, 12],
+      "difficulty": "advanced",
+      "duration": 50,
+      "topics": ["Chuyển động ném xiên", "Quỹ đạo parabol", "Vận tốc", "Gia tốc", "Lực"],
+      "learningObjectives": "- Hiểu được bản chất của chuyển động ném xiên\n- Phân tích được các thành phần vận tốc theo phương ngang và thẳng đứng\n- Tính toán được tầm xa, tầm cao và thời gian bay của vật\n- Ứng dụng vào các môn thể thao thực tế",
+      "tags": ["chuyển động", "ném xiên", "parabol", "vật lý", "thể thao"],
+      "collections": ["default-physics"],
+      "thumbnailUrl": "",
+      "isCustom": true
+    },
+    {
+      "title": "Hình học không gian với tọa độ",
+      "description": "Khám phá thế giới hình học 3D thông qua hệ tọa độ không gian. Tìm hiểu về khoảng cách, góc và các phép biến đổi hình học.",
+      "phetUrl": "https://phet.colorado.edu/sims/html/graphing-lines/latest/graphing-lines_vi.html",
+      "subject": "mathematics",
+      "gradeLevel": [11, 12],
+      "difficulty": "intermediate",
+      "duration": 35,
+      "topics": ["Hình học không gian", "Tọa độ", "Đường thẳng", "Mặt phẳng", "Vector"],
+      "learningObjectives": "- Hiểu được hệ tọa độ trong không gian 3D\n- Vẽ và phân tích được đường thẳng và mặt phẳng\n- Tính toán khoảng cách và góc trong không gian\n- Giải quyết các bài toán hình học không gian",
+      "tags": ["toán học", "hình học", "tọa độ", "3D", "vector"],
+      "collections": ["default-mathematics"],
+      "thumbnailUrl": "",
+      "isCustom": true
+    },
+    {
+      "title": "Quang học và ánh sáng",
+      "description": "Tìm hiểu về tính chất của ánh sáng, sự khúc xạ, phản xạ và các hiện tượng quang học thú vị qua thí nghiệm tương tác.",
+      "phetUrl": "https://phet.colorado.edu/sims/html/bending-light/latest/bending-light_vi.html",
+      "subject": "physics",
+      "gradeLevel": [10, 11],
+      "difficulty": "intermediate",
+      "duration": 40,
+      "topics": ["Quang học", "Ánh sáng", "Khúc xạ", "Phản xạ", "Tán xạ"],
+      "learningObjectives": "- Hiểu được bản chất sóng của ánh sáng\n- Giải thích được hiện tượng khúc xạ và phản xạ\n- Tính toán góc tới và góc khúc xạ\n- Ứng dụng trong thấu kính và gương",
+      "tags": ["quang học", "ánh sáng", "khúc xạ", "phản xạ", "sóng"],
+      "collections": ["default-physics"],
+      "thumbnailUrl": "",
+      "isCustom": true
+    }
+  ],
+  "statistics": {
+    "total": 5,
+    "bySubject": {
+      "physics": 3,
+      "chemistry": 1,
+      "mathematics": 1
+    },
+    "recentlyAdded": 5,
+    "totalAccess": 0
+  }
+}
+

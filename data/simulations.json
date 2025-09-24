@@ -1,0 +1,653 @@
+{
+  "simulations": [
+    {
+      "id": "forces-and-motion-basics",
+      "title": "Lực và Chuyển động Cơ bản",
+      "description": "Khám phá mối quan hệ giữa lực và chuyển động thông qua thí nghiệm kéo thùng và người trượt băng.",
+      "subject": "chemistry",
+      "gradeLevel": "6-8",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics-600.png",
+      "duration": "20-30 phút",
+      "topics": ["Cơ học cơ bản", "Lực", "Chuyển động"],
+      "tags": ["interactive", "experiment", "visual"],
+      "learningObjectives": [
+        "Hiểu về khái niệm lực và ảnh hưởng của nó đến chuyển động",
+        "Quan sát mối quan hệ giữa lực tác dụng và gia tốc",
+        "Nhận biết các loại lực: lực kéo, lực ma sát, lực cân bằng"
+      ],
+      "prerequisites": [],
+      "instructions": "Bắt đầu với màn hình 'Net Force' để quan sát tác động của lực. Thử kéo thùng bằng những lực khác nhau và quan sát chuyển động.",
+      "vocabulary": [
+        {"term": "Lực", "definition": "Tác động làm thay đổi trạng thái chuyển động của vật"},
+        {"term": "Lực ma sát", "definition": "Lực cản trở chuyển động giữa hai bề mặt tiếp xúc"},
+        {"term": "Lực tổng hợp", "definition": "Tổng của tất cả các lực tác dụng lên vật"}
+      ],
+      "extensions": [
+        "Thí nghiệm với các bề mặt khác nhau để quan sát lực ma sát",
+        "So sánh chuyển động trên băng và trên đất"
+      ]
+    },
+    {
+      "id": "projectile-motion",
+      "title": "Chuyển động Ném xiên",
+      "description": "Tìm hiểu về chuyển động ném xiên và các yếu tố ảnh hưởng đến quỹ đạo của vật thể.",
+      "subject": "physics",
+      "gradeLevel": "9-10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion-600.png",
+      "duration": "25-35 phút",
+      "topics": ["Động lực học", "Chuyển động ném xiên", "Gia tốc trọng trường"],
+      "tags": ["simulation", "calculation", "graph"],
+      "learningObjectives": [
+        "Phân tích chuyển động ném xiên theo hai thành phần ngang và dọc",
+        "Hiểu về ảnh hưởng của góc ném và vận tốc ban đầu",
+        "Vẽ và phân tích đồ thị quỹ đạo chuyển động"
+      ],
+      "prerequisites": ["Hiểu biết cơ bản về vector và gia tốc"],
+      "instructions": "Thử nghiệm với các góc ném khác nhau (30°, 45°, 60°) và quan sát sự thay đổi quỹ đạo. Sử dụng công cụ đo để ghi nhận tầm xa và thời gian bay.",
+      "vocabulary": [
+        {"term": "Quỹ đạo", "definition": "Đường mà vật thể di chuyển trong không gian"},
+        {"term": "Tầm xa", "definition": "Khoảng cách theo phương ngang mà vật đi được"},
+        {"term": "Góc ném", "definition": "Góc giữa phương ném và phương ngang"}
+      ],
+      "extensions": [
+        "So sánh quỹ đạo trong môi trường có và không có sức cản không khí",
+        "Tính toán tối ưu hóa tầm xa"
+      ]
+    },
+    {
+      "id": "wave-on-string",
+      "title": "Sóng trên Dây",
+      "description": "Quan sát và điều khiển sóng truyền trên dây để hiểu về tính chất sóng.",
+      "subject": "physics",
+      "gradeLevel": "9-10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/wave-on-a-string/latest/wave-on-a-string-600.png",
+      "duration": "20-30 phút",
+      "topics": ["Sóng và dao động", "Tần số", "Biên độ"],
+      "tags": ["interactive", "visual", "measurement"],
+      "learningObjectives": [
+        "Hiểu về các đặc trưng của sóng: biên độ, tần số, bước sóng",
+        "Quan sát mối quan hệ giữa tần số và bước sóng",
+        "Tìm hiểu về phản xạ sóng tại biên"
+      ],
+      "prerequisites": ["Khái niệm cơ bản về dao động"],
+      "instructions": "Bắt đầu với chế độ 'Manual' để tạo xung sóng. Sau đó chuyển sang 'Oscillate' để quan sát sóng liên tục.",
+      "vocabulary": [
+        {"term": "Biên độ", "definition": "Độ lệch lớn nhất của sóng so với vị trí cân bằng"},
+        {"term": "Tần số", "definition": "Số dao động trong một giây"},
+        {"term": "Bước sóng", "definition": "Khoảng cách giữa hai điểm cùng pha liên tiếp"}
+      ],
+      "extensions": [
+        "Thí nghiệm với độ căng dây khác nhau",
+        "Quan sát hiện tượng giao thoa sóng"
+      ]
+    },
+    {
+      "id": "pendulum-lab",
+      "title": "Thí nghiệm Con lắc",
+      "description": "Nghiên cứu chuyển động dao động của con lắc và các yếu tố ảnh hưởng đến chu kỳ.",
+      "subject": "physics",
+      "gradeLevel": "9-10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/pendulum-lab/latest/pendulum-lab_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/pendulum-lab/latest/pendulum-lab-600.png",
+      "duration": "25-35 phút",
+      "topics": ["Dao động", "Chu kỳ", "Tần số"],
+      "tags": ["experiment", "measurement", "graph"],
+      "learningObjectives": [
+        "Xác định các yếu tố ảnh hưởng đến chu kỳ con lắc",
+        "Đo và phân tích mối quan hệ giữa chiều dài và chu kỳ",
+        "Hiểu về bảo toàn năng lượng trong dao động"
+      ],
+      "prerequisites": ["Hiểu biết về lực hấp dẫn"],
+      "instructions": "Thay đổi chiều dài con lắc và đo chu kỳ dao động. Sử dụng đồng hồ bấm giờ để đo thời gian chính xác.",
+      "vocabulary": [
+        {"term": "Chu kỳ", "definition": "Thời gian để hoàn thành một dao động"},
+        {"term": "Con lắc đơn", "definition": "Vật nặng treo ở đầu sợi dây không giãn"},
+        {"term": "Biên độ dao động", "definition": "Góc lệch lớn nhất so với vị trí cân bằng"}
+      ],
+      "extensions": [
+        "So sánh con lắc trên các hành tinh khác nhau",
+        "Nghiên cứu con lắc vật lý"
+      ]
+    },
+    {
+      "id": "circuit-construction-kit",
+      "title": "Bộ Kit Xây dựng Mạch điện",
+      "description": "Thiết kế và thí nghiệm với các mạch điện một chiều để hiểu về dòng điện và điện áp.",
+      "subject": "physics",
+      "gradeLevel": "9-10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc-600.png",
+      "duration": "30-40 phút",
+      "topics": ["Điện học cơ bản", "Mạch điện", "Định luật Ohm"],
+      "tags": ["interactive", "experiment", "measurement"],
+      "learningObjectives": [
+        "Xây dựng và phân tích mạch điện đơn giản",
+        "Hiểu về mối quan hệ giữa điện áp, dòng điện và điện trở",
+        "Áp dụng định luật Ohm trong thực tế"
+      ],
+      "prerequisites": ["Khái niệm cơ bản về điện"],
+      "instructions": "Bắt đầu với mạch đơn giản gồm pin, điện trở và dây dẫn. Sử dụng đồng hồ vạn năng để đo điện áp và dòng điện.",
+      "vocabulary": [
+        {"term": "Dòng điện", "definition": "Dòng chuyển động có hướng của các electron"},
+        {"term": "Điện áp", "definition": "Hiệu điện thế giữa hai điểm trong mạch"},
+        {"term": "Điện trở", "definition": "Khả năng cản trở dòng điện của vật liệu"}
+      ],
+      "extensions": [
+        "Thí nghiệm với mạch song song và nối tiếp",
+        "Nghiên cứu công suất điện"
+      ]
+    },
+    {
+      "id": "energy-forms-changes",
+      "title": "Dạng Năng lượng và Chuyển hóa",
+      "description": "Khám phá các dạng năng lượng khác nhau và quá trình chuyển hóa giữa chúng.",
+      "subject": "physics",
+      "gradeLevel": "6-8",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/energy-forms-and-changes/latest/energy-forms-and-changes_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/energy-forms-and-changes/latest/energy-forms-and-changes-600.png",
+      "duration": "25-30 phút",
+      "topics": ["Năng lượng", "Bảo toàn năng lượng", "Chuyển hóa năng lượng"],
+      "tags": ["interactive", "visual", "observation"],
+      "learningObjectives": [
+        "Nhận biết các dạng năng lượng: cơ, nhiệt, điện, ánh sáng",
+        "Hiểu về định luật bảo toàn năng lượng",
+        "Quan sát quá trình chuyển hóa năng lượng trong các hệ thống"
+      ],
+      "prerequisites": [],
+      "instructions": "Thí nghiệm với các nguồn năng lượng khác nhau và quan sát cách chúng chuyển hóa qua lại.",
+      "vocabulary": [
+        {"term": "Năng lượng cơ", "definition": "Năng lượng liên quan đến chuyển động và vị trí"},
+        {"term": "Năng lượng nhiệt", "definition": "Năng lượng do chuyển động của các phân tử"},
+        {"term": "Bảo toàn năng lượng", "definition": "Năng lượng không thể tạo ra hay tiêu hủy"}
+      ],
+      "extensions": [
+        "Tính hiệu suất chuyển hóa năng lượng",
+        "Nghiên cứu năng lượng tái tạo"
+      ]
+    },
+    {
+      "id": "sound-waves",
+      "title": "Sóng Âm thanh",
+      "description": "Tìm hiểu về tính chất của sóng âm và cách âm thanh truyền trong các môi trường khác nhau.",
+      "subject": "physics",
+      "gradeLevel": "6-8",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/sound/latest/sound_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/sound/latest/sound-600.png",
+      "duration": "20-25 phút",
+      "topics": ["Âm thanh", "Sóng", "Tần số"],
+      "tags": ["interactive", "visual", "observation"],
+      "learningObjectives": [
+        "Hiểu về cách âm thanh được tạo ra và truyền đi",
+        "Quan sát mối quan hệ giữa tần số và cao độ âm",
+        "Tìm hiểu về sự khác biệt giữa âm và siêu âm"
+      ],
+      "prerequisites": [],
+      "instructions": "Điều chỉnh tần số và biên độ của loa để quan sát sự thay đổi trong sóng âm và âm thanh phát ra.",
+      "vocabulary": [
+        {"term": "Tần số", "definition": "Số dao động trong một giây, đo bằng Hz"},
+        {"term": "Biên độ", "definition": "Độ lệch lớn nhất, quyết định cường độ âm"},
+        {"term": "Cao độ", "definition": "Đặc tính âm thanh phụ thuộc vào tần số"}
+      ],
+      "extensions": [
+        "So sánh truyền âm trong không khí và nước",
+        "Nghiên cứu hiệu ứng Doppler"
+      ]
+    },
+    {
+      "id": "geometric-optics",
+      "title": "Quang học Hình học",
+      "description": "Nghiên cứu về sự truyền ánh sáng, phản xạ và khúc xạ qua thấu kính và gương.",
+      "subject": "physics",
+      "gradeLevel": "9-10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/geometric-optics/latest/geometric-optics_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/geometric-optics/latest/geometric-optics-600.png",
+      "duration": "30-35 phút",
+      "topics": ["Quang học", "Thấu kính", "Phản xạ"],
+      "tags": ["simulation", "visual", "measurement"],
+      "learningObjectives": [
+        "Hiểu về định luật phản xạ và khúc xạ ánh sáng",
+        "Nghiên cứu cách thấu kính tạo ảnh",
+        "Phân biệt ảnh thật và ảnh ảo"
+      ],
+      "prerequisites": ["Hiểu biết cơ bản về ánh sáng"],
+      "instructions": "Thí nghiệm với các loại thấu kính khác nhau và quan sát cách chúng làm hội tụ hoặc phân kỳ ánh sáng.",
+      "vocabulary": [
+        {"term": "Tiêu cự", "definition": "Khoảng cách từ thấu kính đến tiêu điểm"},
+        {"term": "Ảnh thật", "definition": "Ảnh có thể hứng được trên màn"},
+        {"term": "Ảnh ảo", "definition": "Ảnh chỉ có thể nhìn thấy qua thấu kính"}
+      ],
+      "extensions": [
+        "Nghiên cứu các khuyết tật của mắt",
+        "Tìm hiểu về kính hiển vi và kính thiên văn"
+      ]
+    },
+    {
+      "id": "balancing-act",
+      "title": "Cân bằng",
+      "description": "Khám phá nguyên lý cân bằng và moment lực thông qua trò chơi cân bằng.",
+      "subject": "physics",
+      "gradeLevel": "6-8",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act-600.png",
+      "duration": "20-25 phút",
+      "topics": ["Cân bằng", "Moment lực", "Đòn bẩy"],
+      "tags": ["interactive", "experiment", "visual"],
+      "learningObjectives": [
+        "Hiểu về điều kiện cân bằng của vật rắn",
+        "Tính toán moment lực",
+        "Áp dụng nguyên lý đòn bẩy"
+      ],
+      "prerequisites": [],
+      "instructions": "Đặt các vật có khối lượng khác nhau lên bàn cân và điều chỉnh vị trí để đạt cân bằng.",
+      "vocabulary": [
+        {"term": "Moment lực", "definition": "Tích của lực và cánh tay đòn"},
+        {"term": "Cánh tay đòn", "definition": "Khoảng cách từ điểm tựa đến điểm đặt lực"},
+        {"term": "Điểm tựa", "definition": "Điểm mà vật quay xung quanh"}
+      ],
+      "extensions": [
+        "Nghiên cứu các loại đòn bẩy trong đời sống",
+        "Tính toán lợi thế cơ học"
+      ]
+    },
+    {
+      "id": "density",
+      "title": "Khối lượng Riêng",
+      "description": "Tìm hiểu về khái niệm khối lượng riêng và cách nó ảnh hưởng đến việc vật nổi hay chìm.",
+      "subject": "physics",
+      "gradeLevel": "6-8",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/density/latest/density_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/density/latest/density-600.png",
+      "duration": "20-30 phút",
+      "topics": ["Khối lượng riêng", "Lực đẩy Archimedes", "Nổi chìm"],
+      "tags": ["experiment", "measurement", "interactive"],
+      "learningObjectives": [
+        "Hiểu về khái niệm khối lượng riêng",
+        "Dự đoán vật nổi hay chìm dựa trên khối lượng riêng",
+        "Đo lường khối lượng riêng của các vật liệu khác nhau"
+      ],
+      "prerequisites": [],
+      "instructions": "Thả các vật liệu khác nhau vào nước và quan sát. Sử dụng cân và thước đo để tính khối lượng riêng.",
+      "vocabulary": [
+        {"term": "Khối lượng riêng", "definition": "Khối lượng trên một đơn vị thể tích"},
+        {"term": "Lực đẩy Archimedes", "definition": "Lực đẩy của chất lỏng lên vật nhúng trong nó"},
+        {"term": "Thể tích", "definition": "Lượng không gian mà vật chiếm chỗ"}
+      ],
+      "extensions": [
+        "Nghiên cứu nguyên lý hoạt động của tàu ngầm",
+        "Tìm hiểu về hydrometer"
+      ]
+    },
+    {
+      "id": "friction",
+      "title": "Lực Ma sát",
+      "description": "Khám phá các loại lực ma sát và cách chúng ảnh hưởng đến chuyển động.",
+      "subject": "physics",
+      "gradeLevel": "6-8",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/friction/latest/friction_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/friction/latest/friction-600.png",
+      "duration": "25-30 phút",
+      "topics": ["Lực ma sát", "Bề mặt tiếp xúc", "Nhiệt"],
+      "tags": ["interactive", "experiment", "observation"],
+      "learningObjectives": [
+        "Phân biệt lực ma sát tĩnh và động",
+        "Hiểu về mối quan hệ giữa lực ma sát và bề mặt tiếp xúc",
+        "Quan sát sự chuyển hóa năng lượng cơ thành nhiệt"
+      ],
+      "prerequisites": [],
+      "instructions": "Kéo cuốn sách trên các bề mặt khác nhau và quan sát sự thay đổi lực ma sát và nhiệt độ.",
+      "vocabulary": [
+        {"term": "Ma sát tĩnh", "definition": "Lực ma sát khi vật đứng yên"},
+        {"term": "Ma sát động", "definition": "Lực ma sát khi vật đang chuyển động"},
+        {"term": "Hệ số ma sát", "definition": "Đại lượng đặc trưng cho độ nhám của bề mặt"}
+      ],
+      "extensions": [
+        "Nghiên cứu các cách giảm ma sát trong kỹ thuật",
+        "Tìm hiểu về vai trò tích cực của ma sát"
+      ]
+    },
+    {
+      "id": "states-of-matter",
+      "title": "Trạng thái Vật chất",
+      "description": "Tìm hiểu về ba trạng thái vật chất và sự chuyển đổi giữa chúng.",
+      "subject": "physics",
+      "gradeLevel": "6-8",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/states-of-matter/latest/states-of-matter_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/states-of-matter/latest/states-of-matter-600.png",
+      "duration": "20-25 phút",
+      "topics": ["Trạng thái vật chất", "Nhiệt độ", "Áp suất"],
+      "tags": ["interactive", "visual", "observation"],
+      "learningObjectives": [
+        "Nhận biết ba trạng thái cơ bản của vật chất",
+        "Hiểu về ảnh hưởng của nhiệt độ đến trạng thái vật chất",
+        "Quan sát chuyển động phân tử ở các trạng thái khác nhau"
+      ],
+      "prerequisites": [],
+      "instructions": "Điều chỉnh nhiệt độ và quan sát sự thay đổi trạng thái của các chất khác nhau.",
+      "vocabulary": [
+        {"term": "Rắn", "definition": "Trạng thái có hình dạng và thể tích xác định"},
+        {"term": "Lỏng", "definition": "Trạng thái có thể tích xác định nhưng hình dạng thay đổi"},
+        {"term": "Khí", "definition": "Trạng thái không có hình dạng và thể tích xác định"}
+      ],
+      "extensions": [
+        "Nghiên cứu trạng thái plasma",
+        "Tìm hiểu về điểm tam thể"
+      ]
+    },
+    {
+      "id": "build-an-atom",
+      "title": "Xây dựng Nguyên tử",
+      "description": "Khám phá cấu trúc nguyên tử bằng cách thêm proton, neutron và electron.",
+      "subject": "chemistry",
+      "gradeLevel": "8-9",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom-600.png",
+      "duration": "20-25 phút",
+      "topics": ["Nguyên tử và phân tử", "Cấu tạo nguyên tử"],
+      "tags": ["interactive", "visual", "experiment"],
+      "learningObjectives": [
+        "Hiểu cấu trúc cơ bản của nguyên tử: proton, neutron, electron",
+        "Phân biệt nguyên tử, ion và đồng vị",
+        "Nhận biết cách số proton ảnh hưởng đến nguyên tố"
+      ],
+      "prerequisites": [],
+      "instructions": "Thêm hoặc bớt proton, neutron, electron và quan sát sự thay đổi trong nguyên tử. Chuyển sang tab 'Symbol' để xem ký hiệu hóa học.",
+      "vocabulary": [
+        {"term": "Proton", "definition": "Hạt mang điện tích dương trong hạt nhân"},
+        {"term": "Neutron", "definition": "Hạt không mang điện tích trong hạt nhân"},
+        {"term": "Electron", "definition": "Hạt mang điện tích âm quay quanh hạt nhân"}
+      ],
+      "extensions": [
+        "Nghiên cứu về đồng vị bền và không bền",
+        "Tìm hiểu về số khối và số hiệu nguyên tử"
+      ]
+    },
+    {
+      "id": "balancing-chemical-equations",
+      "title": "Cân bằng Phương trình Hóa học",
+      "description": "Học cách cân bằng các phương trình hóa học thông qua mô phỏng tương tác.",
+      "subject": "chemistry",
+      "gradeLevel": "8-9",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/balancing-chemical-equations/latest/balancing-chemical-equations_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/balancing-chemical-equations/latest/balancing-chemical-equations-600.png",
+      "duration": "20-30 phút",
+      "topics": ["Phản ứng hóa học cơ bản"],
+      "tags": ["interactive", "experiment", "visual"],
+      "learningObjectives": [
+        "Hiểu về định luật bảo toàn khối lượng trong phản ứng hóa học",
+        "Cân bằng phương trình hóa học bằng cách điều chỉnh hệ số",
+        "Nhận biết số mol của chất tham gia và sản phẩm"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về công thức hóa học"],
+      "instructions": "Chọn một phương trình và điều chỉnh hệ số để số nguyên tử hai vế bằng nhau. Sử dụng công cụ 'Balance Scales' để kiểm tra.",
+      "vocabulary": [
+        {"term": "Phương trình hóa học", "definition": "Biểu diễn phản ứng hóa học bằng ký hiệu"},
+        {"term": "Hệ số", "definition": "Số đứng trước công thức hóa học để cân bằng"},
+        {"term": "Bảo toàn khối lượng", "definition": "Tổng khối lượng chất phản ứng bằng sản phẩm"}
+      ],
+      "extensions": [
+        "Thử cân bằng các phản ứng phức tạp hơn",
+        "Tìm hiểu về các loại phản ứng hóa học"
+      ]
+    },
+    {
+      "id": "ph-scale",
+      "title": "Thang pH",
+      "description": "Khám phá tính axit và bazơ của dung dịch thông qua thang pH.",
+      "subject": "chemistry",
+      "gradeLevel": "8-9",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/ph-scale/latest/ph-scale_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/ph-scale/latest/ph-scale-600.png",
+      "duration": "20-25 phút",
+      "topics": ["Axit và bazơ"],
+      "tags": ["interactive", "measurement", "visual"],
+      "learningObjectives": [
+        "Hiểu về thang pH và ý nghĩa của giá trị pH",
+        "Phân biệt dung dịch axit, bazơ và trung tính",
+        "Quan sát ảnh hưởng của nồng độ đến pH"
+      ],
+      "prerequisites": [],
+      "instructions": "Thử nghiệm với các dung dịch (nước, cà phê, axit dạ dày) và đo pH. Thay đổi nồng độ để quan sát sự thay đổi.",
+      "vocabulary": [
+        {"term": "pH", "definition": "Thang đo độ axit hoặc bazơ của dung dịch"},
+        {"term": "Axit", "definition": "Chất có pH nhỏ hơn 7"},
+        {"term": "Bazơ", "definition": "Chất có pH lớn hơn 7"}
+      ],
+      "extensions": [
+        "Nghiên cứu về dung dịch đệm",
+        "Tìm hiểu về chỉ thị pH trong thực tế"
+      ]
+    },
+    {
+      "id": "reactants-products-leftovers",
+      "title": "Chất Phản ứng, Sản phẩm và Dư",
+      "description": "Tìm hiểu về tỷ lệ chất phản ứng và sản phẩm trong phản ứng hóa học.",
+      "subject": "chemistry",
+      "gradeLevel": "8-9",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/reactants-products-and-leftovers/latest/reactants-products-and-leftovers_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/reactants-products-and-leftovers/latest/reactants-products-and-leftovers-600.png",
+      "duration": "20-30 phút",
+      "topics": ["Phản ứng hóa học cơ bản"],
+      "tags": ["interactive", "visual", "experiment"],
+      "learningObjectives": [
+        "Hiểu về tỷ lệ mol trong phản ứng hóa học",
+        "Nhận biết chất dư và chất giới hạn",
+        "Quan sát kết quả của các tỷ lệ phản ứng khác nhau"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về phương trình hóa học"],
+      "instructions": "Chọn một phản ứng và thay đổi số lượng chất phản ứng. Quan sát số sản phẩm và chất dư còn lại.",
+      "vocabulary": [
+        {"term": "Chất phản ứng", "definition": "Chất tham gia vào phản ứng hóa học"},
+        {"term": "Sản phẩm", "definition": "Chất được tạo ra từ phản ứng"},
+        {"term": "Chất giới hạn", "definition": "Chất hết trước, quyết định lượng sản phẩm"}
+      ],
+      "extensions": [
+        "Tính toán lượng sản phẩm tối đa",
+        "Nghiên cứu phản ứng hóa học trong công nghiệp"
+      ]
+    },
+    {
+      "id": "molecule-shapes",
+      "title": "Hình dạng Phân tử",
+      "description": "Khám phá hình dạng phân tử dựa trên liên kết hóa học và cặp electron.",
+      "subject": "chemistry",
+      "gradeLevel": "10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/molecule-shapes/latest/molecule-shapes_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/molecule-shapes/latest/molecule-shapes-600.png",
+      "duration": "25-35 phút",
+      "topics": ["Liên kết hóa học"],
+      "tags": ["interactive", "visual", "simulation"],
+      "learningObjectives": [
+        "Hiểu về lý thuyết VSEPR trong hình dạng phân tử",
+        "Phân biệt liên kết đơn, đôi, ba và cặp electron tự do",
+        "Dự đoán hình dạng phân tử như tuyến tính, tam giác, tứ diện"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về liên kết hóa học"],
+      "instructions": "Thêm hoặc bớt nguyên tử và cặp electron tự do. Quan sát sự thay đổi hình dạng trong tab 'Model' và 'Real Molecules'.",
+      "vocabulary": [
+        {"term": "Liên kết hóa học", "definition": "Lực giữ các nguyên tử trong phân tử"},
+        {"term": "VSEPR", "definition": "Lý thuyết đẩy nhau của các cặp electron lớp vỏ"},
+        {"term": "Hình dạng phân tử", "definition": "Cấu trúc không gian của phân tử"}
+      ],
+      "extensions": [
+        "So sánh hình dạng phân tử lý thuyết và thực tế",
+        "Nghiên cứu liên kết trong phân tử hữu cơ"
+      ]
+    },
+    {
+      "id": "states-of-matter-basics",
+      "title": "Trạng thái Vật chất Cơ bản",
+      "description": "Tìm hiểu các trạng thái vật chất và sự chuyển đổi giữa chúng.",
+      "subject": "chemistry",
+      "gradeLevel": "8-9",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics-600.png",
+      "duration": "20-25 phút",
+      "topics": ["Nguyên tử và phân tử", "Trạng thái vật chất"],
+      "tags": ["interactive", "visual", "observation"],
+      "learningObjectives": [
+        "Nhận biết ba trạng thái cơ bản: rắn, lỏng, khí",
+        "Hiểu ảnh hưởng của nhiệt độ đến trạng thái vật chất",
+        "Quan sát chuyển động phân tử ở các trạng thái"
+      ],
+      "prerequisites": [],
+      "instructions": "Điều chỉnh nhiệt độ và quan sát sự thay đổi trạng thái của các chất như nước hoặc neon.",
+      "vocabulary": [
+        {"term": "Rắn", "definition": "Trạng thái có hình dạng và thể tích xác định"},
+        {"term": "Lỏng", "definition": "Trạng thái có thể tích xác định nhưng hình dạng thay đổi"},
+        {"term": "Khí", "definition": "Trạng thái không có hình dạng và thể tích xác định"}
+      ],
+      "extensions": [
+        "Nghiên cứu điểm nóng chảy và sôi",
+        "Tìm hiểu về trạng thái plasma"
+      ]
+    },
+    {
+      "id": "acid-base-solutions",
+      "title": "Dung dịch Axit-Bazơ",
+      "description": "Nghiên cứu đặc tính của dung dịch axit và bazơ, bao gồm pH và độ dẫn điện.",
+      "subject": "chemistry",
+      "gradeLevel": "10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/acid-base-solutions/latest/acid-base-solutions_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/acid-base-solutions/latest/acid-base-solutions-600.png",
+      "duration": "25-35 phút",
+      "topics": ["Axit và bazơ"],
+      "tags": ["interactive", "measurement", "simulation"],
+      "learningObjectives": [
+        "Phân biệt axit mạnh, axit yếu, bazơ mạnh, bazơ yếu",
+        "Hiểu mối quan hệ giữa pH và nồng độ ion H⁺",
+        "Quan sát độ dẫn điện của dung dịch"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về pH"],
+      "instructions": "Chọn một dung dịch axit hoặc bazơ, thay đổi nồng độ và đo pH. Sử dụng công cụ dẫn điện để kiểm tra.",
+      "vocabulary": [
+        {"term": "Axit mạnh", "definition": "Axit phân ly hoàn toàn trong nước"},
+        {"term": "Bazơ yếu", "definition": "Bazơ phân ly một phần trong nước"},
+        {"term": "Độ dẫn điện", "definition": "Khả năng dẫn điện của dung dịch"}
+      ],
+      "extensions": [
+        "Nghiên cứu phản ứng trung hòa",
+        "Tìm hiểu về hằng số phân ly axit"
+      ]
+    },
+    {
+      "id": "isotopes-and-atomic-mass",
+      "title": "Đồng vị và Khối lượng Nguyên tử",
+      "description": "Khám phá đồng vị và cách tính khối lượng nguyên tử trung bình.",
+      "subject": "chemistry",
+      "gradeLevel": "10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/isotopes-and-atomic-mass/latest/isotopes-and-atomic-mass_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/isotopes-and-atomic-mass/latest/isotopes-and-atomic-mass-600.png",
+      "duration": "25-30 phút",
+      "topics": ["Cấu tạo nguyên tử"],
+      "tags": ["interactive", "calculation", "visual"],
+      "learningObjectives": [
+        "Hiểu khái niệm đồng vị và số khối",
+        "Tính khối lượng nguyên tử trung bình của nguyên tố",
+        "Quan sát tỷ lệ đồng vị trong tự nhiên"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về nguyên tử"],
+      "instructions": "Chọn một nguyên tố và thay đổi tỷ lệ đồng vị. Sử dụng tab 'Mixtures' để tính khối lượng trung bình.",
+      "vocabulary": [
+        {"term": "Đồng vị", "definition": "Nguyên tử có cùng số proton nhưng khác số neutron"},
+        {"term": "Số khối", "definition": "Tổng số proton và neutron trong hạt nhân"},
+        {"term": "Khối lượng nguyên tử", "definition": "Khối lượng trung bình của các đồng vị"}
+      ],
+      "extensions": [
+        "Nghiên cứu ứng dụng đồng vị trong y học",
+        "Tìm hiểu về phân rã phóng xạ"
+      ]
+    },
+    {
+      "id": "concentration",
+      "title": "Nồng độ Dung dịch",
+      "description": "Tìm hiểu về nồng độ mol và sự thay đổi khi pha loãng hoặc cô đặc dung dịch.",
+      "subject": "chemistry",
+      "gradeLevel": "10",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/concentration/latest/concentration_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/concentration/latest/concentration-600.png",
+      "duration": "25-30 phút",
+      "topics": ["Phản ứng hóa học cơ bản"],
+      "tags": ["interactive", "measurement", "visual"],
+      "learningObjectives": [
+        "Hiểu khái niệm nồng độ mol của dung dịch",
+        "Quan sát sự thay đổi nồng độ khi thêm nước hoặc cô đặc",
+        "Sử dụng công cụ đo để xác định nồng độ"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về mol"],
+      "instructions": "Chọn một dung dịch và thêm nước hoặc bốc hơi để thay đổi nồng độ. Sử dụng đồng hồ đo nồng độ để ghi nhận.",
+      "vocabulary": [
+        {"term": "Nồng độ mol", "definition": "Số mol chất tan trong 1 lít dung dịch"},
+        {"term": "Pha loãng", "definition": "Làm giảm nồng độ bằng cách thêm dung môi"},
+        {"term": "Cô đặc", "definition": "Làm tăng nồng độ bằng cách loại bỏ dung môi"}
+      ],
+      "extensions": [
+        "Tính toán nồng độ sau pha loãng",
+        "Nghiên cứu ứng dụng nồng độ trong phòng thí nghiệm"
+      ]
+    },
+    {
+      "id": "beers-law-lab",
+      "title": "Định luật Beer-Lambert",
+      "description": "Nghiên cứu mối quan hệ giữa nồng độ dung dịch và độ hấp thụ ánh sáng.",
+      "subject": "chemistry",
+      "gradeLevel": "11-12",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/beers-law-lab/latest/beers-law-lab_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/beers-law-lab/latest/beers-law-lab-600.png",
+      "duration": "30-35 phút",
+      "topics": ["Cân bằng hóa học"],
+      "tags": ["interactive", "measurement", "graph"],
+      "learningObjectives": [
+        "Hiểu định luật Beer-Lambert về độ hấp thụ ánh sáng",
+        "Phân tích mối quan hệ giữa nồng độ và độ truyền qua",
+        "Sử dụng biểu đồ để xác định nồng độ dung dịch"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về ánh sáng và nồng độ"],
+      "instructions": "Thay đổi nồng độ dung dịch và độ dài đường đi của ánh sáng. Quan sát độ hấp thụ và vẽ biểu đồ.",
+      "vocabulary": [
+        {"term": "Độ hấp thụ", "definition": "Lượng ánh sáng bị dung dịch hấp thụ"},
+        {"term": "Độ truyền qua", "definition": "Tỷ lệ ánh sáng đi qua dung dịch"},
+        {"term": "Định luật Beer-Lambert", "definition": "Liên hệ giữa nồng độ và độ hấp thụ"}
+      ],
+      "extensions": [
+        "Nghiên cứu ứng dụng trong quang phổ học",
+        "Tìm hiểu về màu sắc của dung dịch hóa học"
+      ]
+    }
+    
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2024-12-19",
+    "totalSimulations": 23,
+    "subjects": ["physics", "chemistry"],
+    "gradeLevels": ["6-8", "9-10", "10", "11-12"],
+    "language": "vi",
+    "source": "PhET Interactive Simulations (https://phet.colorado.edu)"
+  }
+}
+
