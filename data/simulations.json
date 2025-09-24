@@ -4,7 +4,7 @@
       "id": "forces-and-motion-basics",
       "title": "Lực và Chuyển động Cơ bản",
       "description": "Khám phá mối quan hệ giữa lực và chuyển động thông qua thí nghiệm kéo thùng và người trượt băng.",
-      "subject": "chemistry",
+      "subject": "physics",
       "gradeLevel": "6-8",
       "difficulty": "beginner",
       "phetUrl": "https://phet.colorado.edu/sims/html/forces-and-motion-basics/latest/forces-and-motion-basics_vi.html",
@@ -637,14 +637,594 @@
         "Nghiên cứu ứng dụng trong quang phổ học",
         "Tìm hiểu về màu sắc của dung dịch hóa học"
       ]
+    },
+    {
+    "id": "natural-selection",
+    "title": "Chọn lọc Tự nhiên",
+    "description": "Khám phá quá trình chọn lọc tự nhiên và cách nó ảnh hưởng đến quần thể sinh vật qua các thế hệ.",
+    "subject": "biology",
+    "gradeLevel": "10-12",
+    "difficulty": "intermediate",
+    "phetUrl": "https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection-600.png",
+    "duration": "25-35 phút",
+    "topics": ["Tiến hóa", "Di truyền học"],
+    "tags": ["interactive", "simulation", "visual"],
+    "learningObjectives": [
+    "Hiểu cơ chế chọn lọc tự nhiên và thích nghi",
+    "Quan sát sự thay đổi tần số alen qua các thế hệ",
+    "Phân tích vai trò của môi trường trong tiến hóa"
+    ],
+    "prerequisites": ["Kiến thức cơ bản về di truyền"],
+    "instructions": "Chọn một quần thể và điều chỉnh yếu tố môi trường. Quan sát sự thay đổi quần thể qua các thế hệ bằng cách nhấn 'Play'.",
+    "vocabulary": [
+    {"term": "Chọn lọc tự nhiên", "definition": "Quá trình sinh tồn và sinh sản ưu tiên các đặc tính thích nghi"},
+    {"term": "Alen", "definition": "Dạng khác nhau của một gen tại cùng một vị trí"},
+    {"term": "Thích nghi", "definition": "Khả năng phù hợp với môi trường sống"}
+    ],
+    "extensions": [
+    "So sánh chọn lọc tự nhiên với chọn lọc nhân tạo",
+    "Nghiên cứu các ví dụ thực tế như kháng thuốc kháng sinh"
+    ]
+    },
+    {
+    "id": "gene-machine-lab",
+    "title": "Phòng thí nghiệm Máy gen",
+    "description": "Xây dựng protein bằng cách sao chép DNA và dịch mã để hiểu quy trình di truyền trung tâm.",
+    "subject": "biology",
+    "gradeLevel": "10",
+    "difficulty": "intermediate",
+    "phetUrl": "https://phet.colorado.edu/sims/html/gene-machine-lab/latest/gene-machine-lab_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/gene-machine-lab/latest/gene-machine-lab-600.png",
+    "duration": "30-40 phút",
+    "topics": ["Di truyền học", "Tế bào và mô"],
+    "tags": ["interactive", "simulation", "visual"],
+    "learningObjectives": [
+    "Hiểu quy trình phiên mã và dịch mã DNA thành protein",
+    "Nhận biết vai trò của RNA trong di truyền",
+    "Quan sát đột biến và ảnh hưởng đến protein"
+    ],
+    "prerequisites": ["Kiến thức cơ bản về DNA và gen"],
+    "instructions": "Xây dựng trình tự DNA, nhấn 'Start' để sao chép và dịch mã. Thử thay đổi trình tự để xem đột biến.",
+    "vocabulary": [
+    {"term": "Phiên mã", "definition": "Quá trình sao chép DNA thành mRNA"},
+    {"term": "Dịch mã", "definition": "Quá trình tổng hợp protein từ mRNA"},
+    {"term": "Đột biến", "definition": "Thay đổi trình tự nucleotide trong DNA"}
+    ],
+    "extensions": [
+    "Nghiên cứu mã di truyền và codon",
+    "Tìm hiểu về gen và bệnh di truyền"
+    ]
+    },
+    {
+    "id": "cell-membrane-and-transport",
+    "title": "Màng tế bào và Vận chuyển",
+    "description": "Khám phá cách các chất di chuyển qua màng tế bào bằng các phương pháp khác nhau.",
+    "subject": "biology",
+    "gradeLevel": "6-9",
+    "difficulty": "beginner",
+    "phetUrl": "https://phet.colorado.edu/sims/html/membrane-channels/latest/membrane-channels_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/membrane-channels/latest/membrane-channels-600.png",
+    "duration": "20-30 phút",
+    "topics": ["Tế bào"],
+    "tags": ["interactive", "visual", "experiment"],
+    "learningObjectives": [
+    "Phân biệt vận chuyển thụ động và chủ động qua màng tế bào",
+    "Hiểu vai trò của kênh ion và bơm trong vận chuyển",
+    "Quan sát sự thay đổi nồng độ và cân bằng"
+    ],
+    "prerequisites": [],
+    "instructions": "Thêm các chất vào tế bào và quan sát vận chuyển qua màng. Thay đổi kênh để xem sự khác biệt.",
+    "vocabulary": [
+    {"term": "Màng tế bào", "definition": "Lớp mỏng bao quanh tế bào, kiểm soát ra vào"},
+    {"term": "Vận chuyển thụ động", "definition": "Di chuyển chất không cần năng lượng"},
+    {"term": "Vận chuyển chủ động", "definition": "Di chuyển chất cần năng lượng ATP"}
+    ],
+    "extensions": [
+    "Nghiên cứu cân bằng hóa học trong tế bào",
+    "Tìm hiểu về bệnh liên quan đến màng tế bào"
+    ]
+    },
+    {
+    "id": "photosynthesis",
+    "title": "Quang hợp",
+    "description": "Khám phá quá trình quang hợp và ảnh hưởng của ánh sáng, CO₂ đến sản xuất đường.",
+    "subject": "biology",
+    "gradeLevel": "6-9",
+    "difficulty": "beginner",
+    "phetUrl": "https://phet.colorado.edu/sims/html/photosynthesis/latest/photosynthesis_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/photosynthesis/latest/photosynthesis-600.png",
+    "duration": "20-25 phút",
+    "topics": ["Thực vật", "Chuyển hóa vật chất"],
+    "tags": ["interactive", "visual", "observation"],
+    "learningObjectives": [
+    "Hiểu phương trình quang hợp và vai trò của chlorophyll",
+    "Quan sát ảnh hưởng của ánh sáng và CO₂ đến tốc độ quang hợp",
+    "Nhận biết sản phẩm oxy và glucose"
+    ],
+    "prerequisites": [],
+    "instructions": "Điều chỉnh cường độ ánh sáng và nồng độ CO₂. Quan sát sự thay đổi mức oxy và đường sản xuất.",
+    "vocabulary": [
+    {"term": "Quang hợp", "definition": "Quá trình thực vật sử dụng ánh sáng để tạo thức ăn"},
+    {"term": "Chlorophyll", "definition": "Chất màu xanh hấp thụ ánh sáng"},
+    {"term": "Glucose", "definition": "Đường đơn là sản phẩm chính của quang hợp"}
+    ],
+    "extensions": [
+    "So sánh quang hợp với hô hấp tế bào",
+    "Nghiên cứu vai trò của quang hợp trong chuỗi thức ăn"
+    ]
+    },
+    {
+    "id": "cell-voltage",
+    "title": "Điện thế Tế bào",
+    "description": "Xây dựng pin điện hóa và khám phá điện thế của các cặp kim loại khác nhau.",
+    "subject": "biology",
+    "gradeLevel": "11-12",
+    "difficulty": "intermediate",
+    "phetUrl": "https://phet.colorado.edu/sims/html/battery-voltage/latest/battery-voltage_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/battery-voltage/latest/battery-voltage-600.png",
+    "duration": "25-35 phút",
+    "topics": ["Sinh học và hóa học liên ngành", "Công nghệ sinh học"],
+    "tags": ["interactive", "simulation", "measurement"],
+    "learningObjectives": [
+    "Hiểu nguyên lý hoạt động của pin điện hóa",
+    "Quan sát điện thế phụ thuộc vào cặp kim loại",
+    "Phân tích vai trò của điện thế trong sinh học tế bào"
+    ],
+    "prerequisites": ["Kiến thức cơ bản về điện hóa học"],
+    "instructions": "Chọn các kim loại và đo điện thế. Thử thay đổi dung dịch điện phân để quan sát thay đổi.",
+    "vocabulary": [
+    {"term": "Pin điện hóa", "definition": "Thiết bị chuyển hóa năng lượng hóa học thành điện"},
+    {"term": "Điện thế", "definition": "Hiệu điện thế giữa hai điện cực"},
+    {"term": "Điện cực", "definition": "Thanh kim loại dẫn điện trong pin"}
+    ],
+    "extensions": [
+    "Nghiên cứu pin nhiên liệu sinh học",
+    "Tìm hiểu ứng dụng trong y sinh"
+    ]
+    },
+    {
+    "id": "molarity",
+    "title": "Nồng độ Mol",
+    "description": "Khám phá nồng độ mol của dung dịch và cách pha chế chúng.",
+    "subject": "biology",
+    "gradeLevel": "10",
+    "difficulty": "intermediate",
+    "phetUrl": "https://phet.colorado.edu/sims/html/molarity/latest/molarity_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/molarity/latest/molarity-600.png",
+    "duration": "20-30 phút",
+    "topics": ["Chuyển hóa vật chất", "Tế bào và mô"],
+    "tags": ["interactive", "measurement", "calculation"],
+    "learningObjectives": [
+    "Hiểu khái niệm nồng độ mol trong dung dịch sinh học",
+    "Thực hành pha chế dung dịch với nồng độ chính xác",
+    "Quan sát ảnh hưởng nồng độ đến phản ứng tế bào"
+    ],
+    "prerequisites": ["Kiến thức cơ bản về mol"],
+    "instructions": "Chọn chất tan và dung môi, điều chỉnh thể tích để đạt nồng độ mong muốn. Sử dụng công cụ đo.",
+    "vocabulary": [
+    {"term": "Nồng độ mol", "definition": "Số mol chất tan trong 1 lít dung dịch"},
+    {"term": "Dung môi", "definition": "Chất lỏng hòa tan chất tan"},
+    {"term": "Chất tan", "definition": "Chất được hòa tan trong dung môi"}
+    ],
+    "extensions": [
+    "Áp dụng trong nuôi cấy tế bào",
+    "Nghiên cứu nồng độ trong huyết tương"
+    ]
+    },
+    {
+    "id": "genetics-basics",
+    "title": "Di truyền Cơ bản",
+    "description": "Mô phỏng quy luật di truyền Mendel qua giao phối lai.",
+    "subject": "biology",
+    "gradeLevel": "10",
+    "difficulty": "intermediate",
+    "phetUrl": "https://phet.colorado.edu/sims/html/genetics-basics/latest/genetics-basics_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/genetics-basics/latest/genetics-basics-600.png",
+    "duration": "25-35 phút",
+    "topics": ["Di truyền học"],
+    "tags": ["interactive", "simulation", "graph"],
+    "learningObjectives": [
+    "Hiểu quy luật phân ly và phân bố độc lập của Mendel",
+    "Quan sát tỷ lệ kiểu hình và kiểu gen trong F2",
+    "Phân tích giao phối lai một và hai cặp tính trạng"
+    ],
+    "prerequisites": ["Kiến thức cơ bản về gen và alen"],
+    "instructions": "Chọn tính trạng và thực hiện giao phối. Quan sát bảng Punnett và tỷ lệ thế hệ con.",
+    "vocabulary": [
+    {"term": "Alen trội", "definition": "Alen biểu hiện kiểu hình khi có một bản"},
+    {"term": "Alen lặn", "definition": "Alen chỉ biểu hiện khi đồng hợp"},
+    {"term": "Giao phối lai", "definition": "Ghép đôi cá thể có tính trạng khác nhau"}
+    ],
+    "extensions": [
+    "Nghiên cứu di truyền liên kết",
+    "Tìm hiểu di truyền ở người"
+    ]
+    },
+    {
+    "id": "ecosystem-dynamics",
+    "title": "Động lực Hệ sinh thái",
+    "description": "Mô phỏng tương tác giữa các loài trong hệ sinh thái và sự thay đổi quần thể.",
+    "subject": "biology",
+    "gradeLevel": "11-12",
+    "difficulty": "intermediate",
+    "phetUrl": "https://phet.colorado.edu/sims/html/food-chain/latest/food-chain_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/food-chain/latest/food-chain-600.png",
+    "duration": "30-40 phút",
+    "topics": ["Sinh thái học"],
+    "tags": ["interactive", "simulation", "graph"],
+    "learningObjectives": [
+    "Hiểu chuỗi thức ăn và lưới thức ăn trong hệ sinh thái",
+    "Quan sát sự cân bằng và mất cân bằng quần thể",
+    "Phân tích tác động của loài xâm lấn"
+    ],
+    "prerequisites": ["Kiến thức cơ bản về sinh thái"],
+    "instructions": "Thêm các loài và điều chỉnh số lượng. Quan sát biểu đồ thay đổi quần thể theo thời gian.",
+    "vocabulary": [
+    {"term": "Chuỗi thức ăn", "definition": "Dãy truyền năng lượng từ thực vật đến động vật ăn thịt"},
+    {"term": "Loài xâm lấn", "definition": "Loài ngoại lai gây mất cân bằng hệ sinh thái"},
+    {"term": "Cân bằng sinh thái", "definition": "Trạng thái ổn định của quần thể trong hệ sinh thái"}
+    ],
+    "extensions": [
+    "Nghiên cứu đa dạng sinh học",
+    "Tìm hiểu tác động của biến đổi khí hậu"
+    ]
+    },
+    {
+    "id": "nerve-impulse",
+    "title": "Xung Thần kinh",
+    "description": "Mô phỏng truyền xung thần kinh qua màng tế bào và kênh ion.",
+    "subject": "biology",
+    "gradeLevel": "11-12",
+    "difficulty": "intermediate",
+    "phetUrl": "https://phet.colorado.edu/sims/html/neuron/latest/neuron_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/neuron/latest/neuron-600.png",
+    "duration": "25-35 phút",
+    "topics": ["Điều hòa sinh học"],
+    "tags": ["interactive", "visual", "simulation"],
+    "learningObjectives": [
+    "Hiểu cơ chế truyền xung thần kinh qua kênh natri và kali",
+    "Quan sát tiềm năng hoạt động và khử cực màng",
+    "Phân tích vai trò của myelin trong tốc độ truyền"
+    ],
+    "prerequisites": ["Kiến thức về màng tế bào"],
+    "instructions": "Kích thích neuron và quan sát dòng ion qua kênh. Thay đổi kích thước myelin để xem tốc độ.",
+    "vocabulary": [
+    {"term": "Xung thần kinh", "definition": "Tín hiệu điện hóa dọc theo sợi thần kinh"},
+    {"term": "Khử cực", "definition": "Thay đổi điện thế màng do dòng ion vào"},
+    {"term": "Myelin", "definition": "Lớp cách điện tăng tốc độ truyền xung"}
+    ],
+    "extensions": [
+    "Nghiên cứu bệnh thần kinh như đa xơ cứng",
+    "Tìm hiểu giao tiếp synapse"
+    ]
+    },
+    {
+    "id": "population-dynamics",
+    "title": "Động lực Quần thể",
+    "description": "Mô phỏng sự phát triển quần thể và các yếu tố kiểm soát.",
+    "subject": "biology",
+    "gradeLevel": "11-12",
+    "difficulty": "intermediate",
+    "phetUrl": "https://phet.colorado.edu/sims/html/population-growth/latest/population-growth_vi.html",
+    "thumbnailUrl": "https://phet.colorado.edu/sims/html/population-growth/latest/population-growth-600.png",
+    "duration": "25-35 phút",
+    "topics": ["Sinh thái học", "Tiến hóa"],
+    "tags": ["interactive", "graph", "simulation"],
+    "learningObjectives": [
+    "Hiểu các mô hình tăng trưởng quần thể: hàm mũ và logistic",
+    "Quan sát tác động của tài nguyên hạn chế",
+    "Phân tích các yếu tố kiểm soát quần thể tự nhiên"
+    ],
+    "prerequisites": ["Kiến thức cơ bản về sinh thái"],
+    "instructions": "Chọn mô hình tăng trưởng và điều chỉnh tốc độ sinh sản, tài nguyên. Quan sát biểu đồ quần thể theo thời gian.",
+    "vocabulary": [
+    {"term": "Tăng trưởng hàm mũ", "definition": "Tăng trưởng không giới hạn theo tỷ lệ"},
+    {"term": "Tăng trưởng logistic", "definition": "Tăng trưởng bị giới hạn bởi năng lực môi trường"},
+    {"term": "Năng lực môi trường", "definition": "Số cá thể tối đa môi trường có thể hỗ trợ"}
+    ],
+    "extensions": [
+    "Nghiên cứu quần thể người và kiểm soát sinh đẻ",
+    "Tìm hiểu mô hình Lotka-Volterra"
+    ]
+    },
+    {
+      "id": "area-builder",
+      "title": "Xây dựng Diện tích",
+      "description": "Khám phá khái niệm diện tích bằng cách tạo các hình dạng và đo lường chúng.",
+      "subject": "mathematics",
+      "gradeLevel": "elementary",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/area-builder/latest/area-builder_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/area-builder/latest/area-builder-600.png",
+      "duration": "15-20 phút",
+      "topics": ["Hình học đơn giản", "Đo lường"],
+      "tags": ["interactive", "visual", "experiment"],
+      "learningObjectives": [
+        "Hiểu khái niệm diện tích của các hình chữ nhật và hình vuông",
+        "Tính diện tích bằng cách đếm ô vuông",
+        "So sánh diện tích của các hình dạng khác nhau"
+      ],
+      "prerequisites": [],
+      "instructions": "Sử dụng lưới ô vuông để xây dựng hình chữ nhật. Chuyển sang tab 'Game' để thử thách tính diện tích.",
+      "vocabulary": [
+        {"term": "Diện tích", "definition": "Độ lớn của bề mặt được đo bằng đơn vị vuông"},
+        {"term": "Hình chữ nhật", "definition": "Hình có bốn cạnh, hai cặp cạnh bằng nhau"},
+        {"term": "Ô vuông", "definition": "Đơn vị đo diện tích cơ bản"}
+      ],
+      "extensions": [
+        "Tính diện tích của hình ghép phức tạp",
+        "Nghiên cứu ứng dụng diện tích trong đời sống"
+      ]
+    },
+    {
+      "id": "fraction-matcher",
+      "title": "Ghép Phân số",
+      "description": "Học cách so sánh và ghép các phân số thông qua biểu đồ hình học.",
+      "subject": "mathematics",
+      "gradeLevel": "elementary",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/fraction-matcher/latest/fraction-matcher_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/fraction-matcher/latest/fraction-matcher-600.png",
+      "duration": "15-20 phút",
+      "topics": ["Phân số"],
+      "tags": ["interactive", "visual", "game"],
+      "learningObjectives": [
+        "Hiểu khái niệm phân số và giá trị của chúng",
+        "So sánh các phân số bằng biểu đồ hình học",
+        "Nhận biết phân số tương đương"
+      ],
+      "prerequisites": [],
+      "instructions": "Ghép các phân số với biểu đồ hình học tương ứng. Chuyển sang tab 'Mixed Numbers' để thử với số hỗn hợp.",
+      "vocabulary": [
+        {"term": "Phân số", "definition": "Biểu diễn một phần của tổng thể, gồm tử số và mẫu số"},
+        {"term": "Tương đương", "definition": "Các phân số có giá trị bằng nhau"},
+        {"term": "Số hỗn hợp", "definition": "Kết hợp số nguyên và phân số"}
+      ],
+      "extensions": [
+        "Thực hành rút gọn phân số",
+        "Nghiên cứu phân số trong đo lường thực tế"
+      ]
+    },
+    {
+      "id": "arithmetic",
+      "title": "Số học",
+      "description": "Luyện tập các phép toán cơ bản: cộng, trừ, nhân, chia thông qua trò chơi tương tác.",
+      "subject": "mathematics",
+      "gradeLevel": "elementary",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/arithmetic/latest/arithmetic_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/arithmetic/latest/arithmetic-600.png",
+      "duration": "15-20 phút",
+      "topics": ["Số học cơ bản"],
+      "tags": ["interactive", "game", "calculation"],
+      "learningObjectives": [
+        "Nắm vững các phép toán cộng, trừ, nhân, chia",
+        "Phân tích thừa số và tích số",
+        "Rèn kỹ năng tính toán nhanh"
+      ],
+      "prerequisites": [],
+      "instructions": "Chọn phép toán và giải các bài toán. Sử dụng tab 'Factor' để tìm thừa số của số.",
+      "vocabulary": [
+        {"term": "Thừa số", "definition": "Số nhân tạo thành tích"},
+        {"term": "Tích", "definition": "Kết quả của phép nhân"},
+        {"term": "Chia hết", "definition": "Số chia không có dư"}
+      ],
+      "extensions": [
+        "Nghiên cứu bội số chung và ước chung",
+        "Áp dụng phép toán trong bài toán thực tế"
+      ]
+    },
+    {
+      "id": "graphing-lines",
+      "title": "Vẽ Đồ thị Đường thẳng",
+      "description": "Khám phá đồ thị đường thẳng và mối quan hệ giữa phương trình và hình học.",
+      "subject": "mathematics",
+      "gradeLevel": "middle",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/graphing-lines/latest/graphing-lines_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/graphing-lines/latest/graphing-lines-600.png",
+      "duration": "20-30 phút",
+      "topics": ["Đại số", "Hàm số"],
+      "tags": ["interactive", "graph", "visual"],
+      "learningObjectives": [
+        "Hiểu phương trình đường thẳng y = mx + b",
+        "Phân tích độ dốc và giao điểm với trục y",
+        "Vẽ đồ thị đường thẳng từ phương trình"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về tọa độ"],
+      "instructions": "Nhập phương trình đường thẳng và quan sát đồ thị. Thay đổi độ dốc và giao điểm để xem sự thay đổi.",
+      "vocabulary": [
+        {"term": "Độ dốc", "definition": "Đo lường độ nghiêng của đường thẳng"},
+        {"term": "Giao điểm", "definition": "Điểm đường thẳng cắt trục y"},
+        {"term": "Phương trình đường thẳng", "definition": "Biểu diễn đường thẳng bằng y = mx + b"}
+      ],
+      "extensions": [
+        "Nghiên cứu hệ phương trình tuyến tính",
+        "Tìm hiểu ứng dụng của đường thẳng trong vật lý"
+      ]
+    },
+    {
+      "id": "trig-tour",
+      "title": "Hành trình Lượng giác",
+      "description": "Tìm hiểu các hàm lượng giác và mối quan hệ của chúng trên vòng tròn đơn vị.",
+      "subject": "mathematics",
+      "gradeLevel": "high",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/trig-tour/latest/trig-tour_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/trig-tour/latest/trig-tour-600.png",
+      "duration": "25-35 phút",
+      "topics": ["Lượng giác"],
+      "tags": ["interactive", "visual", "graph"],
+      "learningObjectives": [
+        "Hiểu các hàm sin, cos, tan trên vòng tròn đơn vị",
+        "Quan sát mối quan hệ giữa góc và giá trị lượng giác",
+        "Vẽ đồ thị hàm lượng giác"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về góc và tọa độ"],
+      "instructions": "Chọn hàm lượng giác và kéo góc trên vòng tròn đơn vị. Quan sát đồ thị và giá trị tương ứng.",
+      "vocabulary": [
+        {"term": "Vòng tròn đơn vị", "definition": "Vòng tròn bán kính 1 để nghiên cứu lượng giác"},
+        {"term": "Sin", "definition": "Tỷ số cạnh đối và cạnh huyền trong tam giác vuông"},
+        {"term": "Cos", "definition": "Tỷ số cạnh kề và cạnh huyền trong tam giác vuông"}
+      ],
+      "extensions": [
+        "Nghiên cứu hàm lượng giác trong dao động",
+        "Tìm hiểu ứng dụng lượng giác trong khảo sát"
+      ]
+    },
+    {
+      "id": "proportion-playground",
+      "title": "Sân chơi Tỷ lệ",
+      "description": "Khám phá khái niệm tỷ lệ và tỷ lệ thuận qua các hoạt động tương tác.",
+      "subject": "mathematics",
+      "gradeLevel": "middle",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/proportion-playground/latest/proportion-playground_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/proportion-playground/latest/proportion-playground-600.png",
+      "duration": "20-25 phút",
+      "topics": ["Số học cơ bản", "Đại số"],
+      "tags": ["interactive", "visual", "experiment"],
+      "learningObjectives": [
+        "Hiểu khái niệm tỷ lệ và tỷ lệ thuận",
+        "Áp dụng tỷ lệ trong các tình huống thực tế",
+        "Quan sát mối quan hệ giữa hai đại lượng tỷ lệ"
+      ],
+      "prerequisites": [],
+      "instructions": "Chọn một tình huống (như nước trái cây hoặc sơn) và điều chỉnh tỷ lệ. Quan sát biểu đồ tỷ lệ.",
+      "vocabulary": [
+        {"term": "Tỷ lệ", "definition": "Mối quan hệ bằng nhau giữa hai tỷ số"},
+        {"term": "Tỷ lệ thuận", "definition": "Khi một đại lượng tăng, đại lượng kia tăng theo tỷ số"},
+        {"term": "Hằng số tỷ lệ", "definition": "Số không đổi trong mối quan hệ tỷ lệ"}
+      ],
+      "extensions": [
+        "Áp dụng tỷ lệ trong bài toán thực tế như pha chế",
+        "Nghiên cứu tỷ lệ nghịch"
+      ]
+    },
+    {
+      "id": "graphing-quadratics",
+      "title": "Đồ thị Hàm bậc hai",
+      "description": "Nghiên cứu đồ thị hàm bậc hai và các yếu tố ảnh hưởng đến hình dạng của nó.",
+      "subject": "mathematics",
+      "gradeLevel": "high",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/graphing-quadratics/latest/graphing-quadratics_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/graphing-quadratics/latest/graphing-quadratics-600.png",
+      "duration": "25-35 phút",
+      "topics": ["Giải tích", "Hàm số"],
+      "tags": ["interactive", "graph", "visual"],
+      "learningObjectives": [
+        "Hiểu phương trình hàm bậc hai y = ax² + bx + c",
+        "Phân tích đỉnh, giao điểm và hình dạng parabol",
+        "Quan sát tác động của các hệ số a, b, c"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về đại số và đồ thị"],
+      "instructions": "Nhập phương trình bậc hai và quan sát đồ thị. Thay đổi các hệ số để xem sự thay đổi của parabol.",
+      "vocabulary": [
+        {"term": "Parabol", "definition": "Đồ thị của hàm bậc hai, dạng đường cong"},
+        {"term": "Đỉnh", "definition": "Điểm cao nhất hoặc thấp nhất của parabol"},
+        {"term": "Hệ số", "definition": "Số đứng trước các biến trong phương trình"}
+      ],
+      "extensions": [
+        "Nghiên cứu nghiệm của phương trình bậc hai",
+        "Tìm hiểu ứng dụng của hàm bậc hai trong vật lý"
+      ]
+    },
+    {
+      "id": "number-line-operations",
+      "title": "Thao tác trên Trục số",
+      "description": "Luyện tập các phép toán trên trục số để hiểu số nguyên và phân số.",
+      "subject": "mathematics",
+      "gradeLevel": "middle",
+      "difficulty": "beginner",
+      "phetUrl": "https://phet.colorado.edu/sims/html/number-line-operations/latest/number-line-operations_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/number-line-operations/latest/number-line-operations-600.png",
+      "duration": "15-20 phút",
+      "topics": ["Số học cơ bản", "Đại số"],
+      "tags": ["interactive", "visual", "experiment"],
+      "learningObjectives": [
+        "Hiểu cách biểu diễn số trên trục số",
+        "Thực hiện phép cộng, trừ trên trục số",
+        "Nhận biết số âm và số dương"
+      ],
+      "prerequisites": [],
+      "instructions": "Di chuyển trên trục số để thực hiện các phép cộng, trừ. Chuyển sang tab 'Fractions' để làm việc với phân số.",
+      "vocabulary": [
+        {"term": "Trục số", "definition": "Đường thẳng biểu diễn các số theo thứ tự"},
+        {"term": "Số nguyên", "definition": "Số không có phần thập phân"},
+        {"term": "Số âm", "definition": "Số nhỏ hơn 0 trên trục số"}
+      ],
+      "extensions": [
+        "Nghiên cứu số thực trên trục số",
+        "Tìm hiểu ứng dụng trục số trong tọa độ"
+      ]
+    },
+    {
+      "id": "equality-explorer",
+      "title": "Khám phá Bình đẳng",
+      "description": "Tìm hiểu về phương trình và bất phương trình thông qua cân bằng tương tác.",
+      "subject": "mathematics",
+      "gradeLevel": "middle",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/equality-explorer/latest/equality-explorer_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/equality-explorer/latest/equality-explorer-600.png",
+      "duration": "20-30 phút",
+      "topics": ["Đại số"],
+      "tags": ["interactive", "visual", "experiment"],
+      "learningObjectives": [
+        "Hiểu khái niệm cân bằng trong phương trình",
+        "Giải phương trình đơn giản bằng cách cân bằng hai vế",
+        "Phân biệt phương trình và bất phương trình"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về phép cộng, trừ"],
+      "instructions": "Đặt các giá trị lên hai vế của cân và điều chỉnh để đạt cân bằng. Thử nghiệm với số, biến và biểu thức.",
+      "vocabulary": [
+        {"term": "Phương trình", "definition": "Biểu thức toán học với dấu bằng"},
+        {"term": "Bất phương trình", "definition": "Biểu thức toán học với dấu không bằng"},
+        {"term": "Cân bằng", "definition": "Hai vế của phương trình có giá trị bằng nhau"}
+      ],
+      "extensions": [
+        "Nghiên cứu phương trình bậc nhất hai ẩn",
+        "Tìm hiểu ứng dụng phương trình trong kinh tế"
+      ]
+    },
+    {
+      "id": "graphing-slope-intercept",
+      "title": "Đồ thị Dạng Độ dốc-Giao điểm",
+      "description": "Khám phá dạng độ dốc-giao điểm của đường thẳng và cách vẽ chúng.",
+      "subject": "mathematics",
+      "gradeLevel": "middle",
+      "difficulty": "intermediate",
+      "phetUrl": "https://phet.colorado.edu/sims/html/graphing-slope-intercept/latest/graphing-slope-intercept_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/graphing-slope-intercept/latest/graphing-slope-intercept-600.png",
+      "duration": "20-30 phút",
+      "topics": ["Đại số", "Hàm số"],
+      "tags": ["interactive", "graph", "visual"],
+      "learningObjectives": [
+        "Hiểu dạng độ dốc-giao điểm y = mx + b",
+        "Vẽ đường thẳng từ độ dốc và giao điểm",
+        "Phân tích ảnh hưởng của m và b đến đồ thị"
+      ],
+      "prerequisites": ["Kiến thức cơ bản về đồ thị đường thẳng"],
+      "instructions": "Nhập độ dốc và giao điểm, quan sát đường thẳng trên đồ thị. Thử thay đổi giá trị để xem sự thay đổi.",
+      "vocabulary": [
+        {"term": "Độ dốc", "definition": "Đo lường độ nghiêng của đường thẳng"},
+        {"term": "Giao điểm trục y", "definition": "Điểm đường thẳng cắt trục y"},
+        {"term": "Đồ thị", "definition": "Biểu diễn hình học của hàm số"}
+      ],
+      "extensions": [
+        "Nghiên cứu đường thẳng song song và vuông góc",
+        "Tìm hiểu ứng dụng trong lập trình tuyến tính"
+      ]
     }
     
   ],
   "metadata": {
     "version": "1.0.0",
     "lastUpdated": "2024-12-19",
-    "totalSimulations": 23,
-    "subjects": ["physics", "chemistry"],
+    "totalSimulations": 43,
+    "subjects": ["physics", "chemistry", "biology", "mathematics"],
     "gradeLevels": ["6-8", "9-10", "10", "11-12"],
     "language": "vi",
     "source": "PhET Interactive Simulations (https://phet.colorado.edu)"
