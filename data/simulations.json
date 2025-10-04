@@ -181,8 +181,8 @@
       "subject": "physics",
       "gradeLevel": "6-8",
       "difficulty": "beginner",
-      "phetUrl": "https://phet.colorado.edu/sims/html/sound/latest/sound_vi.html",
-      "thumbnailUrl": "https://phet.colorado.edu/sims/html/sound/latest/sound-600.png",
+      "phetUrl": "https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_vi.html",
+      "thumbnailUrl": "https://phet.colorado.edu/sims/html/sound/latest/fourier-making-waves-600.png",
       "duration": "20-25 phút",
       "topics": ["Âm thanh", "Sóng", "Tần số"],
       "tags": ["interactive", "visual", "observation"],
@@ -697,64 +697,6 @@
       ]
     },
     {
-      "id": "membrane-channels",
-      "title": "Kênh Màng Tế bào",
-      "description": "Khám phá cách các chất di chuyển qua màng tế bào thông qua các kênh ion.",
-      "subject": "biology",
-      "gradeLevel": "6-8",
-      "difficulty": "beginner",
-      "phetUrl": "https://phet.colorado.edu/sims/html/membrane-channels/latest/membrane-channels_vi.html",
-      "thumbnailUrl": "https://phet.colorado.edu/sims/html/membrane-channels/latest/membrane-channels-600.png",
-      "duration": "20-25 phút",
-      "topics": ["Tế bào"],
-      "tags": ["interactive", "visual", "experiment"],
-      "learningObjectives": [
-        "Hiểu vai trò của màng tế bào trong vận chuyển chất",
-        "Phân biệt vận chuyển thụ động qua kênh ion",
-        "Quan sát sự cân bằng nồng độ qua màng"
-      ],
-      "prerequisites": [],
-      "instructions": "Thêm các phân tử vào hai phía màng và mở kênh ion. Quan sát sự di chuyển của phân tử qua màng.",
-      "vocabulary": [
-        {"term": "Màng tế bào", "definition": "Lớp bao quanh tế bào, kiểm soát chất ra vào"},
-        {"term": "Vận chuyển thụ động", "definition": "Di chuyển chất không cần năng lượng"},
-        {"term": "Kênh ion", "definition": "Đường dẫn cho ion đi qua màng tế bào"}
-      ],
-      "extensions": [
-        "Nghiên cứu vận chuyển chủ động qua bơm ion",
-        "Tìm hiểu vai trò màng tế bào trong bệnh lý"
-      ]
-    },
-    {
-      "id": "photosynthesis",
-      "title": "Quang hợp",
-      "description": "Tìm hiểu quá trình quang hợp và ảnh hưởng của ánh sáng, CO₂ đến sản xuất oxy và glucose.",
-      "subject": "biology",
-      "gradeLevel": "6-8",
-      "difficulty": "beginner",
-      "phetUrl": "https://phet.colorado.edu/sims/html/photosynthesis/latest/photosynthesis_vi.html",
-      "thumbnailUrl": "https://phet.colorado.edu/sims/html/photosynthesis/latest/photosynthesis-600.png",
-      "duration": "20-25 phút",
-      "topics": ["Thực vật", "Chuyển hóa vật chất"],
-      "tags": ["interactive", "visual", "observation"],
-      "learningObjectives": [
-        "Hiểu phương trình quang hợp và vai trò của chlorophyll",
-        "Quan sát ảnh hưởng của ánh sáng đến tốc độ quang hợp",
-        "Nhận biết sản phẩm oxy và glucose"
-      ],
-      "prerequisites": [],
-      "instructions": "Điều chỉnh cường độ ánh sáng và nồng độ CO₂. Quan sát mức oxy và glucose được tạo ra.",
-      "vocabulary": [
-        {"term": "Quang hợp", "definition": "Quá trình thực vật tạo thức ăn từ ánh sáng"},
-        {"term": "Chlorophyll", "definition": "Chất màu xanh hấp thụ ánh sáng trong lá"},
-        {"term": "Glucose", "definition": "Đường đơn là sản phẩm chính của quang hợp"}
-      ],
-      "extensions": [
-        "So sánh quang hợp với hô hấp tế bào",
-        "Nghiên cứu vai trò quang hợp trong hệ sinh thái"
-      ]
-    },
-    {
       "id": "neuron",
       "title": "Xung Thần kinh",
       "description": "Mô phỏng cách xung thần kinh truyền qua tế bào thần kinh và vai trò của ion.",
@@ -781,35 +723,6 @@
       "extensions": [
         "Nghiên cứu bệnh đa xơ cứng liên quan đến myelin",
         "Tìm hiểu về synapse thần kinh"
-      ]
-    },
-    {
-      "id": "energy-flows-food-webs",
-      "title": "Luồng Năng lượng trong Lưới Thức ăn",
-      "description": "Khám phá cách năng lượng truyền qua lưới thức ăn và sự cân bằng trong hệ sinh thái.",
-      "subject": "biology",
-      "gradeLevel": "9-10",
-      "difficulty": "intermediate",
-      "phetUrl": "https://phet.colorado.edu/sims/html/energy-flows-food-webs/latest/energy-flows-food-webs_vi.html",
-      "thumbnailUrl": "https://phet.colorado.edu/sims/html/energy-flows-food-webs/latest/energy-flows-food-webs-600.png",
-      "duration": "25-35 phút",
-      "topics": ["Sinh thái học"],
-      "tags": ["interactive", "simulation", "graph"],
-      "learningObjectives": [
-        "Hiểu khái niệm lưới thức ăn và luồng năng lượng",
-        "Quan sát tác động của sự thay đổi quần thể đến hệ sinh thái",
-        "Phân tích vai trò của sinh vật sản xuất và tiêu thụ"
-      ],
-      "prerequisites": ["Kiến thức cơ bản về chuỗi thức ăn"],
-      "instructions": "Thêm các loài vào lưới thức ăn và điều chỉnh số lượng. Quan sát biểu đồ năng lượng qua thời gian.",
-      "vocabulary": [
-        {"term": "Lưới thức ăn", "definition": "Mạng lưới các chuỗi thức ăn trong hệ sinh thái"},
-        {"term": "Sinh vật sản xuất", "definition": "Sinh vật tự tạo thức ăn như thực vật"},
-        {"term": "Luồng năng lượng", "definition": "Sự chuyển năng lượng từ sinh vật này sang sinh vật khác"}
-      ],
-      "extensions": [
-        "Nghiên cứu tác động của loài xâm lấn",
-        "Tìm hiểu về kim tự tháp sinh thái"
       ]
     },
     {
@@ -842,35 +755,6 @@
       ]
     },
     {
-      "id": "evolution-of-resistance",
-      "title": "Tiến hóa Kháng thuốc",
-      "description": "Mô phỏng sự phát triển của kháng thuốc kháng sinh trong quần thể vi khuẩn.",
-      "subject": "biology",
-      "gradeLevel": "10-12",
-      "difficulty": "intermediate",
-      "phetUrl": "https://phet.colorado.edu/sims/html/evolution-of-resistance/latest/evolution-of-resistance_vi.html",
-      "thumbnailUrl": "https://phet.colorado.edu/sims/html/evolution-of-resistance/latest/evolution-of-resistance-600.png",
-      "duration": "25-35 phút",
-      "topics": ["Tiến hóa", "Công nghệ sinh học"],
-      "tags": ["interactive", "simulation", "visual"],
-      "learningObjectives": [
-        "Hiểu cách vi khuẩn phát triển kháng thuốc qua chọn lọc tự nhiên",
-        "Quan sát tần số alen kháng thuốc trong quần thể",
-        "Phân tích tác động của lạm dụng kháng sinh"
-      ],
-      "prerequisites": ["Kiến thức cơ bản về vi khuẩn và di truyền"],
-      "instructions": "Thêm kháng sinh vào quần thể vi khuẩn và quan sát sự thay đổi qua các thế hệ.",
-      "vocabulary": [
-        {"term": "Kháng thuốc", "definition": "Khả năng vi khuẩn sống sót khi tiếp xúc với kháng sinh"},
-        {"term": "Chọn lọc áp lực", "definition": "Yếu tố môi trường thúc đẩy tiến hóa"},
-        {"term": "Quần thể", "definition": "Nhóm cá thể cùng loài sống trong một khu vực"}
-      ],
-      "extensions": [
-        "Nghiên cứu kháng thuốc trong y học",
-        "Tìm hiểu về phát triển kháng sinh mới"
-      ]
-    },
-    {
       "id": "molecule-polarity",
       "title": "Phân cực Phân tử",
       "description": "Khám phá tính phân cực của phân tử và ảnh hưởng của nó đến các quá trình sinh học.",
@@ -897,35 +781,6 @@
       "extensions": [
         "Nghiên cứu vai trò phân cực trong màng tế bào",
         "Tìm hiểu phân tử nước và tính chất sinh học"
-      ]
-    },
-    {
-      "id": "food-web",
-      "title": "Lưới Thức ăn",
-      "description": "Mô phỏng lưới thức ăn và sự tương tác giữa các loài trong hệ sinh thái.",
-      "subject": "biology",
-      "gradeLevel": "6-8",
-      "difficulty": "beginner",
-      "phetUrl": "https://phet.colorado.edu/sims/html/food-web/latest/food-web_vi.html",
-      "thumbnailUrl": "https://phet.colorado.edu/sims/html/food-web/latest/food-web-600.png",
-      "duration": "20-25 phút",
-      "topics": ["Sinh vật và môi trường"],
-      "tags": ["interactive", "visual", "experiment"],
-      "learningObjectives": [
-        "Hiểu khái niệm lưới thức ăn và mối quan hệ sinh thái",
-        "Quan sát tác động của sự mất cân bằng quần thể",
-        "Phân biệt sinh vật sản xuất, tiêu thụ và phân hủy"
-      ],
-      "prerequisites": [],
-      "instructions": "Thêm các loài vào lưới thức ăn và thay đổi số lượng. Quan sát sự thay đổi trong hệ sinh thái.",
-      "vocabulary": [
-        {"term": "Lưới thức ăn", "definition": "Mạng lưới các chuỗi thức ăn trong hệ sinh thái"},
-        {"term": "Sinh vật tiêu thụ", "definition": "Sinh vật ăn sinh vật khác để lấy năng lượng"},
-        {"term": "Sinh vật phân hủy", "definition": "Sinh vật phân hủy chất hữu cơ"}
-      ],
-      "extensions": [
-        "Nghiên cứu vai trò của vi sinh vật trong phân hủy",
-        "Tìm hiểu về chu kỳ dinh dưỡng trong hệ sinh thái"
       ]
     },
     {
