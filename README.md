@@ -298,10 +298,8 @@ Dự án được phát hành dưới [MIT License](LICENSE).
 
 ## 📞 Support
 
-- **Email**: support@edulab.vn
-- **Documentation**: [Wiki](https://github.com/yourusername/edulab/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/edulab/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/edulab/discussions)
+- **Email**: dangducduy105@gmail.com
+
 
 ---
 
