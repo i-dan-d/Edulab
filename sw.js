@@ -340,3 +340,5 @@ async function clearDynamicCache() {
 
 console.log('EduLab Service Worker loaded successfully');
 
+
+
